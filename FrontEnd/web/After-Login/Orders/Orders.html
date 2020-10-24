@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fish-Detail
+	</title>
+    <link rel="stylesheet" href="Orders.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="Fish-title">
+    </div>
+<!----
+        <div class="search">
+            <input type="text" class="search-btn" placeholder="Search...">
+            <div class="btn btn_common">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+      -->
+        <header>
+          <div class="navbar"> 
+              <nav>
+                  <ul>
+                      <li><a href="../Shopping_cart/shopping_cart.html" class="shopping-cart"><img src="../../images/shopping-cart.png"></a></li>
+                      <li><img src="../../images/account.png"><a href="#" id="Username"></a></li>
+                      <script>
+                          if (window.sessionStorage.getItem("Username")==null) {
+                              window.location.replace("../../login/login.html")
+                          }
+                          else{
+                              document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username");
+                          }
+                      </script>  
+                  </ul>
+              </nav>
+          </div>
+      </header>
+
+
+
+		<div class="register-box">
+      <a href="../Shopping-Page2/Shopping-Page2.html" class="return"><img class="back_img" src="../../images/back.png"></a>
+            <div class="contact">
+                <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
+            </div>
+			<a href="../HomePage2/HomePage2.html" class="title-box">
+                <span>Fisherman</span>
+            </a>
+		    <div class="logo">
+                <img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50">
+            </div>
+
+            <section>
+                <!--for demo wrap-->
+                <h1><strong>訂單狀態</strong></h1>
+                <div>
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" >
+                      <thead>
+                        <tr>
+                          <th>訂單編號</th>
+                          <th>商品</th>
+                          <th>收件地址</th>
+                          <th>物流狀態</th>
+                          <th>總價</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                  <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" >
+                      <tbody>
+                        <tr>
+                          <td>865tht5thgrggf</td>
+                          <td>Tuna </td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$590</td>
+                        </tr>
+                        <tr>
+                          <td>3456yuktrsdfg5</td>
+                          <td>Grouper</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$440</td>
+                        </tr>
+                        <tr>
+                          <td>567uijhgfdsdgr</td>
+                          <td>Tuna</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$4110</td>
+                        </tr>
+                        <tr>
+                          <td>9ikmjy6yhgfxrc</td>
+                          <td>Swordfish</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$560</td>
+                        </tr>
+                        <tr>
+                          <td>56ukmnbvcxcvhj</td>
+                          <td>Mahi_mahi </td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$400</td>
+                        </tr>
+                        <tr>
+                          <td>0okjhgfdew456f</td>
+                          <td>Grouper</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$5500</td>
+                        </tr>
+                        <tr>
+                          <td>567ujbvfde455w</td>
+                          <td>Mackerel</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$7335</td>
+                        </tr>
+                        <tr>
+                          <td>9876trdsertyjt</td>
+                          <td>Mahi_mahi</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$355</td>
+                        </tr>
+                        <tr>
+                          <td>4yui987ytgbvxz</td>
+                          <td>Tuna </td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$400</td>
+                        </tr>
+                        <tr>
+                          <td>e435y6ujjghrqw</td>
+                          <td>Swordfish</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$985</td>
+                        </tr>
+                        <tr>
+                          <td>0987ytfgddswer</td>
+                          <td>Mackerel</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$700</td>
+                        </tr>
+                        <tr>
+                          <td>fdsagdhfjgvasf</td>
+                          <td>Mahi_mahi</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$765</td>
+                        </tr>
+                        <tr>
+                          <td>fsvqwvjyujurrf</td>
+                          <td>Mackerel </td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$995</td>
+                        </tr>
+                        <tr>
+                          <td>4324tyyhjgerrr</td>
+                          <td>Tuna</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$11250</td>
+                        </tr>
+                        <tr>
+                          <td>er43t4y65uktew</td>
+                          <td>Mackerel</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$235</td>
+                        </tr>
+                        <tr>
+                          <td>bnmhkjtrhtergf</td>
+                          <td>Mahi_mahi</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$445</td>
+                        </tr>
+                        <tr>
+                          <td>cvxbcngmjtuyte</td>
+                          <td>Mackerel </td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$5000</td>
+                        </tr>
+                        <tr>
+                          <td>vvcbffhrttrefw</td>
+                          <td>Grouper</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$85</td>
+                        </tr>
+                        <tr>
+                          <td>ghtjykuu56ytre</td>
+                          <td>Swordfish</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>訂單處理中</td>
+                          <td>$135</td>
+                        </tr>
+                        <tr>
+                          <td>vbik876453qefg</td>
+                          <td>Tuna</td>
+                          <td>XX市XX區XX路123巷</td>
+                          <td>魚貨運送中</td>
+                          <td>$85</td>
+                        </tr>
+  
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+                <h1><strong>已完成訂單</strong></h1>
+            <div>    
+                <div class="tbl-header">
+                  <table cellpadding="0" cellspacing="0" >
+                    <thead>
+                      <tr>
+                        <th>訂單編號</th>
+                        <th>商品</th>
+                        <th>收件地址</th>
+                        <th>物流方式</th>
+                        <th>總價</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="tbl-content">
+                  <table cellpadding="0" cellspacing="0" >
+                    <tbody>
+                      <tr>
+                        <td>865tht5thgrggf</td>
+                        <td>Mahi_mahi </td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$590</td>
+                      </tr>
+                      <tr>
+                        <td>3456yuktrsdfg5</td>
+                        <td>Tuna</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$440</td>
+                      </tr>
+                      <tr>
+                        <td>567uijhgfdsdgr</td>
+                        <td>Swordfish</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$4110</td>
+                      </tr>
+                      <tr>
+                        <td>9ikmjy6yhgfxrc</td>
+                        <td>Mackerel</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$560</td>
+                      </tr>
+                      <tr>
+                        <td>56ukmnbvcxcvhj</td>
+                        <td>Tuna </td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$400</td>
+                      </tr>
+                      <tr>
+                        <td>0okjhgfdew456f</td>
+                        <td>Swordfish</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$5500</td>
+                      </tr>
+                      <tr>
+                        <td>567ujbvfde455w</td>
+                        <td>Grouper</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$7335</td>
+                      </tr>
+                      <tr>
+                        <td>9876trdsertyjt</td>
+                        <td>Tuna</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$355</td>
+                      </tr>
+                      <tr>
+                        <td>4yui987ytgbvxz</td>
+                        <td>Mahi_mahi </td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$400</td>
+                      </tr>
+                      <tr>
+                        <td>e435y6ujjghrqw</td>
+                        <td>Grouper</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$985</td>
+                      </tr>
+                      <tr>
+                        <td>0987ytfgddswer</td>
+                        <td>Swordfish</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$700</td>
+                      </tr>
+                      <tr>
+                        <td>fdsagdhfjgvasf</td>
+                        <td>Mackerel</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$765</td>
+                      </tr>
+                      <tr>
+                        <td>fsvqwvjyujurrf</td>
+                        <td>Grouper </td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$995</td>
+                      </tr>
+                      <tr>
+                        <td>4324tyyhjgerrr</td>
+                        <td>Tuna</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$11250</td>
+                      </tr>
+                      <tr>
+                        <td>er43t4y65uktew</td>
+                        <td>Mahi_mahi</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$235</td>
+                      </tr>
+                      <tr>
+                        <td>bnmhkjtrhtergf</td>
+                        <td>Tuna</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$445</td>
+                      </tr>
+                      <tr>
+                        <td>cvxbcngmjtuyte</td>
+                        <td>Mackerel </td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$5000</td>
+                      </tr>
+                      <tr>
+                        <td>vvcbffhrttrefw</td>
+                        <td>Swordfish</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$85</td>
+                      </tr>
+                      <tr>
+                        <td>ghtjykuu56ytre</td>
+                        <td>Mahi_mahi</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$135</td>
+                      </tr>
+                      <tr>
+                        <td>vbik876453qefg</td>
+                        <td>Grouper</td>
+                        <td>XX市XX區XX路123巷</td>
+                        <td>宅配到府</td>
+                        <td>$85</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+            </div>>
+                
+              </section>
+              
+              
+
+            
+        </div>
+
+	</div>
+</body>
+<script>
+	
+</script>
+</html>

@@ -1,0 +1,524 @@
+
+outer {
+    background-color: #95afba;
+    /* position: relative;   ★ */
+    height: 40px;
+    display:flex;         /* ★ */
+    align-items: center;  /* ★ */
+    min-height:0
+}
+
+.fish_info{
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    margin-left:400px;
+    font-size: 20px;
+    /*background:gray;*/
+}
+.fish_info_Value{
+    text-align:center;
+    width: 250px;
+    display: inline-block;
+     margin-left: 10px;
+    color:white;
+    font-size: 20px;
+    background-color: E0E0E0 ;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.title-box{
+    width: 300px;
+    height: 60px;
+    margin-left: 10px;
+    margin-top: -20px;
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 50px;
+}
+body {
+    font: 24px Helvetica;
+    background: #154360;
+}
+
+#main {
+    min-height: 800px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+    min-height:0;
+}
+
+report {
+    margin: 4px;
+    flex: 70%;
+    padding: 5px;
+    border: 1px solid #cccc33;
+    border-radius: 5pt;
+    background: #ffffff;
+    order: 2;
+    height: 700px;
+    font-size: 14px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    min-height:0;
+    display: none;
+    
+}
+signup {
+    margin: 4px;
+    flex: 1 2 70%;
+    padding: 5px;
+    border: 1px solid #cccc33;
+    border-radius: 5pt;
+    background: #ffffff;
+    order: 2;
+    height: 700px;
+    font-size: 14px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    min-height:0; 
+    
+}
+.item {
+
+    margin: 5px;
+    width: 112px;
+    height: 10%;
+    }
+
+.item1 {
+    border: 2px solid #3C3C3C;
+    
+}
+
+select_bar {
+    
+    line-height:2;
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 5pt;
+    overflow: auto;
+    height: 700px;
+    background: #FFFFFF;
+    flex: 20%;
+    order: 1;
+    font-size: 18px;
+    flex-wrap: nowrap
+    
+}
+.aside {
+    /* margin: 4px; */
+    display: flex;
+    padding: 5px;
+    border: 1px solid #3C3C3C;
+    border-radius: 7pt;
+    background: #E0E0E0;
+    /* flex: 1 6 10%; */
+    order: 3;
+    font-size: 12px;
+    height: 140px;
+    display: inline-block;
+    min-height:0;
+}
+
+.image-container{
+  max-width: 60%;
+  margin: 0 0%;
+}
+
+#TopImg{
+    vertical-align:text-top;
+}
+
+.hide{
+      display: none ;
+}
+
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+    #main, #page {
+        flex-direction: column;
+    }
+
+    #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+        order: 0;
+    }
+
+    #main > nav, #main > aside, header, footer {
+        min-height: 50px;
+        max-height: 50px;
+    }
+}
+/*------Sign up css -------*/
+  .S_Fishman_Account-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:75px;
+		margin-left:30px;
+    font-weight: 700;
+    color: #000000;
+    /*background:gray;*/
+	}
+	.S_Fishman_Account-input{
+		display: inline-block;
+     margin-left:50px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Account{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Password-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:30px;
+		margin-left:30px;
+    font-weight: 700;
+    color: #000000;
+    /*background:gray;*/
+	}
+	.S_Fishman_Password-input{
+		display: inline-block;
+        margin-left:50px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Password{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Username-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:30px;
+		margin-left:30px;
+    font-weight: 700;
+    color: #000000;
+    /*background:gray;*/
+	}
+	.S_Fishman_Username-input{
+		display: inline-block;
+     margin-left: 10px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Username{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_FishMan_Owner-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:30px;
+		margin-left:30px;
+    font-weight: 700;
+    color: #000000;
+    /*background:gray;*/
+	}
+	.S_FishMan_Owner-input{
+    display: inline-block;
+    margin-left:40px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_FishMan_Owner{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Company-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:30px;
+		margin-left:30px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Company-input{
+		display: inline-block;
+     margin-left: 10px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Company{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Company_Serial-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:30px;
+		margin-left:30px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Company_Serial-input{
+    display: inline-block;
+    margin-left: 8px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Company_Serial{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Serial-box{
+		position: absolute;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top: -390px;
+		margin-left:380px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Serial-input{
+    display: inline-block;
+     margin-left: 10px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  }
+  #S_Fishman_Serial{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Phone-box{
+		position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top:-320px;
+		margin-left:380px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Phone-input{
+    display: inline-block;
+    margin-left: 8px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Phone{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Tele-box{
+    position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top: 30px;
+		margin-left: 380px;
+    font-weight: 700;	
+    color: #000000;
+	}
+	.S_Fishman_Tele-input{
+		display: inline-block;
+    margin-left: 8px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Tele{
+    height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Blkchain_passwd-box{
+    position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top: 30px;
+		margin-left: 380px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Blkchain_passwd-input{
+		display: inline-block;
+     margin-left: 0px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  }
+  #S_Fishman_Blkchain_passwd{
+    height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Company_Address-box{
+    position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top: 30px;
+		margin-left: 380px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Company_Address-input{
+		display: inline-block;
+    margin-left: 10px;
+    width: 200px;
+    height: 35px;
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Company_Address{
+    height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.S_Fishman_Port-box{
+    position: relative;
+		width: 290px;
+		height: 40px;
+		line-height: 20px;
+		margin-top: 30px;
+		margin-left: 380px;
+    font-weight: 700;
+    color: #000000;
+	}
+	.S_Fishman_Port-input{
+		display: inline-block;
+        margin-left:40px;
+        width: 200px;
+        height: 35px;
+        box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+	}
+	#S_Fishman_Port{
+		height: 35px;
+		width: 200px;
+    border: 0px solid;
+	}
+	.submit-box1{
+		position: relative;
+		width: 10px;
+		height: 20px;
+		margin-top: 20px;
+		margin-left: 250px;
+    border-radius: 5px;
+    
+	}
+	#submit-button1{
+    display: inline-block;
+		width: 80px;
+    height: 30px;
+    line-height: -40px;
+		border-radius: 5px;
+		background: #154360;
+    color: #ffffff;
+    border: #2c2c2c;
+    text-align: center;
+	}
+	#submit-button1:hover{
+		background: #31b0d6;
+	}
+	.goLogin-box{
+		position: relative;
+    width: 200px;
+    margin-top: -15px;
+		height: 20px;
+    margin-left: 350px;
+    color: #000000;
+  }
+  
+/*----Verify-----*/
+.S_Customer_Verify_Code-box{
+  position: re;
+  width: 290px;
+  height: 40px;
+  line-height: 20px;
+  color: #000000;
+  margin-left: 240px;
+  font-weight: 700;
+}
+#S_Customer_Verify_Code{
+  height: 35px;
+  width: 200px;
+  margin-left: 10px;
+  border: 0px solid;
+  box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+.submit-box2{
+  position: relative;
+  width: 10px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 290px;
+  border-radius: 5px;
+}
+#submit-button2{
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  line-height: -40px;
+  border-radius: 5px;
+  background: #154360;
+  color: #ffffff;
+  border: #2c2c2c;
+  text-align: center;
+}
+#submit-button2:hover{
+  background: #31b0d6;
+}
+h2 {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  table caption {
+      padding: .5em 0;
+  }
+  
+  table.dataTable th,
+  table.dataTable td {
+    white-space: nowrap;
+  }
+  
+  .p {
+    text-align: center;
+    padding-top: 140px;
+    font-size: 14px;
+  }

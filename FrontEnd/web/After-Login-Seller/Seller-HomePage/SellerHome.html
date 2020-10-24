@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Seller Home</title>
+        <link rel="stylesheet" href="SellerHome.css">
+    </head>
+    
+<body>
+    <div class="hero">
+        <a href="SellerHome.html" class="title-box">
+            <span>Fisherman</span>
+        </a>
+        <a href="../Shelves/Shelves.html" class="Shopping">See Your Fish</a>
+        <div class="navbar"> 
+            <nav>
+                <ul>
+                    <li><a href="../../Login-Seller/Login-Seller.html">Logout</a></li>
+                    <li><a href="#" id="Fisherman" ></a></li>
+                    <script>
+                        if (window.sessionStorage.getItem("Fisherman")==null) {
+                            window.location.replace("../../Login-Seller/Login-Seller.html")
+                        }
+                        else{
+                            document.getElementById("Fisherman").innerHTML= window.sessionStorage.getItem("Fisherman");
+                        }
+                    </script>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <small>Welcome to our wedsite</small>
+            <h1>World's Biggest Fish</h1>
+        </div>
+        <div class="bubbles">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png"> 
+        </div>
+
+    </div>
+</body>
+
+</html>
+

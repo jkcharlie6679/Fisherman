@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="Login-Seller.css">
+</head>
+<body>
+
+
+<!--Background-->
+<div class="hero">
+    <a href="../HomePage/index.html" class="title-box">
+        <span>Fisherman</span>
+    </a>
+    <div class="navbar"> 
+      <nav>
+          <ul>
+              <li><a href="../login/login.html">Customer</a></li>
+          </ul>
+      </nav>
+  </div>
+        <!--PEN HEADER-->
+    <div class="bubbles">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png"> 
+    </div>
+    <!--PEN CONTENT-->
+    <section class="login-container">
+      <div class="login-inputs">
+      <h1>Seller Login</h1>
+      <!--input 名稱需要改成seller的-->
+      <form class="form" id="myForm" action="login.html" method="POST">
+      <input id="S_Seller_Account" name="S_Customer_Account" placeholder="Example@gmail.com" type="email" required />
+      <input id="S_Seller_Password" name="S_Customer_Password" placeholder="Password" type="password" required/>
+      <button>Log in</button>
+      </form>
+      </div>
+    </section>
+</div>
+<!-- partial -->
+  <script src="Login-Seller.js"></script>
+  <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,108 @@
+outer {
+    border-radius: 5pt;
+    background-color: #95afba;
+    /* position: relative;   ★ */
+    height: 25px;
+    display:flex;         /* ★ */
+    font-size: 20px;
+    /* align-items: center;   */
+    
+}
+report {
+    border-radius: 5pt;
+    background-color: gainsboro;
+    /* position: relative;   ★ */
+    height: 100%;
+    display:flex;         /* ★ */
+    /* align-items: center;   */
+    justify-content: center;
+    
+}
+.submit-box{
+    position:absolute;
+    width: 80px;
+    height: 30px;
+    line-height: 40px;
+    margin-top: -30px;
+    margin-left:600px;
+    border-radius: 5px;
+    background: #ffffff;
+}
+#submit-button{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    background: #ffffff;
+    color: black
+}
+.title-box{
+    width: 300px;
+    height: 60px;
+    margin-left: 30px;
+    margin-top: -20px;
+    /* text-align: center; */
+    font-size: 34px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 50px;
+}
+body {
+    font: 24px Helvetica;
+    background: #154360;
+}
+.fish_info_Value{
+    /* text-align:center; */
+    width: 250px;
+    display: inline-block;
+    margin-left: 40px;
+    color:white;
+    font-size: 20px;
+    background-color: E0E0E0 ;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+#main {
+
+min-height: 800px;
+margin: 0;
+padding: 0;
+display: flex;
+flex-flow: row;
+justify-content: center;
+}
+.container {
+margin-top: 20px;
+}
+.article {
+margin: 4px;
+padding: 5px;
+border: 1px solid #cccc33;
+border-radius: 5pt;
+background: #ffffff;
+flex: 1 2 50%;
+order: 2;
+height: 5%;
+width: 100%;
+font-size: 14px;
+display: flex;
+/* flex-direction: row-reverse; */
+flex-wrap: wrap;
+
+
+
+}
+
+#main > nav {
+
+margin: 4px;
+/* padding: 5px; */
+/* border: 1px solid #8888bb; */
+border-radius: 5pt;
+overflow: auto;
+height: 90%;
+background: #FFFFFF;
+flex: 1 6 40%;
+order: 2;
+font-size: 18px;
+}

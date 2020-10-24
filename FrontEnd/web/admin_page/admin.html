@@ -1,0 +1,181 @@
+​<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset=utf8 /> 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+	crossorigin=""/>
+	 <!-- Make sure you put this AFTER Leaflet's CSS -->
+	 <script  src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+	 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+	 crossorigin=""></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+	<link rel="stylesheet" href="admin.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+	<script type="text/javascript" src="./admin.js" defer></script>
+	<script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script>	
+		
+	</script>
+  </head>
+  <body> 
+	  <div id="output"></div>
+    <header>
+		<div class="title-box">
+			<a href="../admin_page/admin.html" style="color:white; text-decoration:none;">
+				<img src="../img/fish_logo.png" style=" float: left;" width="50" height="50">Fisherman</a>
+			</a>	
+		</div>
+		<div id = account style="color: white; font-size: 12px;" >
+			<p style="float: right; margin-top: -55px;" >b10702124@gapps.ntust.edu.tw</p>
+		</div>
+	</header>
+    <div id='main'>
+		<signup>
+				<form class="form" id="myForm" action="admin.html" method="POST">
+				  <div class="S_Fishman_Account-box">
+					<label for="S_Fishman_Account">帳號: </label>
+					<div class="S_Fishman_Account-input">
+					  <input type="text" id="S_Fishman_Account" name="S_Fishman_Account" placeholder="請輸入帳號" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Password-box">
+					<label for="S_Fishman_Password">密碼: </label>
+					<div class="S_Fishman_Password-input">
+					  <input type="password" id="S_Fishman_Password" name="S_Fishman_Password" placeholder="請輸入密碼8-20個字符" required/>
+					</div>
+				  </div>
+
+				  <div class="S_Fishman_Username-box">
+					<label for="S_Fishman_Username">使用者名稱:</label>
+					<div class="S_Fishman_Username-input">
+					  <input type="text" id="S_Fishman_Username" name="S_Fishman_Username" placeholder="請輸入使用者名稱" required />
+					</div>
+				  </div>
+
+				  <div class="S_FishMan_Owner-box">
+					  <label for="S_FishMan_Owner">船夫：</label>
+					<div class="S_FishMan_Owner-input">
+					  <input type="text" id="S_FishMan_Owner" name="S_FishMan_Owner" placeholder="請輸入船夫" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Company-box">
+					<label for="S_Fishman_Company">公司名稱：</label>
+					<div class="S_Fishman_Company-input">
+					  <input type="text" id="S_Fishman_Company" name="S_Fishman_Company" placeholder="請輸入公司名稱" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Company_Serial-box">
+					<label for="S_Fishman_Company_Serial">公司行號：</label>
+					<div class="S_Fishman_Company_Serial-input">
+					  <input type="text" id="S_Fishman_Company_Serial" name="S_Fishman_Company_Serial" placeholder="請再次輸入密碼" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Serial-box">
+					<label for="S_Fishman_Serial">漁船序號：</label>
+					<div class="S_Fishman_Serial-input">
+					  <input type="text" id="S_Fishman_Serial" name="S_Fishman_Serial" placeholder="請輸入漁船序號" required>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Phone-box">
+					<label for="S_Fishman_Phone">手機號碼：</label>
+					<div class="S_Fishman_Phone-input">
+					  <input type="text" id="S_Fishman_Phone" name="S_Fishman_Phone" placeholder="請輸入手機號碼" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Tele-box">
+					<label for="S_Fishman_Tele">電話號碼：</label>
+					<div class="S_Fishman_Tele-input">
+					  <input type="text" id="S_Fishman_Tele" name="S_Fishman_Tele" placeholder="請輸入電話號碼" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Blkchain_passwd-box">
+					<label for="S_Fishman_Blkchain_passwd">區塊鏈密碼：</label>
+					<div class="S_Fishman_Blkchain_passwd-input">
+						<input type="text" id="S_Fishman_Blkchain_passwd" name="S_Fishman_Blkchain_passwd" placeholder="請輸入區塊鏈密碼" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Company_Address-box">
+					<label for="S_Fishman_Company_Address">公司住址：</label>
+					<div class="S_Fishman_Company_Address-input">
+					  	<input type="text" id="S_Fishman_Company_Address" name="S_Fishman_Company_Address" placeholder="請輸入公司住址" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Port-box">
+					<label for="S_Fishman_Port">港口：</label>
+					<div class="S_Fishman_Port-input">
+					  <input type="text" id="S_Fishman_Port" name="S_Fishman_Port" placeholder="請輸入港口位置" required/>
+					</div>
+				  </div>
+				  <div class="S_Fishman_Company_Serial-box">
+					<label for="S_Fishman_Company_Serial">權限：</label>
+					<select name="I_Fishman_Role" id="I_Fishman_Role">
+						<option value="0" selected>root</option>
+						<option value="1">ship</option>
+						<option value="2">sale platform</option>
+					</select>
+				  </div>
+				  	
+				  <div class="submit-box1">
+					<button id = "submit-button1" type="submit" value="送出">註冊</button>
+				  </div>
+				  	
+				  
+				</form>
+		</signup>
+
+      	<report>
+			  <h3>報修列表</h3>
+			<table summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
+				
+			</table>
+		</report>
+		<Fishman_list>
+			<table class="fishman" id="fish"></table>
+		</Fishman_list>
+		<Customer_list>
+			<table class="Customer" id="fish"></table>
+		</Customer_list>
+		<locate>
+			<div class="two" id="mapid"></div>
+		</locate>
+		<select_bar>  
+		<ul>
+			<li>
+				<a href="#" onclick="signup(); return false;">船家註冊</a>
+			</li>
+			<li>
+				<a href="#" onclick="report(); return false;">Sensor 報修</a>
+			</li>
+			<li>
+				<a href="#" onclick="locate(); return false;">所有船隻位置</a>
+			</li>
+			<li>
+				<a href="#" onclick="Fishman_list(); return false;">船夫資訊</a>
+			</li>
+			<li>
+				<a href="#" onclick="Customer_list(); return false;">客戶資訊</a>
+			</li>
+			<li>
+				<a href="#" onclick="order(); return false;">訂單資訊</a>
+			</li>
+			<li>
+				<a href="#" onclick="kind(); return false;">新增魚種</a>
+			</li>
+		</ul>
+	</select_bar>
+    </div>
+    <footer></footer>
+  </body>
+</html>

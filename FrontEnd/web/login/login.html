@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+
+<!--Background-->
+<div class="hero">
+    <a href="../HomePage/index.html" class="title-box">
+        <span>Fisherman</span>
+    </a>
+    <div class="navbar"> 
+      <nav>
+          <ul>
+              <li><a href="../Login-Seller/Login-Seller.html">Seller</a></li>
+          </ul>
+      </nav>
+  </div>
+        <!--PEN HEADER-->
+    <div class="bubbles">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png"> 
+    </div>
+    <!--PEN CONTENT-->
+    <section class="login-container">
+      <div class="login-inputs">
+      <h1>Customer Login</h1>
+      <form class="form" id="myForm" action="login.html" method="POST">
+      <input id="S_Customer_Account" name="S_Customer_Account" placeholder="Example@gmail.com" type="email" required />
+      <input id="S_Customer_Password" name="S_Customer_Password" placeholder="Password" type="password" required/>
+      <button>Log in</button>
+      </form>
+      <a class="forget" href="../Signup2/Signup2.html">Don't you have account？ Click here to sign up！</a>
+      </div>
+    </section>
+</div>
+<!-- partial -->
+  <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
+
+

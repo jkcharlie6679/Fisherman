@@ -1,0 +1,49 @@
+​<!DOCTYPE html>
+<html lang="en">
+  	<head>
+		<meta charset=utf8 />
+		<link rel="stylesheet" href="fishman.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript" src="./fisherman.js" defer></script>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin=""/>
+		 <!-- Make sure you put this AFTER Leaflet's CSS -->
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+		<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+	</head>
+  <body>
+    <header>
+		<div class="title-box">
+			<a href="home.html" style="color:white; text-decoration:none;">
+				<img src="../img/fish_logo.png" style=" float: left;" width="50" height="50">Fisherman</a>
+			</a>	
+		</div>
+		<a href="../Fishermen_report/report.html" style="color:white; text-decoration:none;">
+			<img src="../img/setting.png" style="float: right; margin-top: -55px;" width="40" height="40"></a>
+		</a>
+	</header>
+    <div id='main'>
+      	<sensor>
+			<div class="item item1" id = sensor_0></div>
+			<div class="item item1" id = sensor_1></div>
+			<div class="item item1" id = sensor_2></div>
+			<div class="item item1" id = sensor_3></div>
+			<div class="item item1" id = sensor_4></div>
+			<div class="item item1" id = sensor_5></div>
+			<div class="item item1" id = sensor_6></div>		
+		  </sensor>
+		<map_fishinfo><div class="map" id="mapid"></div></map_fishinfo>
+      	<select_bar>
+			<table id="fish">
+				<!-- here goes our data! -->
+			</table>
+		</select_bar>	
+    </div>
+    <footer style="font-size: 16px; color: white; float:right; margin-top: -50px;">Contact us<br>Tel：02-2255-0123  Fax：05-1234-1234</footer>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+    </style>
+    <script>
+        var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 25.0335398, lng: 121.5620666 },
+        zoom: 10
+      });
+    var marker = new google.maps.Marker({
+      position : { lat: 25.033977, lng: 121.563998 },
+      map:map,
+      title:'小明的位置'
+    })
+    var marker = new google.maps.Marker({
+      position : { lat: 25.133977, lng: 121.563998 },
+      map:map,
+      title:'小明的位置'
+    })
+    var marker = new google.maps.Marker({
+      position : { lat: 25.233977, lng: 121.563998 },
+      map:map,
+      title:'小明的位置'
+    })
+    }
+    </script>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaB78rgJ9s6v5fF97tifOdISg5fhW7IgY&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <!-- <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script> -->
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>

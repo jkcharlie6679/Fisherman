@@ -1,0 +1,203 @@
+body,input{
+    margin: 0;
+    padding: 0;
+    background: #154360;
+}
+input{
+    display: inline-block;
+    background: #fff;
+}
+.Fish-title{
+    width: 100%;
+}
+*{
+    font-family: Century Gothic;
+}
+.shopping-cart{
+
+    width: 4%;
+    height: 6%;
+}
+header{
+    position: relative;
+    margin-top: 100px;
+    width: auto;
+    height: 50px;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    /*padding: 20px;*/
+}
+nav{
+    flex: 1;
+    text-align: center;
+}
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+    color: #fff;
+}
+nav ul li{
+    display: inline-block;
+    width: 240px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 2px solid #154360;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+nav ul li:nth-child(5)
+{
+    background: #a4cee9;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #154360;
+    transition: 0.6s ease;
+}
+nav ul li:hover{
+    background: rgb(15, 214, 188);
+    color: black;
+    border-radius: 50px;
+    -webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
+}
+nav ul li a:hover{
+    color: black;
+}
+.register-box{
+    position: relative;
+    height: auto;
+    width: auto;
+    min-height: 1200px;
+    top: 50px;
+    margin-top: 10px;
+    z-index: 99999;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    text-align: center;
+
+}
+.fliter-title{
+    position: absolute;
+    margin-left: 8%;
+    font-size: 28px;
+}
+.fliter-section{
+    position: absolute;
+    margin-top: 6%;
+    margin-left: 2%;
+    font-size: 24px;
+}
+
+.contact{
+    position: absolute;
+    color: #fff;
+    top: -1%;
+    left: 40px;
+    font-size: 20px;
+}
+
+.title-box{
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: -15px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 50px;
+    text-decoration: none;
+}
+.logo{
+    position: absolute;
+    width: 25px;
+    display: flex;
+    margin-left: 30px;
+    margin-top: -15px;
+}
+
+.FisherName{
+	position: absolute;
+	display: inline-block;
+    border-radius: 50px ;
+    top: 10px;
+    right: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.FisherName a{
+    color: #fff;
+    text-decoration: none;
+}
+.FisherName a:hover{
+    color: #000000;
+    text-decoration: none;
+}
+.FisherName:hover{
+	background: #fff;
+	color: black;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+   -webkit-transform: scale(1.06);
+   -ms-transform: scale(1.06);
+   -o-transform: scale(1.06);
+   transform: scale(1.06);
+}
+.FisherName img{
+	width: 60px;
+    height: 50px;
+    text-align: center;
+}
+.Logout{
+    position: absolute;
+      display: inline-block;
+    border-radius: 50px ;
+    top: 90px;
+    right: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    color: rgba(255, 255, 255, 0.158);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.158);
+    border-radius: 50px;
+  }
+  .Logout:hover{
+    background: #fff;
+      color: black;
+      -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+     -webkit-transform: scale(1.06);
+     -ms-transform: scale(1.06);
+     -o-transform: scale(1.06);
+     transform: scale(1.06);
+  }
+
+

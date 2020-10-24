@@ -1,0 +1,211 @@
+​<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset=utf8 />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css"/> -->
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css"/> -->
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+	<link rel="stylesheet" href="admin.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./admin.js" defer></script>
+	<script>	
+		function signup() {
+			$("signup").show();
+			$("report").hide();
+  			return false;
+		}
+		function report() {
+			$("report").show();
+			$("signup").hide();
+  			return false;
+		}
+		$('table').DataTable();
+
+	</script>
+  </head>
+  <body> 
+    <header>
+		<div class="title-box">
+			<a href="../admin_page/admin.html" style="color:white; text-decoration:none;">
+				<img src="../img/fish_logo.png" style=" float: left;" width="50" height="50">Fisherman</a>
+			</a>	
+		</div>
+		<a href="../Fishermen_report/report.html" style="color:white; text-decoration:none;">
+			<img src="../img/setting.png" style="float: right; margin-top: -55px;" width="40" height="40"></a>
+		</a>
+	</header>
+    <div id='main'>
+		<signup>
+				<form class="form" id="myForm" action="admin.html" method="POST">
+				  <div class="S_Fishman_Account-box">
+					<label for="S_Fishman_Account">帳號: </label>
+					<div class="S_Fishman_Account-input">
+					  <input type="text" id="S_Fishman_Account" name="S_Fishman_Account" placeholder="請輸入帳號" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Password-box">
+					<label for="S_Fishman_Password">密碼: </label>
+					<div class="S_Fishman_Password-input">
+					  <input type="password" id="S_Fishman_Password" name="S_Fishman_Password" placeholder="請輸入密碼8-20個字符" required/>
+					</div>
+				  </div>
+
+				  <div class="S_Fishman_Username-box">
+					<label for="S_Fishman_Username">使用者名稱:</label>
+					<div class="S_Fishman_Username-input">
+					  <input type="text" id="S_Fishman_Username" name="S_Fishman_Username" placeholder="請輸入使用者名稱" required />
+					</div>
+				  </div>
+
+				  <div class="S_FishMan_Owner-box">
+					  <label for="S_FishMan_Owner">船夫：</label>
+					<div class="S_FishMan_Owner-input">
+					  <input type="text" id="S_FishMan_Owner" name="S_FishMan_Owner" placeholder="請輸入船夫" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Company-box">
+					<label for="S_Fishman_Company">公司名稱：</label>
+					<div class="S_Fishman_Company-input">
+					  <input type="text" id="S_Fishman_Company" name="S_Fishman_Company" placeholder="請輸入公司名稱" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Company_Serial-box">
+					<label for="S_Fishman_Company_Serial">公司行號：</label>
+					<div class="S_Fishman_Company_Serial-input">
+					  <input type="text" id="S_Fishman_Company_Serial" name="S_Fishman_Company_Serial" placeholder="請再次輸入密碼" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Serial-box">
+					<label for="S_Fishman_Serial">漁船序號：</label>
+					<div class="S_Fishman_Serial-input">
+					  <input type="text" id="S_Fishman_Serial" name="S_Fishman_Serial" placeholder="請輸入漁船序號" required>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Phone-box">
+					<label for="S_Fishman_Phone">手機號碼：</label>
+					<div class="S_Fishman_Phone-input">
+					  <input type="text" id="S_Fishman_Phone" name="S_Fishman_Phone" placeholder="請輸入手機號碼" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Tele-box">
+					<label for="S_Fishman_Tele">電話號碼：</label>
+					<div class="S_Fishman_Tele-input">
+					  <input type="text" id="S_Fishman_Tele" name="S_Fishman_Tele" placeholder="請輸入電話號碼" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Blkchain_passwd-box">
+					<label for="S_Fishman_Blkchain_passwd">區塊鏈密碼：</label>
+					<div class="S_Fishman_Blkchain_passwd-input">
+						<input type="text" id="S_Fishman_Blkchain_passwd" name="S_Fishman_Blkchain_passwd" placeholder="請輸入區塊鏈密碼" required/>
+					</div>
+				  </div>
+		  
+				  <div class="S_Fishman_Company_Address-box">
+					<label for="S_Fishman_Company_Address">公司住址：</label>
+					<div class="S_Fishman_Company_Address-input">
+					  	<input type="text" id="S_Fishman_Company_Address" name="S_Fishman_Company_Address" placeholder="請輸入公司住址" required/>
+					</div>
+				  </div>
+				  
+				  <div class="S_Fishman_Port-box">
+					<label for="S_Fishman_Port">港口：</label>
+					<div class="S_Fishman_Port-input">
+					  <input type="text" id="S_Fishman_Port" name="S_Fishman_Port" placeholder="請輸入港口位置" required/>
+					</div>
+				  </div>
+				  
+				  <div class="submit-box1">
+					<button id = "submit-button1" type="submit" value="送出">註冊</button>
+				  </div>
+				  	
+				  
+				</form>
+		</signup>
+
+      	<report>
+			<h2>Sensor Report</h2>
+
+			<div class="container">
+  				<div class="row">
+				
+					<table summary="This table shows how to create responsive tables using Datatables' extended functionality" class="table table-bordered table-hover dt-responsive">
+					<thead>
+					<tr>
+						<th>漁船帳戶</th>
+						<th>項目</th>
+						<th>時間</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Argentina</td>
+						<td>冰庫溫度異常</td>
+						<td>2020-10-10T10:10:10.64Z</td>
+					</tr>
+					<tr>
+						<td>Australia</td>
+						<td>引擎溫度異常</td>
+						<td>2020-09-12T09:04:32Z</td>
+					</tr>
+					<tr>
+						<td>Greece</td>
+						<td>有宏腦袋有問題</td>
+						<td>2020-09-12T09:04:32Z</td>
+					</tr>
+					<tr>
+						<td>Luxembourg</td>
+						<td>有宏自以為很帥</td>
+						<td>2020-09-12T09:04:32Z</td>
+					</tr>
+					<tr>
+						<td>Russia</td>
+						<td>引擎熄火</td>
+						<td>2020-09-12T09:04:32Z</td>
+					</tr>
+
+					</tbody>
+					<tfoot>
+					</tfoot>
+				</table>
+		
+			</div>
+			</div>
+
+		<p class="p">there have 6 items.</p>
+	  	</report>
+		
+		<select_bar>  
+		<ul>
+			<li>
+				<a href="#" onclick="signup(); return false;">船家註冊</a>
+			</li>
+			<li>
+				<a href="#" onclick="report(); return false;">Sensor 報修</a>
+			</li>
+			<li>
+				<a href="#" onclick="locate(); return false;">所有船隻位置</a>
+			</li>
+			<li>
+				<a href="#" onclick="customer_info(); return false;">客戶資訊</a>
+			</li>
+			<li>
+				<a href="#" onclick="order(); return false;">訂單資訊</a>
+			</li>
+			<li>
+				<a href="#" onclick="kind(); return false;">新增魚種</a>
+			</li>
+		</ul>
+	</select_bar>
+    </div>
+    <footer></footer>
+  </body>
+</html>

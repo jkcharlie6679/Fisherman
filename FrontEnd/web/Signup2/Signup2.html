@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="Signup2.css">
+</head>
+<body>
+
+
+<!--Background-->
+<div class="hero">
+    <a href="../HomePage/index.html" class="title-box">
+        <span>Fisherman</span>
+    </a>
+
+        <!--PEN HEADER-->
+        <div class="header">
+            <h1 class="header__title1">Sign</h1>
+            <h1 class="header__title2">Up</h1>
+        </div>
+    <div class="bubbles">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+        <img src="../images/bubble.png">
+		<img src="../images/bubble.png"> 
+		
+		
+    </div>
+    <!--PEN CONTENT-->
+	<div class="tabbed">
+		<input type="radio" name="tabs" id="tab-nav-1" checked>
+		<label for="tab-nav-1"><strong>Sign Up</strong></label>
+		<input type="radio" name="tabs" id="tab-nav-2">
+		<label for="tab-nav-2"><strong>Verify</strong></label>
+		<div class="tabs">
+		  <div>
+			<form class="form" id="myForm" action="login.html" method="POST">
+				<div class="S_Customer_First_Name-box">
+				  <label for="S_Customer_First_Name">First Name</label>
+				  <div class="S_Customer_First_Name-input">
+					<input type="text" id="S_Customer_First_Name" name="S_Customer_First_Name" placeholder="名字" required/>
+				  </div>
+				</div>
+		
+				<div class="S_Customer_Last_Name-box">
+				  <label for="S_Customer_Last_Name">Last Name</label>
+				  <div class="S_Customer_Last_Name-input">
+					<input type="text" id="S_Customer_Last_Name" name="S_Customer_Last_Name" placeholder="姓氏" required/>
+				  </div>
+				</div>
+		 
+				<div class="S_Customer_Account-box">
+				  <label for="S_Customer_Account">Email</label>
+				  <div class="S_Customer_Account-input">
+					<input type="text" id="S_Customer_Account" name="S_Customer_Account" placeholder="Example@gmail.com" required />
+				  </div>
+				</div>
+		 
+				<div class="S_Customer_Username-box">
+					<label for="S_Customer_Username">Username</label>
+				  <div class="S_Customer_Username-input">
+					<input type="text" id="S_Customer_Username" name="S_Customer_Username" placeholder="暱稱" required/>
+				  </div>
+				</div>
+		 
+				<div class="S_Customer_Password-box">
+				  <label for="S_Customer_Password">password</label>
+				  <div class="S_Customer_Password-input">
+					<input type="password" id="S_Customer_Password" name="S_Customer_Password" placeholder="密碼" required/>
+				  </div>
+				</div>
+				
+				<div class="S_Customer_RePassword-box">
+				  <label for="S_Customer_RePassword">repassword</label>
+				  <div class="S_Customer_RePassword-input">
+					<input type="password" id="S_Customer_RePassword" name="S_Customer_RePassword" placeholder="密碼確認" required/>
+				  </div>
+				</div>
+				
+				<div class="D_Customer_Birthday-box">
+				  <label for="D_Customer_Birthday">Birthday</label>
+				  <div class="D_Customer_Birthday-input">
+					<input type="date" id="D_Customer_Birthday" required>
+				  </div>
+				</div>
+		
+				<div class="S_Customer_Phone-box">
+				  <label for="S_Customer_Phone">cellphone</label>
+				  <div class="S_Customer_Phone-input">
+					<input type="text" id="S_Customer_Phone" name="S_Customer_Phone" placeholder="手機號碼" required/>
+				  </div>
+				</div>
+		
+				<div class="S_Customer_Post_Number-box">
+				  <label for="S_Customer_Post_Number">Postal code</label>
+				  <div class="S_Customer_Post_Number-input">
+					<input type="text" id="S_Customer_Post_Number" name="S_Customer_Post_Number" placeholder="郵遞區號" required/>
+				  </div>
+				</div>
+		
+				<div class="S_Customer_City-box">
+				  <label for="S_Customer_City">City</label>
+				  <div class="S_Customer_City-input">
+					<select id="S_Customer_City" name="S_Customer_City" class="form-control" required>
+					  <option value="縣市">縣市</option>
+					  <option value="台北市">台北市</option>
+					  <option value="新北市">新北市</option>
+					  <option value="桃園市">桃園市</option>
+					  <option value="基隆市">基隆市</option>
+					  <option value="新竹市">新竹市</option>
+					  <option value="新竹縣">新竹縣</option>
+					  <option value="苗栗縣">苗栗縣</option>
+					  <option value="台中市">台中市</option>
+					  <option value="彰化縣">彰化縣</option>
+					  <option value="南投縣">南投縣</option>
+					  <option value="雲林縣">雲林縣</option>
+					  <option value="嘉義市">嘉義市</option>
+					  <option value="嘉義縣">嘉義縣</option>
+					  <option value="台南市">台南市</option>
+					  <option value="高雄市">高雄市</option>
+					  <option value="屏東縣">屏東縣</option>
+					  <option value="宜蘭縣">宜蘭縣</option>
+					  <option value="花蓮縣">花蓮縣</option>
+					  <option value="台東縣">台東縣</option>
+					  <option value="澎湖縣">澎湖縣</option>
+					  <option value="金門縣">金門縣</option>
+					  <option value="連江縣">連江縣</option>
+					</select>
+				  </div>
+				</div>
+		
+				<div class="S_Customer_Town-box">
+				  <label for="S_Customer_Town">Town</label>
+				  <div class="S_Customer_Town-input">
+					<input type="text" id="S_Customer_Town" name="S_Customer_Town" placeholder="鄉鎮" required/>
+				  </div>
+				</div>
+				
+				<div class="S_Customer_Other-box">
+				  <label for="S_Customer_Other">address</label>
+				  <div class="S_Customer_Other-input">
+					<input type="text" id="S_Customer_Other" name="S_Customer_Other" placeholder="地址" required/>
+				  </div>
+				</div>
+				
+				
+				  <button id = "submit-button1" type="submit" value="送出">sign up</button>
+				
+				
+				<div class="goLogin-box">
+					<a class="forget" href="../login/login.html">Already have a account？ Click here to login！</a>
+				</div>	
+				
+			  </form>
+			</div>
+		  <div>
+			<form class="form" id="myVerify">
+				<div class="Verify_Code-box">
+				  <label for="Verify_Code">verify</label>
+					<input type="text" id="Verify_Code" name="Verify_Code" placeholder="認證碼" required/>
+				</div>
+	
+
+				  <input id = "submit-button2" type="submit" value="Verify">
+ 
+		
+			  </form>
+			</div>
+		</div>
+	  </div>
+ 
+<script src="Signup2.js"></script>
+
+</body>
+</html>

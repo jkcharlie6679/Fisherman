@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shopping
+	</title>
+    <link rel="stylesheet" href="Shopping-Page2.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="Fish-title">
+    </div>
+        <div class="search">
+            <input type="text" class="search-btn" placeholder="Search...">
+            <div class="btn btn_common" type="submit">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+<header>
+        <div class="navbar"> 
+            <nav>
+                <ul>
+                    <li><a href="../Shopping_cart/shopping_cart.html" class="shopping-cart"><img src="../../images/shopping-cart.png"></a></li>
+                    <li><a href="../Orders/Orders.html"><img src="../../images/order.png"></a></li>
+                    <li><img src="../../images/account.png"><a href="#" id="Username"></a></li>
+            <script>
+                        if (window.sessionStorage.getItem("Username")==null) {
+                            window.location.replace("../../login/login.html")
+                        }
+                        else{
+                            document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username");
+                        }
+                    </script>  
+                </ul>
+            </nav>
+        </div>
+</header>
+
+		<div class="register-box">
+            <div class="contact">
+                <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
+            </div>
+
+			<a href="../Shopping-Page2/Shopping-Page2.html" class="title-box">
+                <span>Fisherman</span>
+            </a>
+
+		    <div class="logo">
+                <img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50">
+            </div>
+            
+            <div>
+                <strong><p class="fliter-title">篩選條件</p></strong>
+                <div class="line0"></div>
+
+                <strong><p class="fliter-section">魚種</p></strong>
+<!----             <div>
+                    <strong><p class="fliter-section-north">北部地區</p></strong>
+                    <strong><p class="fliter-section-west">西部地區</p></strong>
+                    <strong><p class="fliter-section-south">南部地區</p></strong>
+                    <strong><p class="fliter-section-east">東部地區</p></strong>
+                </div> -->
+                <!-- <div class="line1"></div> -->
+
+                <!--<div>
+                    <strong><p class="fliter-weight">重量</p></strong>
+
+                    <div class="min1">
+                        <input type="text" id="min1" name="min" placeholder="最小值">
+                    </div>
+                    <div class="max1">
+                        <input type="text" id="max1" name="max" placeholder="最大值">
+                    </div>
+                    <div class="line2"></div>
+                    <button class="weight-btn"><strong>應用</strong></button>
+                </div>-->
+                
+                <!-- <div class="line3"></div> -->
+                <form class="form" id="myForm" action="login.html" method="POST">
+                <div>
+                    <strong><p class="fliter-price">價格</p></strong>
+
+                    <div class="min2">
+                        <input type="text" id="min2" name="min" placeholder="最小值">
+                    </div>
+                    <div class="max2">
+                        <input type="text" id="max2" name="max" placeholder="最大值">
+                    </div>
+                    <div class="line4"></div>
+                    <button class="price-btn" type="submit" ><strong>應用</strong></button>
+                </div>
+
+                <!--<div>
+                    <strong><p class="fliter-time">時間</p></strong>
+                    <div class="check-time"><br>
+                        <input type="checkbox" name="day" value="day">一天以內</br>
+                        <input type="checkbox" name="week" value="week">一周以內</br>
+                    </div>
+
+                    <p class="custom-text">自訂：</p>
+                    <div class="custom">
+                        <input type="text" id="custom" name="custom" placeholder=時間>
+                    </div>
+                    <button class="custom-btn"><strong>應用</strong></button>
+                </div>-->
+
+                <div class="check-section"><br>
+                    <input type="checkbox" id="fish" name="fish" value="1"><strong>Tuna</strong></br>
+                    <input type="checkbox" id="fish" name="fish" value="2"><strong>Swordfish</strong></br>
+                    <input type="checkbox" id="fish" name="fish" value="4"><strong>Grouper</strong></br>
+                    <input type="checkbox" id="fish" name="fish" value="8"><strong>Mackerel</strong></br>
+                    <input type="checkbox" id="fish" name="fish" value="16"><strong>Mahi_mahi</strong></br>
+                </div>
+                </form>
+            </div>
+
+            <div id="output"></div>
+            <!-- <a href="../Fish-detail2/Fish-detail2.html"><button class="product-list">
+                <div class="product-fishname">
+                    <p><strong>Mackerel</strong></p>
+                </div>
+                <div class="product-price">
+                    <p><strong>$價格： (臺幣/臺斤)</strong></p>
+                </div>
+                <div class="product-box">
+                    <img src="../../images/mackerel.png">
+                </div>
+            </button></a>
+
+            <a href="../Fish-detail2/Fish-detail2.html"><button class="product-list2">
+                <div class="product-fishname">
+                    <p><strong>Mahi_Mahi</strong></p>
+                </div>
+                <div class="product-price">
+                    <p><strong>$價格： (臺幣/臺斤)</strong></p>
+                </div>
+                <div class="product-box">
+                    <img src="../../images/鮪魚2.png">
+                </div>
+            </button></a>
+
+            <a href="../Fish-detail2/Fish-detail2.html"><button class="product-list3">
+                <div class="product-fishname">
+                    <p><strong>Swordfish</strong></p>
+                </div>
+                <div class="product-price">
+                    <p><strong>$價格： (臺幣/臺斤)</strong></p>
+                </div>
+                <div class="product-box">
+                    <img src="../../images/swordfish.png">
+                </div>
+            </button></a>
+
+            <a href="../Fish-detail2/Fish-detail2.html"><button class="product-list4">
+                <div class="product-fishname">
+                    <p><strong>Tuna</strong></p>
+                </div>
+                <div class="product-price">
+                    <p><strong>$價格： (臺幣/臺斤)</strong></p>
+                </div>
+                <div class="product-box">
+                    <img src="../../images/tuna.png">
+                </div>
+            </button></a> -->
+        </div>
+
+    </div>
+<script type="text/javascript" src="./Shopping-Page2.js" defer></script>
+    
+</body>
+</html>

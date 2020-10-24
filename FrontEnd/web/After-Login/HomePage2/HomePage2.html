@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Website Page Design </title>
+        <link rel="stylesheet" href="HomePage2.css">
+        <script type="text/javascript" src="HomePage2.js"></script>
+    </head>
+    
+<body>
+    <div class="hero">
+        <a href="HomePage2.html" class="title-box">
+            <span>Fisherman</span>
+        </a>
+        <a href="../Shopping-Page2/Shopping-Page2.html" class="Shopping">Shopping Now</a>
+        <div class="navbar"> 
+            <nav>
+                <ul>
+                    <li><a href="../../login/login.html" id="Logout">Logout</a></li>
+                    <li><a href="#" id="Username" ></a></li>
+                    <script>
+                        if (window.sessionStorage.getItem("Username")==null) {
+                            window.location.replace("../../login/login.html")
+                        }
+                        else{
+                            document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username");
+                        }
+                    </script>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <small>Welcome to our wedsite</small>
+            <h1>World's Biggest Fish</h1>
+        </div>
+        <div class="bubbles">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png">
+            <img src="../../images/bubble.png"> 
+        </div>
+
+    </div>
+</body>
+
+</html>
+

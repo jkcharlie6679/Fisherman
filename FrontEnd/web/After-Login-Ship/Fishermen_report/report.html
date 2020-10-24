@@ -1,0 +1,156 @@
+​<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=utf8 />
+        <style>
+            outer {
+                border-radius: 5pt;
+                background-color: #95afba;
+                /* position: relative;   ★ */
+                height: 40px;
+                display:flex;         /* ★ */
+                align-items: center;  /* ★ */
+                
+            }
+            .submit-box{
+		        position:absolute;
+		        width: 80px;
+                height: 30px;
+                line-height: 40px;
+                margin-top: 580px;
+                margin-left:300px;
+                border-radius: 5px;
+                background: #ffffff;
+	        }
+            #submit-button{
+                display: inline-block;
+                width: 80px;
+                height: 30px;
+                border-radius: 5px;
+                background: #ffffff;
+                color: black
+            }
+            .title-box{
+				width: 300px;
+				height: 60px;
+				margin-left: 10px;
+				margin-top: -20px;
+				text-align: center;
+				font-size: 34px;
+				font-weight: 800;
+				color: #ffffff;
+				line-height: 50px;
+            }
+            body {
+				font: 24px Helvetica;
+				background: #154360;
+            }
+            .fish_info_Value{
+                text-align:center;
+                width: 250px;
+                display: inline-block;
+                margin-left: 40px;
+                color:white;
+                font-size: 20px;
+                background-color: E0E0E0 ;
+                border: 2px solid white;
+                border-radius: 5px;
+            }
+            #main {
+            
+			min-height: 800px;
+			margin: 0;
+			padding: 0;
+			display: flex;
+            flex-flow: row;
+            justify-content: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .article {
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #cccc33;
+			border-radius: 5pt;
+			background: #ffffff;
+			flex: 1 2 50%;
+			order: 2;
+            height: 5%;
+            width: 100%;
+			font-size: 14px;
+			display: flex;
+			/* flex-direction: row-reverse; */
+			flex-wrap: wrap;
+			
+			
+			
+        }
+
+        #main > nav {
+			
+			margin: 4px;
+			/* padding: 5px; */
+			/* border: 1px solid #8888bb; */
+			border-radius: 5pt;
+			overflow: auto;
+			height: 90%;
+			background: #FFFFFF;
+			flex: 1 6 40%;
+			order: 2;
+            font-size: 18px;
+		}
+        </style>
+    </head>
+    <body>
+        
+            
+            
+    	<header>
+			<div class="title-box">
+				<a href="../Fishermen_center_console/home.html" style="color:white; text-decoration:none;">
+					<img src="../img/fish_logo.png" style=" float: left;" width="50" height="50">Fisherman</a>
+				</a>	
+			</div>
+        </header>
+        <outer>故障報修</outer>
+        <div id='main'>
+            <div class="container">
+                <form class="form" id="myForm" action="login.html" method="POST">
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="漁船位置異常">漁船位置異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="氣溫異常">氣溫異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="大氣壓力異常">大氣壓力異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="引擎溫度異常">引擎溫度異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="風速異常">風速異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="風向異常">風向異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="冰庫溫度異常">冰庫溫度異常
+                    </div>
+                    <div class="article">
+                        <input  type="radio" name="report" id="S_Ship_Fix_Log" value="濕度異常">濕度異常
+                    </div>
+                    <div class="article" style="height: 10%;">
+                        其他：<input  type="text" name="report" id="S_Ship_Fix_Log" style="width: 300px;" name="其他" >
+                </div>
+           
+            </div>
+            <div class="submit-box">
+                <button id = "submit-button" type="submit" value="送出">註冊</button>
+            </div>
+        </form>
+        </div>
+        <script type="text/javascript" src="./report.js" defer></script>
+    </body>
+    

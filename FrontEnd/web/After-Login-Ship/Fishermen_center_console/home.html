@@ -1,0 +1,362 @@
+​<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset=utf8 />
+    <style>
+		/* a:link{text-decoration:none; color:white}原本的樣子 */
+        /* a:visited{color:purple}拜訪過的樣子 */
+        /* a:hover{color:purple}滑鼠移過 */
+		/* a:active{text-decoration:underline}滑鼠按下時 */
+		outer {
+			background-color: #95afba;
+			/* position: relative;   ★ */
+			height: 40px;
+			display:flex;         /* ★ */
+			align-items: center;  /* ★ */
+			min-height:0
+		}
+
+		.fish_info{
+			position: absolute;
+			width: 400px;
+			height: 40px;
+			line-height: 40px;
+			margin-left:400px;
+			font-size: 20px;
+			/*background:gray;*/
+		}
+		.fish_info_Value{
+			text-align:center;
+			width: 250px;
+			display: inline-block;
+			margin-left: 40px;
+			color:white;
+			font-size: 20px;
+			background-color: E0E0E0 ;
+			border: 2px solid white;
+			border-radius: 5px;
+		}
+		.title-box{
+			width: 300px;
+			height: 60px;
+			margin-left: 10px;
+			margin-top: -20px;
+			text-align: center;
+			font-size: 34px;
+			font-weight: 800;
+			color: #ffffff;
+			line-height: 50px;
+		}
+		body {
+			font: 24px Helvetica;
+			background: #154360;
+		}
+
+		#main {
+			min-height: 800px;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-flow: row;
+			min-height:0;
+		}
+	
+		article {
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #cccc33;
+			border-radius: 5pt;
+			background: #ffffff;
+			flex: 70%;
+			order: 2;
+			height: 700px;
+			font-size: 14px;
+			display: flex;
+			/* flex-direction: row-reverse; */
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: stretch;
+			min-height:0;
+			
+			
+		}
+		article_fishinfo {
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #cccc33;
+			border-radius: 5pt;
+			background: #ffffff;
+			flex: 70%;
+			order: 2;
+			height: 700px;
+			font-size: 14px;
+			display: flex;
+			/* flex-direction: row-reverse; */
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: stretch;
+			display: none;
+			min-height:0;
+		}
+
+		.item {
+		
+			margin: 5px;
+			width: 112px;
+			height: 10%;
+			}
+
+		.item1 {
+			border: 2px solid #3C3C3C;
+			
+		}
+
+		select_bar {
+			line-height:2;
+			margin: 4px;
+			padding: 5px;
+			border: 1px solid #8888bb;
+			border-radius: 5pt;
+			overflow: auto;
+			height: 700px;
+			background: #FFFFFF;
+			flex: 30%;
+			order: 1;
+			font-size: 18px;
+			flex-wrap: nowrap   
+		}
+		.aside {
+			margin: 4px;
+			/* display: flex; */
+			padding: 5px;
+			border: 1px solid #3C3C3C;
+			border-radius: 7pt;
+			background: #E0E0E0;
+			/* flex: 70%; */
+			/* order: 3; */
+			font-size: 12px;
+			height: 150px;
+			display: inline-block;
+			min-height:0;
+		}
+		.image-container{
+          max-width: 60%;
+          margin: 0 0%;
+        }
+		#TopImg{
+    		vertical-align:text-top;
+		}
+	
+		footer {
+			display: block;
+			margin: 4px;
+			padding: 5px;
+			min-height: 10px;
+			
+			border-radius: 7pt; 
+			
+		}
+		.hide{
+  			display: none ;
+		}
+	
+		/* Too narrow to support three columns */
+		@media all and (max-width: 640px) {
+			#main, #page {
+				flex-direction: column;
+			}
+
+			#main > article, #main > nav, #main > aside {
+			/* Return them to document order */
+				order: 0;
+			}
+	
+			#main > nav, #main > aside, header, footer {
+				min-height: 50px;
+				max-height: 50px;
+			}
+    	}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>	
+		$(document).ready(function(){
+  			$(".btn1").click(function(){
+    			$("article").hide();
+				$("article_fishinfo").show();
+  			});
+  			$(".btn2").click(function(){
+    			$("p").show();
+  			});
+		});
+		
+	</script>
+  </head>
+  <body>
+    <header>
+		<div class="title-box">
+			<a href="home.html" style="color:white; text-decoration:none;">
+				<img src="../img/fish_logo.png" style=" float: left;" width="50" height="50">Fisherman</a>
+			</a>	
+		</div>
+		<a href="../Fishermen_report/report.html" style="color:white; text-decoration:none;">
+			<img src="../img/setting.png" style="float: right; margin-top: -55px;" width="40" height="40"></a>
+		</a>
+	</header>
+    <div id='main'>
+
+      	<article>
+			<div class="item item1">Temperature<br>28°C/82°F</div>
+			<div class="item item1">Humidity<br>55%</div>
+			<div class="item item1">Atm. Pressure<br>1.2 kPa</div>
+			<div class="item item1">Wind<br>340°</div>
+			<div class="item item1">Wind_Speed<br>12m/s</div>
+			<div class="item item1">Freeze_Temp<br>-8°C</div>
+			<div class="item item1">Engine_Temp<br>308°C</div>
+			<div>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d145398.6937375549!2d122.09942412090916!3d24.831235810498644!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1601581710425!5m2!1szh-TW!2stw" width="895" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			</div>		
+	  	</article>
+
+      	<select_bar>
+			<!-- <span>Fish Information</span> -->
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2" >2020-09-15T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+			<button class="btn1" style=" border:none; text-align:left;">
+				<div class="aside">
+						<div id="label_left">
+							<img src="../img/img_1.jpg" style=" float: left; margin-right: 20px; border:2px green dashed;" width="100" height="100"></a>
+							<p class="pp2">2020-09-12T09:04:32Z<br>Hash:<br>0b2b29e778919f58f92d9ba88a98d075ba4b8977d1baa93203078492a462e205</p>
+						</div>	
+				</div>
+			</button>
+		</select_bar>
+	  	<article_fishinfo>
+			<outer>漁獲資訊</outer>
+			<img src="../img/img_1.jpg" style=" float: left; margin-top:80px; margin-left:80px; border:5px black solid transparent ;box-shadow:3px 3px 12px gray;" width="250" height="300"></a>
+			<div style="margin-top:80px;">
+				<div class="fish_info_Value" style="font-size: 50px; color:black; ">
+				黑鮪魚
+				</div>
+			</div>
+			<div class="fish_info" style="margin-top:30px;">
+				魚貨重量:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:70px;">
+				魚貨長度:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:110px;">
+				捕獲時間:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:150px;">
+				捕獲地點:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:190px;">
+				捕獲水深:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:230px;">
+				保存溫度:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:270px;">
+				狀態:
+				<div class="fish_info_Value" style=" margin-left: 80px;">
+					xxxxxx
+				</div>
+			</div>
+
+			<div class="fish_info" style="margin-top:310px;">
+				捕獲船家:
+				<div class="fish_info_Value">
+					xxxxxx
+				</div>
+			</div>
+	  	</article_fishinfo>
+    </div>
+    <!-- <footer>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</footer> -->
+  </body>
+</html>
