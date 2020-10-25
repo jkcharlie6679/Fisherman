@@ -56,9 +56,6 @@ nav ul li{
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-nav ul li:last-child{
-    border: none;
-}
 nav ul li a{
   text-decoration: none;
   color: #fff;
