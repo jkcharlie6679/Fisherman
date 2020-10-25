@@ -172,12 +172,10 @@ nav ul li a:hover{
 }
 .Logout{
     position: absolute;
-      display: inline-block;
-    border-radius: 50px ;
-    top: 90px;
+    width: 100px;
+    height: 30px;
     right: 20px;
     padding: 5px 20px;
-    text-decoration: none;
     text-align: center;
     font-size: 24px;
     font-weight: 700;
@@ -190,14 +188,14 @@ nav ul li a:hover{
     border-radius: 50px;
   }
   .Logout:hover{
-    background: #fff;
-      color: black;
-      -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-     -webkit-transform: scale(1.06);
-     -ms-transform: scale(1.06);
-     -o-transform: scale(1.06);
-     transform: scale(1.06);
+  background: #fff;
+  color: black;
+  -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+   -webkit-transform: scale(1.06);
+   -ms-transform: scale(1.06);
+   -o-transform: scale(1.06);
+   transform: scale(1.06);
   }
 
 

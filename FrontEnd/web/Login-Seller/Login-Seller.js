@@ -1,3 +1,7 @@
+if(window.sessionStorage.getItem("Fisherman")!=null){
+  window.location.replace("../After-Login-Seller/Shelves/Shelves.html");
+}
+else{
 const myForm = document.getElementById('myForm');
 myForm.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -44,7 +48,7 @@ function render(data){
         showConfirmButton: false});
       window.sessionStorage.setItem("Fisherman", data.S_Seller_Username);
       setTimeout(function(){
-        window.location.replace('../After-Login-Seller/Seller-HomePage/SellerHome.html');
+        window.location.replace('../After-Login-Seller/Shelves/Shelves.html');
       },3000);
       
     }
@@ -61,4 +65,4 @@ function render(data){
 
 }
 
-
+}

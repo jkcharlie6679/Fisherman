@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HomePage</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+<body>
+    <div class="hero">
+        <a href="index.html" class="title-box">
+            <span>Fisherman</span>
+        </a>
+        <form id="shop">
+            <buttom id="Shopping" type="click" class="Shopping">Shopping Now</buttom>
+        </form>
+        <div class="navbar"> 
+            <nav>
+                <ul>
+                    <li><a href="Fisherman-Login/Fisherman-Login.html">Fisherman</a></li>
+                    <li id="Username"><script>
+                        document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username")
+                    </script></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <small>Welcome to our wedsite</small>
+            <h1>World's Biggest Fish</h1>
+
+        </div>
+        <div class="bubbles">
+            <img src="images/bubble.png">
+            <img src="images/bubble.png">
+            <img src="images/bubble.png">
+            <img src="images/bubble.png">
+            <img src="images/bubble.png">
+            <img src="images/bubble.png">
+            <img src="images/bubble.png"> 
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript" src="indes.js" defer></script>
+</html>
+

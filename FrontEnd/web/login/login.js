@@ -43,7 +43,7 @@ function render(data){
         showConfirmButton: false});
       window.sessionStorage.setItem("Username", data.S_Customer_Username);
       setTimeout(function(){
-        window.location.replace('../After-Login/HomePage2/HomePage2.html');
+        window.location.replace('../After-Login/Shopping-Page2/Shopping-Page2.html');
       },3000);
     }
     else if(market == '1'){

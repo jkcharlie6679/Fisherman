@@ -41,7 +41,7 @@ function ChooseFish(Fishclassify){
   let MackerelPicture = 'mackerel.png';
   let TunaPicture = 'tuna.png';
   let GrouperPicture = 'grouper.png';
-  let MahiMahiPicture = '鮪魚2.png';
+  let MahiMahiPicture = 'Θ«¬Θ¡Ü2.png';
 
   if(Fishclassify == 'Swordfish'){
     return SwordfishPicture; 
@@ -125,3 +125,9 @@ function Push(goods){
     },2000);
 ;  }
 }
+
+const Logout = document.getElementById('Logout');
+Logout.addEventListener('click', function change(){
+    window.sessionStorage.clear();
+    window.location.replace("../../Login-Seller/Login-Seller.html");
+})
