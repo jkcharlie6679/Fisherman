@@ -5,6 +5,7 @@
 	<title>Fish-Detail
 	</title>
     <link rel="stylesheet" href="Fish-detail2.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 	<div class="Fish-title">
@@ -17,24 +18,22 @@
                         <li><a href="../Orders/Orders.html"><img src="../../images/order.png"></a></li>
                         <li><img src="../../images/account.png"><a href="#" id="Username"></a></li>
                 <script>
-                            if (window.sessionStorage.getItem("Username")==null) {
-                                window.location.replace("../../login/login.html")
-                            }
-                            else{
-                                document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username");
-                            }
+                    
                         </script>  
                     </ul>
                 </nav>
             </div>
         </header>
+        <form id="Logout">
+            <buttom id="Logout" type="click" class="Logout">Logout</buttom>
+        </form>
 
 		<div class="register-box">
             <a href="../Shopping-Page2/Shopping-Page2.html" class="return"><img class="back_img" src="../../images/back.png"></a>
             <div class="contact">
                 <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
             </div>
-			<a href="../HomePage2/HomePage2.html" class="title-box">
+			<a href="../../index.html" class="title-box">
                 <span>Fisherman</span>
             </a>
 		    <div class="logo">
@@ -42,43 +41,13 @@
             </div>
 
 
+            <div id="output"></div>
             
-            <div class="fish-detail">
-                <img  class="fish-detail-img" src="../../images/swordfish.png">
-                <p class="fish-name"><strong>Swordfish</strong></p>
-                <p class="fish-price"><strong>$630</strong></p>
-                
-                <p class="fishing-location"><strong>捕獲位置：</strong>
-                    <div class="fishong-location-box">太平洋西南海域</div>
-                </p>
-                <p class="fishing-weight"><strong>漁貨重量：</strong>
-                    <div class="fishong-weight-box">23KG</div>
-                </p>
-                <p class="fishing-waterdeep"><strong>捕獲水深：</strong>
-                    <div class="fishong-waterdeep-box">92m</div>
-                </p>
-                <p class="fishing-temperature"><strong>保存溫度：</strong>
-                    <div class="fishong-temperature-box">-18度</div>
-                </p>
-                <p class="fishing-ship"><strong>捕獲船隻：</strong>
-                    <div class="fishong-ship-box">新良號</div>
-                </p>
-                <p class="fishing-port"><strong>到港時間：</strong>
-                    <div class="fishong-port-box">04:55 a.m.</div>
-                </p>
-
-                <a href="../Purchase/Purchase.html" class="purchase">
-                    <button id = "purchase" type="button"><strong>購買</strong></button>
-                </a>
-
-                <a href="../Shopping_cart/shopping_cart.html" class="purchase-car">
-                    <button id = "purchase-car" type="button"><strong>購物車</strong></button>
-                </a>
-                
-            </div>
         </div>
+        
 
-	</div>
+    </div>
+    <script type="text/javascript" src="Fish_detail.js" defer></script>
 </body>
 <script>
 	

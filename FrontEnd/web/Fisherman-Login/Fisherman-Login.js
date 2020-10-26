@@ -34,23 +34,26 @@ function render(data){
 
     if(market == '0')
     {
-      swal("Success", "登入成功!系統將自動跳轉", "success", {timer: 3000,
+      swal("Success", "Login Successfully！", "success", {timer: 1500,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('../Fishermen_center_console/home.html');
-      },3000);
+      },1500);
     }
     else if(market == '1'){
       console.log("Please Verify your email account");
-      alert('請先驗證您的信箱')
+      swal("Please Verify", "Please verify your account first!", "warning", {timer: 3000,
+        showConfirmButton: false});
     }
     else if(market == '2'){
       console.log("Incorrect Password");
-      alert('帳號或密碼錯誤')
+      swal("Fail", "Incorrect Password!", "error", {timer: 3000,
+        showConfirmButton: false});
     }
     else if(market == '3'){
       console.log("Account does not exist");
-      alert('此帳號不存在')
+      swal("Fail", "Account does not exist!", "error", {timer: 3000,
+        showConfirmButton: false});
     }
 
 }

@@ -5,17 +5,11 @@
 	<title>Fish-Detail
 	</title>
     <link rel="stylesheet" href="detail.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
 </head>
 <body>
 	<div class="Fish-title">
     </div>
-        <div class="search">
-            <input type="text" class="search-btn" placeholder="Search...">
-            <div class="btn btn_common">
-                <i class="fa fa-search"></i>
-            </div>
-        </div>
         <div class="navbar"> 
             <nav>
                 <ul>
@@ -29,53 +23,21 @@
             <div class="contact">
                 <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
             </div>
-			<a href="../HomePage/index.html" class="title-box">
+			<a href="../Shopping-Page/Shopping.html" class="title-box">
                 <span>Fisherman</span>
             </a>
-		    <div class="logo">
-                <img src="../images/fish_logo.png" style=" float: left;" width="50" height="50">
+		    <div class="logo"><a href="../index.html">
+                <img src="../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
             </div>
 
 
             
-            <div class="fish-detail">
-                <img  class="fish-detail-img" src="../images/鮪魚2.png">
-                <p class="fish-name"><strong>Mahi_Mahi</strong></p>
-                <p class="fish-price"><strong>$350</strong></p>
-                
-                <p class="fishing-location"><strong>捕獲位置：</strong>
-                    <div class="fishong-location-box">太平洋西南海域</div>
-                </p>
-                <p class="fishing-weight"><strong>漁貨重量：</strong>
-                    <div class="fishong-weight-box">4.5KG</div>
-                </p>
-                <p class="fishing-waterdeep"><strong>捕獲水深：</strong>
-                    <div class="fishong-waterdeep-box">60m</div>
-                </p>
-                <p class="fishing-temperature"><strong>保存溫度：</strong>
-                    <div class="fishong-temperature-box">-18度</div>
-                </p>
-                <p class="fishing-ship"><strong>捕獲船隻：</strong>
-                    <div class="fishong-ship-box">勝丸號</div>
-                </p>
-                <p class="fishing-port"><strong>到港時間：</strong>
-                    <div class="fishong-port-box">01:40 a.m.</div>
-                </p>
-
-
-
-                <a href="../login/login.html" class="purchase">
-                    <button id = "purchase" type="button"><strong>購買</strong></button>
-                </a>
-
-                <a href="../login/login.html" class="purchase-car">
-                    <button id = "purchase-car" type="button"><strong>購物車</strong></button>
-                </a>
-                
-            </div>
+            <div id="output"></div>
         </div>
 
-	</div>
+    </div>
+    <script type="text/javascript" src="Fish_detail.js" defer></script>
+    
 </body>
 <script>
 	

@@ -23,25 +23,27 @@ function PriceList(money){
     money.forEach(function(money){
         output+= `
         <tr>
+          <td><button class="fishbutton" onclick="Click(this)" id="${money.S_Fish_Hash_Code}"><img  src="../../images/key.png"></button></td>
           <td>${money.S_Goods_Number}</td>
           <td>${money.S_Fish_Name}</td>
           <td><img src="../../images/${ChooseFish(money.S_Fish_Name)}"></td>
-          <td>${money.S_Fish_Weight}</td>
-          <td>${money.S_Fish_Length}</td>
+          <td>${money.S_Fish_Weight}kg</td>
+          <td>${money.S_Fish_Length}m</td>
           <td>${money.S_Fish_Datetime}</td>
-          <td>${money.I_Goods_price}</td>
+          <td>$${money.I_Goods_price}</td>
           <td><input type="checkbox" name="Fishname" id="Fishname" value="${money.S_Goods_Number}"></td>
         </tr>`        
 });
    document.getElementById('output').innerHTML = output;
 }
 
+
 function ChooseFish(Fishclassify){
   let SwordfishPicture = 'swordfish.png';
   let MackerelPicture = 'mackerel.png';
   let TunaPicture = 'tuna.png';
   let GrouperPicture = 'grouper.png';
-  let MahiMahiPicture = '鮪魚2.png';
+  let MahiMahiPicture = 'Θ«¬Θ¡Ü2.png';
 
   if(Fishclassify == 'Swordfish'){
     return SwordfishPicture; 
@@ -104,24 +106,31 @@ fetch('http://140.118.121.100:5000/Seller/Down_Shelf',{
     Push(goods)
   })
 }
-var count = 0;
+
 function Push(goods){
-  let status = goods.S_Put_Shelf_Status;
+  var count = 0;
+  let status = goods.S_Down_Shelf_Status;
   if(status == '0'){
-    if(count == 0){
-      swal("Success", "下架成功", "success", {timer: 2000,
+    if(count == '0'){
+      swal("Success", "Off the shelves successfully", "success", {timer: 2000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('Shelves.html');
-      },2000);
+      },1000);
     }
     count++;
   }
   else{
-    swal("Fail", "找不到漁貨", "error", {timer: 2000,
+    swal("Fail", "Can't find the dish", "error", {timer: 2000,
       showConfirmButton: false});
     setTimeout(function(){
       window.location.replace('Shelves.html');
     },2000);
-;  }
+  }
 }
+
+const Logout = document.getElementById('Logout');
+Logout.addEventListener('click', function change(){
+    window.sessionStorage.clear();
+    window.location.replace("../../Login-Seller/Login-Seller.html");
+})

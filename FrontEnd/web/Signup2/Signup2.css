@@ -21,7 +21,7 @@
 .hero{
   width: 100%;
   height: 100vh;
-  background-image: url(../images/background.png);
+  background-image: url(../images/background8.png);
   background-position: center;
   position: relative;
   overflow: hidden;
@@ -176,7 +176,7 @@ h1{
   left: 50px;
   font-size: 150px;
   color: #fff;
-  border: 2px solid #fdff6b;
+
 }
 
 .header__title2 {
@@ -187,7 +187,6 @@ h1{
   font-size: 150px;
   color: #fff;
 
-  border: 2px solid #fdff6b;
 }
 
 /*-----------Tabs-------------*/
@@ -279,7 +278,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top: 100px;
   margin-left:30px;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   
 }
 .S_Customer_First_Name-input{
@@ -305,7 +304,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top:30px;
   margin-left:30px;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   /*background:gray;*/
 }
 .S_Customer_Last_Name-input{
@@ -329,7 +328,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top:30px;
   margin-left:30px;
   font-weight: 700;
-  color:  #ffffff;
+  color:  #000000;
   /*background:gray;*/
 }
 .S_Customer_Account-input{
@@ -353,7 +352,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top:30px;
   margin-left:30px;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   /*background:gray;*/
 }
 .S_Customer_Username-input{
@@ -377,7 +376,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top:30px;
   margin-left:30px;
   font-weight: 700;
-  color:  #ffffff;
+  color:  #000000;
 }
 .S_Customer_Password-input{
   display: inline-block;
@@ -400,7 +399,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top:30px;
   margin-left:30px;
   font-weight: 700;
-  color:  #ffffff;
+  color:  #000000;
 }
 .S_Customer_RePassword-input{
   display: inline-block;
@@ -423,7 +422,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top: -390px;
   margin-left:380px;
   font-weight: 700;
-  color:  #ffffff;
+  color:  #000000;
 }
 .D_Customer_Birthday-input{
   display: inline-block;
@@ -446,7 +445,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top:-320px;
   margin-left:380px;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
 }
 .S_Customer_Phone-input{
   display: inline-block;
@@ -469,7 +468,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top: 30px;
   margin-left: 380px;
   font-weight: 700;	
-  color:  #ffffff;
+  color:  #000000;
 }
 .S_Customer_Post_Number-input{
   display: inline-block;
@@ -492,7 +491,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top: 30px;
   margin-left: 380px;
   font-weight: 700;
-  color:  #ffffff;
+  color:  #000000;
 }
 .S_Customer_City-input{
   display: inline-block;
@@ -515,7 +514,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top: 30px;
   margin-left: 380px;
   font-weight: 700;
-  color:  #ffffff;
+  color:  #000000;
 }
 .S_Customer_Town-input{
   display: inline-block;
@@ -538,7 +537,7 @@ background:rgba(255, 255, 255, 0.205);
   margin-top: 30px;
   margin-left: 380px;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
 }
 .S_Customer_Other-input{
   display: inline-block;
@@ -606,7 +605,7 @@ position: relative;
 width: 290px;
 height: 40px;
 line-height: 20px;
-color: #ffffff;
+color: #000000;
 margin-left: 240px;
 font-weight: 700;
 top: 200px;

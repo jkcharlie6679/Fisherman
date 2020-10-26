@@ -1,4 +1,3 @@
-
   //Fetch Api For This Week Set Price
   const myForm = document.getElementById('myForm');
   var count = 0;
@@ -42,7 +41,7 @@
 
     if(status == '1'){
         console.log("Add success");
-      swal("Success", "本週價格已設定成功", "success", {timer: 2000,
+      swal("Success", "Next week's price add successfully", "success", {timer: 2000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('SetFishPrice.html');
@@ -50,14 +49,14 @@
     }
     else if(status == '2'){
       console.log("Update success");
-      swal("Success", "本週價格已更新成功", "success", {timer: 2000,
+      swal("Success", "This week's price update successfully", "success", {timer: 2000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('SetFishPrice.html');
       },2000);
     }
     else{
-      swal("Fail", "找不到漁貨", "error", {timer: 2000,
+      swal("Fail", "Can't find the fish", "error", {timer: 2000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('SetFishPrice.html');
@@ -107,7 +106,7 @@
 
     if(status == '1'){
       console.log("Add success");
-      swal("Success", "下週價格已設定成功", "success", {timer: 2000,
+      swal("Success", "Next week's price add successfully", "success", {timer: 2000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('SetFishPrice.html');
@@ -115,14 +114,14 @@
     }
     else if(status == '2'){
       console.log("Update success");
-      swal("Success", "下週價格已更新成功", "success", {timer: 2000,
+      swal("Success", "Next week's price update successfully", "success", {timer: 2000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('SetFishPrice.html');
       },2000);
     }
     else{
-        swal("Fail", "找不到漁貨", "error", {timer: 2000,
+        swal("Fail", "Can't find the fish", "error", {timer: 2000,
           showConfirmButton: false});
         setTimeout(function(){
           window.location.replace('SetFishPrice.html');
@@ -149,49 +148,330 @@ fetch('http://140.118.121.100:5000/Seller/Price_list',{
       )
       .then( (money) =>{
         PriceList(money)
+        console.log(money)
       })
 function PriceList(money){
     //set display price to html for next week
-    window.sessionStorage.setItem("Tuna2", "$"+money[2].I_Price_Tuna);
-    window.sessionStorage.setItem("Swordfish2","$"+money[2].I_Price_Swordfish);
-    window.sessionStorage.setItem("Grouper2","$"+money[2].I_Price_Grouper);
-    window.sessionStorage.setItem("Mackerel2", "$"+money[2].I_Price_Mackerel);
-    window.sessionStorage.setItem("Mahi_mahi2", "$"+money[2].I_Price_Mahi_mahi);
+    if(money[0].I_Price_Number == '0'){
+      window.sessionStorage.setItem("Tuna2","");
+      window.sessionStorage.setItem("Swordfish2","");
+      window.sessionStorage.setItem("Grouper2","");
+      window.sessionStorage.setItem("Mackerel2","");
+      window.sessionStorage.setItem("Mahi_mahi2", "");
 
-    //set display price to html for this week
-    window.sessionStorage.setItem("Tuna1", "$"+money[1].I_Price_Tuna);
-    window.sessionStorage.setItem("Swordfish1", "$"+money[1].I_Price_Swordfish);
-    window.sessionStorage.setItem("Grouper1","$"+ money[1].I_Price_Grouper);
-    window.sessionStorage.setItem("Mackerel1", "$"+money[1].I_Price_Mackerel);
-    window.sessionStorage.setItem("Mahi_mahi1", "$"+money[1].I_Price_Mahi_mahi);
+      window.sessionStorage.setItem("Tuna1", "");
+      window.sessionStorage.setItem("Swordfish1","");
+      window.sessionStorage.setItem("Grouper1","");
+      window.sessionStorage.setItem("Mackerel1", "");
+      window.sessionStorage.setItem("Mahi_mahi1","" );
 
-    //set display price to html for last week
-    window.sessionStorage.setItem("Tuna0", "$"+money[0].I_Price_Tuna);
-    window.sessionStorage.setItem("Swordfish0", "$"+money[0].I_Price_Swordfish);
-    window.sessionStorage.setItem("Grouper0","$"+ money[0].I_Price_Grouper);
-    window.sessionStorage.setItem("Mackerel0", "$"+money[0].I_Price_Mackerel);
-    window.sessionStorage.setItem("Mahi_mahi0", "$"+money[0].I_Price_Mahi_mahi);
+      window.sessionStorage.setItem("Tuna0","");
+      window.sessionStorage.setItem("Swordfish0", "");
+      window.sessionStorage.setItem("Grouper0","");
+      window.sessionStorage.setItem("Mackerel0", "");
+      window.sessionStorage.setItem("Mahi_mahi0","");
 
-    document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
-    document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
-    document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
+    else if(money[0].I_Price_Number =='1'){
+      window.sessionStorage.setItem("Tuna0","$"+ money[1].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish0","$"+money[1].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper0","$"+money[1].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel0", "$"+money[1].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi0", "$"+money[1].I_Price_Mahi_mahi);
 
-    document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
-    document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
-    document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+      window.sessionStorage.setItem("Tuna1", "");
+      window.sessionStorage.setItem("Swordfish1","");
+      window.sessionStorage.setItem("Grouper1","");
+      window.sessionStorage.setItem("Mackerel1", "");
+      window.sessionStorage.setItem("Mahi_mahi1","" );
 
-    document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
-    document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
-    document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+      window.sessionStorage.setItem("Tuna2","");
+      window.sessionStorage.setItem("Swordfish2", "");
+      window.sessionStorage.setItem("Grouper2","");
+      window.sessionStorage.setItem("Mackerel2", "");
+      window.sessionStorage.setItem("Mahi_mahi2","");
 
-    document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
-    document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
-    document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
+    else if(money[0].I_Price_Number =='2'){
+      window.sessionStorage.setItem("Tuna0","");
+      window.sessionStorage.setItem("Swordfish0","");
+      window.sessionStorage.setItem("Grouper0","");
+      window.sessionStorage.setItem("Mackerel0","");
+      window.sessionStorage.setItem("Mahi_mahi0", "");
 
-    document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
-    document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
-    document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+      window.sessionStorage.setItem("Tuna1","$"+ money[2].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish1","$"+money[2].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper1","$"+money[2].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel1", "$"+money[2].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi1", "$"+money[2].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna2","");
+      window.sessionStorage.setItem("Swordfish2", "");
+      window.sessionStorage.setItem("Grouper2","");
+      window.sessionStorage.setItem("Mackerel2", "");
+      window.sessionStorage.setItem("Mahi_mahi2","");
+
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+
+    }
+    else if(money[0].I_Price_Number =='3'){
+      window.sessionStorage.setItem("Tuna0","$"+ money[1].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish0","$"+money[1].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper0","$"+money[1].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel0", "$"+money[1].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi0", "$"+money[1].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna1","$"+ money[2].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish1","$"+money[2].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper1","$"+money[2].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel1", "$"+money[2].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi1", "$"+money[2].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna2","");
+      window.sessionStorage.setItem("Swordfish2", "");
+      window.sessionStorage.setItem("Grouper2","");
+      window.sessionStorage.setItem("Mackerel2", "");
+      window.sessionStorage.setItem("Mahi_mahi2","");
+
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
+    else if(money[0].I_Price_Number =='4'){
+      window.sessionStorage.setItem("Tuna0","");
+      window.sessionStorage.setItem("Swordfish0","");
+      window.sessionStorage.setItem("Grouper0","");
+      window.sessionStorage.setItem("Mackerel0","");
+      window.sessionStorage.setItem("Mahi_mahi0", "");
+
+      window.sessionStorage.setItem("Tuna1", "");
+      window.sessionStorage.setItem("Swordfish1","");
+      window.sessionStorage.setItem("Grouper1","");
+      window.sessionStorage.setItem("Mackerel1", "");
+      window.sessionStorage.setItem("Mahi_mahi1","" );
+
+      window.sessionStorage.setItem("Tuna2","$"+ money[3].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish2","$"+money[3].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper2","$"+money[3].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel2", "$"+money[3].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi2", "$"+money[3].I_Price_Mahi_mahi);
+
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
+    else if(money[0].I_Price_Number =='5'){
+      window.sessionStorage.setItem("Tuna0","$"+ money[1].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish0","$"+money[1].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper0","$"+money[1].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel0", "$"+money[1].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi0", "$"+money[1].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna1", "");
+      window.sessionStorage.setItem("Swordfish1","");
+      window.sessionStorage.setItem("Grouper1","");
+      window.sessionStorage.setItem("Mackerel1", "");
+      window.sessionStorage.setItem("Mahi_mahi1","" );
+
+      window.sessionStorage.setItem("Tuna2","$"+ money[3].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish2","$"+money[3].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper2","$"+money[3].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel2", "$"+money[3].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi2", "$"+money[3].I_Price_Mahi_mahi);
+
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
+    else if(money[0].I_Price_Number =='6'){
+      window.sessionStorage.setItem("Tuna0","");
+      window.sessionStorage.setItem("Swordfish0","");
+      window.sessionStorage.setItem("Grouper0","");
+      window.sessionStorage.setItem("Mackerel0","");
+      window.sessionStorage.setItem("Mahi_mahi0", "");
+
+      window.sessionStorage.setItem("Tuna1","$"+ money[2].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish1","$"+money[2].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper1","$"+money[2].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel1", "$"+money[2].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi1", "$"+money[2].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna2","$"+ money[3].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish2","$"+money[3].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper2","$"+money[3].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel2", "$"+money[3].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi2", "$"+money[3].I_Price_Mahi_mahi);
+
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
+    else if(money[0].I_Price_Number =='7'){
+      window.sessionStorage.setItem("Tuna0","$"+ money[1].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish0","$"+money[1].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper0","$"+money[1].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel0", "$"+money[1].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi0", "$"+money[1].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna1","$"+ money[2].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish1","$"+money[2].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper1","$"+money[2].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel1", "$"+money[2].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi1", "$"+money[2].I_Price_Mahi_mahi);
+
+      window.sessionStorage.setItem("Tuna2","$"+ money[3].I_Price_Tuna); 
+      window.sessionStorage.setItem("Swordfish2","$"+money[3].I_Price_Swordfish);
+      window.sessionStorage.setItem("Grouper2","$"+money[3].I_Price_Grouper);
+      window.sessionStorage.setItem("Mackerel2", "$"+money[3].I_Price_Mackerel);
+      window.sessionStorage.setItem("Mahi_mahi2", "$"+money[3].I_Price_Mahi_mahi);
+
+      document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
+      document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
+      document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
+  
+      document.getElementById("Sword-last-set-price-box").innerHTML= window.sessionStorage.getItem("Swordfish0");
+      document.getElementById("Sword-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish1");
+      document.getElementById("Sword-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Swordfish2");
+  
+      document.getElementById("Grouper-last-set-price-box").innerHTML= window.sessionStorage.getItem("Grouper0");
+      document.getElementById("Grouper-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper1");
+      document.getElementById("Grouper-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Grouper2");
+  
+      document.getElementById("Mackerel-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mackerel0");
+      document.getElementById("Mackerel-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel1");
+      document.getElementById("Mackerel-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mackerel2");
+  
+      document.getElementById("Mahi_mahi-last-set-price-box").innerHTML= window.sessionStorage.getItem("Mahi_mahi0");
+      document.getElementById("Mahi_mahi-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi1");
+      document.getElementById("Mahi_mahi-next-set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Mahi_mahi2");
+    }
 }
+
+const Logout = document.getElementById('Logout');
+Logout.addEventListener('click', function change(){
+    window.sessionStorage.clear();
+    window.location.replace("../../Login-Seller/Login-Seller.html");
+})
 
 
 

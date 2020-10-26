@@ -49,8 +49,9 @@ input{
     font-size: 20px;
 }
 .register-box{
-    height: 600px;
+    overflow: auto;
     width: auto;
+    height: 750px;
     top: 50px;
     margin-top: 170px;
     z-index: 99999;
@@ -68,7 +69,7 @@ input{
     width: 300px;
     height: 50px;
     margin-left: 40px;
-    margin-top: -65px;
+    margin-top: -70px;
     text-align: center;
     font-size: 40px;
     font-weight: 800;
@@ -81,7 +82,7 @@ input{
     width: 25px;
     display: flex;
     margin-left: 30px;
-    margin-top: -65px;
+    margin-top: -70px;
 }
 
 .shopping-cart-photo{

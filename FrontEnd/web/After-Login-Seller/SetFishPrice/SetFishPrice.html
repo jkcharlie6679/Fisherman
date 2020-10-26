@@ -8,18 +8,17 @@
     <link rel="stylesheet" href="WrapperSet.css" type="text/css">
 
 </head>
-<body>
-	<div class="Fish-title">
-	</div>
-			<div class="contact">
+<body>			
+		<div class="register-box">
+            <div class="contact">
                 <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
 			</div>
 
-			<a href="../Seller-HomePage/SellerHome.html" class="title-box">
+			<a href="../Shelves/Shelves.html" class="title-box">
                 <span>Fisherman</span>
             </a>
-			<div class="logo">
-				<img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50">
+			<div class="logo"><a href="../../index.html">
+				<img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
 			</div>
 			
 			<div class="FisherName">
@@ -31,275 +30,194 @@
           else{
               document.getElementById("Fisherman").innerHTML= window.sessionStorage.getItem("Fisherman");
           }
-      </script> 
+        </script> 
             </div>
-            <a href="../../Login-Seller/Login-Seller.html" class="Logout">Logout</a>
-		<div class="register-box">
+            <div id="Logout" type="click" class="Logout">Logout</div>
+        </div>
+
+        
+
+	<div class="Fish-title">            
+        <header>
+            <div class="navbar"> 
+                <nav>
+                    <ul>
+                        <li><a href="../Shelves/Shelves.html">Shelves</a></li>
+                        <li><a href="../UnShelves/UnShelves.html">UnShelves</a></li>
+                        <li><a href="../OrderStatus/OrderStatus.html">Order Status</a></li>
+                        <li><a href="../OrderFinish/OrderFinish.html">Order Finish</a></li>
+                        <li><a href="SetFishPrice.html">Set Fish Price</a></li>
+                    </ul>
+                </nav>
+            </div>
+            </header>
             
-			<header>
-				<div class="navbar"> 
-					<nav>
-						<ul>
-							<li><a href="../Shelves/Shelves.html">漁貨已上架</a></li>
-							<li><a href="../UnShelves/UnShelves.html">漁貨未上架</a></li>
-							<li><a href="../OrderStatus/OrderStatus.html">訂單狀態</a></li>
-							<li><a href="../OrderFinish/OrderFinish.html">訂單已完成</a></li>
-							<li><a href="SetFishPrice.html">設定漁貨價格</a></li>
-						</ul>
-					</nav>
-				</div>
-                </header>
-                
-        <form class="form" id="myForm" method="POST">
-            <!-- Contenedor -->
-            <div class="SetFishPrice-wrapper">
-                <div class="fish-detail">
-                    <img  class="fish-detail-img" src="../../images/tuna.png">
-                    <p class="fish-name"><strong>Tuna</strong></p>
+    <form class="form" id="myForm" method="POST">
+        <!-- Contenedor -->
+        <div class="SetFishPrice-wrapper">
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/tuna.png">
+                <p class="fish-name"><strong>Tuna</strong></p>
 
-                    <table>
-                        <thead>
-                          <tr>
-                            <th>上週價格</th>
-                            <th>本週價格</th>
-                            <th>下週價格</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td id="last-set-price-box"></td>
-                              <td id="set-pricetext-setted"></td>
-                              <td id="next-set-pricetext-setted"></td>
-                            </tr>
-                            <tr>
-                                <td>設定</td>
-                                <td>
-                                    <input type="text" id="Tuna-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                                </td>
-                                <td>
-                                    <input type="text" id="Tuna-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="last-set-price-box"></td>
+                          <td id="set-pricetext-setted"></td>
+                          <td id="next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Tuna-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Tuna-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-    <!----
-                    <div class="last-price">
-                    <p class="last-set-price-text">上週價格</p>
-                    <div class="last-set-price-box" id="last-set-price-box">
-                        <script>
-                            document.getElementById("last-set-price-box").innerHTML= window.sessionStorage.getItem("Tuna0");
-                        </script>
-                        <div class="last-set-price-input" id="Tuna-last-price"></div>
-                    </div>
-                    </div>
-
-                    <div> 
-                    <p class="set-pricetext">本週價格</p>
-                    <p class="set-pricetext-setted" id="set-pricetext-setted"></p>
-                    <script>
-                        document.getElementById("set-pricetext-setted").innerHTML= window.sessionStorage.getItem("Tuna1");
-                    </script>
-                    <div class="set-price-box" id="set-price-box">
-                        <div class="set-price-input">
-                          <input type="text" id="Tuna-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                        </div>
-                    </div>
-
-                    <p class="next-set-pricetext">下週價格</p>
-                    <p class="next-set-pricetext-setted" id="next-set-pricetext-setted">
-                    <script>
-                        document.getElementById("next-set-pricetext-setted").innerHTML=window.sessionStorage.getItem("Tuna2");
-                    </script>
-                    <div class="next-set-price-box">
-                        <div class="next-set-price-input">
-                          <input type="text" id="Tuna-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
-                        </div>
-                    </div>
-                    </div>  
-                -->
-                </div>
-
-                <div class="fish-detail">
-                    <img  class="fish-detail-img" src="../../images/swordfish.png">
-                    <p class="fish-name"><strong>Swordfish</strong></p>
-
-                    <table>
-                        <thead>
-                          <tr>
-                            <th>上週價格</th>
-                            <th>本週價格</th>
-                            <th>下週價格</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td id="Sword-last-set-price-box"></td>
-                              <td id="Sword-set-pricetext-setted"></td>
-                              <td id="Sword-next-set-pricetext-setted"></td>
-                            </tr>
-                            <tr>
-                                <td>設定</td>
-                                <td>
-                                    <input type="text" id="Swordfish-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                                </td>
-                                <td>
-                                    <input type="text" id="Swordfish-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-<!---
-                    <div class="last-price">
-                    <p class="last-set-price-text">上週價格</p>
-                    <div class="last-set-price-box">$ 66
-                        <div class="last-set-price-input" id="Swordfish-last-price"></div>
-                    </div>
-                    </div>
-                    <div>
-                    <p class="set-pricetext">本週價格</p>
-                    <div class="set-price-box">$
-                        <label for="set-price"></label>
-                        <div class="set-price-input">
-                          <input type="text" id="Swordfish-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                        </div>
-                    </div>
-
-                    <p class="next-set-pricetext">下週價格</p>
-                    <div class="next-set-price-box">$
-                        <label for="next-set-price"></label>
-                        <div class="next-set-price-input">
-                          <input type="text" id="Swordfish-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                        </div>
-                    </div>
-                    </div>  
---->
-                </div>
-                <div class="fish-detail">
-                    <img  class="fish-detail-img" src="../../images/grouper.png">
-                    <p class="fish-name"><strong>Grouper</strong></p>
-
-                    <table>
-                        <thead>
-                          <tr>
-                            <th>上週價格</th>
-                            <th>本週價格</th>
-                            <th>下週價格</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td id="Grouper-last-set-price-box"></td>
-                              <td id="Grouper-set-pricetext-setted"></td>
-                              <td id="Grouper-next-set-pricetext-setted"></td>
-                            </tr>
-                            <tr>
-                                <td>設定</td>
-                                <td>
-                                    <input type="text" id="Grouper-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                                </td>
-                                <td>
-                                    <input type="text" id="Grouper-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-<!---   
-                    <div class="last-price">
-                    <p class="last-set-price-text">上週價格</p>
-                    <div class="last-set-price-box">$ 66
-                        <div class="last-set-price-input" id="Grouper-last-price"></div>
-                    </div>
-                    </div>
-
-                    <div>
-                    <p class="set-pricetext">本週價格</p>
-                    <div class="set-price-box">$
-                        <label for="set-price"></label>
-                        <div class="set-price-input">
-                          <input type="text" id="Grouper-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                        </div>
-                    </div>
-                    <p class="next-set-pricetext">下週價格</p>
-                    <div class="next-set-price-box">$
-                        <label for="next-set-price"></label>
-                        <div class="next-set-price-input">
-                          <input type="text" id="Grouper-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"/>
-                        </div>
-                    </div>
-                    </div>  
--->                     
-                </div>
-                <div class="fish-detail">
-                    <img  class="fish-detail-img" src="../../images/mackerel.png">
-                    <p class="fish-name"><strong>Mackerel</strong></p>
-                    <table>
-                        <thead>
-                          <tr>
-                            <th>上週價格</th>
-                            <th>本週價格</th>
-                            <th>下週價格</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td id="Mackerel-last-set-price-box"></td>
-                              <td id="Mackerel-set-pricetext-setted"></td>
-                              <td id="Mackerel-next-set-pricetext-setted"></td>
-                            </tr>
-                            <tr>
-                                <td>設定</td>
-                                <td>
-                                    <input type="text" id="Mackerel-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                                </td>
-                                <td>
-                                    <input type="text" id="Mackerel-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="fish-detail">
-                    <img  class="fish-detail-img" src="../../images/鮪魚2.png">
-                    <p class="fish-name"><strong>Mahi_mahi</strong></p>
-                    
-                    <table>
-                        <thead>
-                          <tr>
-                            <th>上週價格</th>
-                            <th>本週價格</th>
-                            <th>下週價格</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td id="Mahi_mahi-last-set-price-box"></td>
-                              <td id="Mahi_mahi-set-pricetext-setted"></td>
-                              <td id="Mahi_mahi-next-set-pricetext-setted"></td>
-                            </tr>
-                            <tr>
-                                <td>設定</td>
-                                <td>
-                                    <input type="text" id="Mahi-mahi-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
-                                </td>
-                                <td>
-                                    <input type="text" id="Mahi-mahi-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                      
-                </div>
-                
             </div>
-        <div class="storesbutton">
-            <button class="stores" id = "stores" type="submit"><strong>儲存</strong></button>
-        </div>
-           
-        </form>
-        </div>
 
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/swordfish.png">
+                <p class="fish-name"><strong>Swordfish</strong></p>
+
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Sword-last-set-price-box"></td>
+                          <td id="Sword-set-pricetext-setted"></td>
+                          <td id="Sword-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Swordfish-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Swordfish-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/grouper.png">
+                <p class="fish-name"><strong>Grouper</strong></p>
+
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Grouper-last-set-price-box"></td>
+                          <td id="Grouper-set-pricetext-setted"></td>
+                          <td id="Grouper-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Grouper-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Grouper-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/mackerel.png">
+                <p class="fish-name"><strong>Mackerel</strong></p>
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Mackerel-last-set-price-box"></td>
+                          <td id="Mackerel-set-pricetext-setted"></td>
+                          <td id="Mackerel-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Mackerel-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Mackerel-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/Θ«¬Θ¡Ü2.png">
+                <p class="fish-name"><strong>Mahi_Mahi</strong></p>
+                
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Mahi_mahi-last-set-price-box"></td>
+                          <td id="Mahi_mahi-set-pricetext-setted"></td>
+                          <td id="Mahi_mahi-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Mahi-mahi-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Mahi-mahi-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                  
+            </div>
+            
+        </div>
+    <div class="storesbutton">
+        <button class="stores" id = "stores" type="submit"><strong>儲存</strong></button>
+    </div>
+       
+    </form>        
+</div>
 
 </body>
 <script src="SetFishPrice.js"></script>

@@ -17,9 +17,8 @@
   position: absolute;
   width: 300px;
   height: 50px;
-  margin-left: 40px;
-  margin-top: -15px;
-  text-align: center;
+  left: 50px;
+  top: 130px;
   font-size: 40px;
   font-weight: 800;
   color: #ffffff;
@@ -27,11 +26,11 @@
   text-decoration: none;
 }
 .logo{
-  position: absolute;
+  position: relative;
   width: 25px;
   display: flex;
-  margin-left: 30px;
-  margin-top: -15px;
+  left: 30px;
+  top: 130px;
 }
 
 .FisherName{
@@ -72,24 +71,24 @@ width: 60px;
   height: 50px;
   text-align: center;
 }
+
 .Logout{
-position: absolute;
-display: inline-block;
-border-radius: 50px ;
-top: 90px;
-right: 20px;
-padding: 5px 20px;
-text-decoration: none;
-text-align: center;
-font-size: 24px;
-font-weight: 700;
--webkit-transition: all 0.25s ease;
--o-transition: all 0.25s ease;
-transition: all 0.25s ease;
-color: rgba(255, 255, 255, 0.158);
-text-decoration: none;
-border: 2px solid rgba(255, 255, 255, 0.158);
-border-radius: 50px;
+  position: absolute;
+  top: 80px;
+  width: 100px;
+  height: 30px;
+  right: 20px;
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  color: rgba(255, 255, 255, 0.158);
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.158);
+  border-radius: 50px;
 }
 .Logout:hover{
 background: #fff;
