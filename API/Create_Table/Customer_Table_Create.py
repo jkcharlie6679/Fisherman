@@ -24,6 +24,7 @@ def create_trade_table(S_Customer_Username):
     pgadmin.execute('''CREATE TABLE %s
         (I_Trade_ID SERIAL PRIMARY KEY NOT NULL,
          S_Customer_Account text NOT NULL,
+         S_Customer_Username text NOT NULL,
          S_Trade_Number text NOT NULL,
          D_Trade_Time timestamp WITH TIME ZONE NOT NULL,
          S_Goods_Number text NOT NULL,
@@ -34,7 +35,8 @@ def create_trade_table(S_Customer_Username):
          S_Trade_Receiver text NOT NULL,
          S_Receiver_Phone text NOT NULL,
          I_Trade_Post_Number integer NOT NULL,
-         S_Trade_Address text NOT NULL);''' %("Trade_" + str(S_Customer_Username)))
+         S_Trade_Address text NOT NULL,
+         I_Goods_Status Integer NOT NULL);''' %("Trade_" + str(S_Customer_Username)))
 
     pg.commit()
 

@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from SMTP import sent_mail
 from Verification import generate_verification_code as Verify_Code
 from eth_create_account import create_account as eth_create_account
-from Create_Table.Fisherman_Table_Create import create_price_table, create_sensor_table, create_fish_table
+from Create_Table.Fisherman_Table_Create import create_price_table, create_sensor_table, create_fish_table, create_trade_table
 from Create_Table.Customer_Table_Create import create_cart_table, create_trade_table
 from Price_Week_Count import week_count
 from Price_Change import price_change
@@ -192,6 +192,7 @@ def Fisherman_Sign_up():
     create_sensor_table(S_Platform_Number)
     create_price_table(S_Platform_Number)
     create_fish_table(S_Platform_Number)
+    create_trade_table(S_Platform_Number)
 
     insert_data = (
         request_data['S_Fisherman_Account'],
@@ -453,36 +454,44 @@ def seller_price_list():
     pgadmin = pg.cursor()
     pgadmin.execute('SELECT * FROM %s' %("Price_" + S_Platform_Number))
     data_db = pgadmin.fetchall()
-
+    I_Price_Number = 0
+    data_json = {}
+    data_json1 = {}
+    data_json2 = {}
+    data_json3 = {}
     for raw in data_db:
-        data_json = {}
         if(raw[1] == week_count("0")):
-            data_json["S_Price_Week"] = raw[1]
-            data_json["S_Price_Week_Status"] = "0"
-            data_json[config['FISH']['fish_1']] = raw[2]
-            data_json[config['FISH']['fish_2']] = raw[3]
-            data_json[config['FISH']['fish_3']] = raw[4]
-            data_json[config['FISH']['fish_4']] = raw[5]
-            data_json[config['FISH']['fish_5']] = raw[6]
-            data_out.append(data_json)
+            data_json1["S_Price_Week"] = raw[1]
+            data_json1["S_Price_Week_Status"] = "0"
+            data_json1[config['FISH']['fish_1']] = raw[2]
+            data_json1[config['FISH']['fish_2']] = raw[3]
+            data_json1[config['FISH']['fish_3']] = raw[4]
+            data_json1[config['FISH']['fish_4']] = raw[5]
+            data_json1[config['FISH']['fish_5']] = raw[6]
+            I_Price_Number = I_Price_Number + 1
         elif(raw[1] == week_count("1")):
-            data_json["S_Price_Week"] = raw[1]
-            data_json["S_Price_Week_Status"] = "1"
-            data_json[config['FISH']['fish_1']] = raw[2]
-            data_json[config['FISH']['fish_2']] = raw[3]
-            data_json[config['FISH']['fish_3']] = raw[4]
-            data_json[config['FISH']['fish_4']] = raw[5]
-            data_json[config['FISH']['fish_5']] = raw[6]
-            data_out.append(data_json)
+            data_json2["S_Price_Week"] = raw[1]
+            data_json2["S_Price_Week_Status"] = "1"
+            data_json2[config['FISH']['fish_1']] = raw[2]
+            data_json2[config['FISH']['fish_2']] = raw[3]
+            data_json2[config['FISH']['fish_3']] = raw[4]
+            data_json2[config['FISH']['fish_4']] = raw[5]
+            data_json2[config['FISH']['fish_5']] = raw[6]
+            I_Price_Number = I_Price_Number + 2
         elif(raw[1] == week_count("2")):
-            data_json["S_Price_Week"] = raw[1]
-            data_json["S_Price_Week_Status"] = "2"
-            data_json[config['FISH']['fish_1']] = raw[2]
-            data_json[config['FISH']['fish_2']] = raw[3]
-            data_json[config['FISH']['fish_3']] = raw[4]
-            data_json[config['FISH']['fish_4']] = raw[5]
-            data_json[config['FISH']['fish_5']] = raw[6]
-            data_out.append(data_json)    
+            data_json3["S_Price_Week"] = raw[1]
+            data_json3["S_Price_Week_Status"] = "2"
+            data_json3[config['FISH']['fish_1']] = raw[2]
+            data_json3[config['FISH']['fish_2']] = raw[3]
+            data_json3[config['FISH']['fish_3']] = raw[4]
+            data_json3[config['FISH']['fish_4']] = raw[5]
+            data_json3[config['FISH']['fish_5']] = raw[6]
+            I_Price_Number = I_Price_Number + 4
+    data_json["I_Price_Number"] = I_Price_Number
+    data_out.append(data_json)   
+    data_out.append(data_json1)   
+    data_out.append(data_json2)   
+    data_out.append(data_json3)   
 
     return json.dumps(data_out), 200
 
@@ -812,7 +821,8 @@ def cart_list():
 
     for raw in data_db:
         S_Platform_Number.append(raw[1])
-
+    S_Platform_Number.sort()
+    print(S_Platform_Number)
     for x in range(len(S_Platform_Number)):
         pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
         pgadmin = pg.cursor()
@@ -873,20 +883,31 @@ def trade():
     request_data = request.get_json()
     pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
-
+    
     for x in range(len(request_data) - 1):
         pgadmin.execute('''UPDATE %s SET I_Goods_Status = 2 WHERE S_Goods_Number = '%s';''' %(("Fish_" + request_data[x + 1]["S_Goods_Number"][0:3]), request_data[x + 1]["S_Goods_Number"]))
         pg.commit()
         S_Goods_Number.append(request_data[x + 1]["S_Goods_Number"])
 
+    S_Goods_Number.sort()
+
     tz_utc_8 = datetime.timezone(datetime.timedelta(hours=8))
     pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
-    INSERT = '''INSERT INTO %s(S_Customer_Account, S_Trade_Number, D_Trade_Time, S_Goods_Number, I_Goods_Quantity, I_Trade_Pay, S_Trade_Tax_ID, S_Trade_Logistics, S_Trade_Receiver, S_Receiver_Phone, I_Trade_Post_Number, S_Trade_Address)''' %("Trade_" + request_data[0]["S_Customer_Username"]) + '''VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) '''
+
+    pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + request_data[0]["S_Customer_Username"]))
+    data_db = pgadmin.fetchall()
+    S_Trade_ID = 0
+    for raw in data_db:
+        S_Trade_ID = raw[0]
+    S_Trade_ID = S_Trade_ID + 1
+    INSERT = '''INSERT INTO %s(S_Customer_Account, S_Customer_Username, S_Trade_Number, D_Trade_Time, S_Goods_Number, I_Goods_Quantity, I_Trade_Pay, S_Trade_Tax_ID, S_Trade_Logistics, S_Trade_Receiver, S_Receiver_Phone, I_Trade_Post_Number, S_Trade_Address, I_Goods_status)''' %("Trade_" + request_data[0]["S_Customer_Username"]) + '''VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) '''
+    S_Trade_Number = str(request_data[1]["S_Goods_Number"][0:3]) + "-" + str(request_data[0]["S_Customer_Username"]) + "-" + str(S_Trade_ID)
     insert_data = (
         request_data[0]["S_Customer_Account"],
-        "test",
-        datetime.datetime.now().replace(tzinfo=tz_utc_8),
+        request_data[0]["S_Customer_Username"],
+        S_Trade_Number,
+        str(datetime.datetime.now().replace(tzinfo=tz_utc_8)),
         S_Goods_Number,
         len(request_data) - 1,
         request_data[0]["I_Trade_Pay"],
@@ -895,12 +916,163 @@ def trade():
         request_data[0]["S_Trade_Receiver"],
         request_data[0]["S_Receiver_Phone"],
         request_data[0]["I_Trade_Post_Number"],
-        request_data[0]["S_Trade_Address"]
+        request_data[0]["S_Trade_Address"],
+        "2"
     )
+
     pgadmin.execute(INSERT, insert_data)
     pg.commit()
+
+    pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+
+    for x in range(len(request_data) - 1):
+        pgadmin.execute('''UPDATE %s SET S_Trade_Number = '%s', I_Goods_Status = 3 WHERE S_Goods_Number = '%s';''' %(("Fish_" + request_data[x + 1]["S_Goods_Number"][0:3]), S_Trade_Number, request_data[x + 1]["S_Goods_Number"]))
+        pg.commit()
+
+    pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    INSERT = '''INSERT INTO %s(S_Customer_Account, S_Customer_Username, S_Trade_Number, S_Goods_Number, I_Goods_Status)''' %("Trade_" + str(request_data[1]["S_Goods_Number"][0:3])) + '''VALUES(%s, %s, %s, %s, %s)'''
+    insert_data = (
+        request_data[0]["S_Customer_Account"],
+        request_data[0]["S_Customer_Username"],
+        S_Trade_Number,
+        S_Goods_Number, 
+        "2"
+    )
+
+    pgadmin.execute(INSERT, insert_data)
+    pg.commit()
+
+    pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    for x in range(len(request_data) - 1):
+        pgadmin.execute('''DELETE FROM %s WHERE S_Goods_Number = '%s' ''' %(("Cart_" + request_data[0]["S_Customer_Username"]), request_data[x + 1]["S_Goods_Number"]))
+        pg.commit()
+
+    
     data_json["S_Trade_Status"] = "Add success"
+    data_json["S_Trade_Number"] = (S_Trade_Number)
     return json.dumps(data_json)
 
+
+@app.route(config['ROUTER']['app_router_Seller'] + '/Trade_list_nonfin', methods = ['POST'])
+@cross_origin()
+def seller_trade_list_nonfin():
+    data_out = []
+    request_data = request.get_json()
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('''SELECT * FROM Fisherman_Account''')
+    data_db = pgadmin.fetchall()
+    for raw in data_db:
+        if(request_data["S_Seller_Account"] == raw[1]):
+            S_Platform_Number = raw[16]
+
+    pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + str(S_Platform_Number)))
+    data_db = pgadmin.fetchall()
+    for raw in data_db:
+        if(raw[5] == 2):
+            S_Goods_Number = str(raw[4][1 : len(list(raw[4])) - 1]).split(",")
+            data_json = {}
+            data_json["S_Customer_Account"] = raw[1]
+            data_json["S_Customer_Username"] = raw[2]
+            data_json["S_Trade_Number"] = raw[3]
+            data_json["S_Goods_Number"] = S_Goods_Number
+            data_json["S_Goods_Quantity"] = len(S_Goods_Number)
+            pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+            pgadmin = pg.cursor()
+            pgadmin.execute('''SELECT * FROM %s''' %("Fish_" + str(S_Goods_Number[0][0:3])))
+            data_db1 = pgadmin.fetchall()
+            I_Goods_Total = 0
+            for x in range(len(S_Goods_Number)):
+                for raw1 in data_db1:
+                    if(S_Goods_Number[x] == raw1[11]):
+                        data_json["S_Goods_Status"] = raw1[13]
+                        I_Goods_Total = I_Goods_Total + int(raw1[12])
+                        break
+            data_json["I_Goods_Total"] = I_Goods_Total
+            data_out.append(data_json)
+
+    return json.dumps(data_out)
+
+
+@app.route(config['ROUTER']['app_router_Seller'] + '/Trade_list_fin', methods = ['POST'])
+@cross_origin()
+def seller_trade_list_fin():
+    data_out = []
+    request_data = request.get_json()
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('''SELECT * FROM Fisherman_Account''')
+    data_db = pgadmin.fetchall()
+    for raw in data_db:
+        if(request_data["S_Seller_Account"] == raw[1]):
+            S_Platform_Number = raw[16]
+
+    pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + str(S_Platform_Number)))
+    data_db = pgadmin.fetchall()
+    for raw in data_db:
+        if(raw[5] == 3):
+            S_Goods_Number = str(raw[4][1 : len(list(raw[4])) - 1]).split(",")
+            data_json = {}
+            data_json["S_Customer_Account"] = raw[1]
+            data_json["S_Customer_Username"] = raw[2]
+            data_json["S_Trade_Number"] = raw[3]
+            data_json["S_Goods_Number"] = S_Goods_Number
+            data_json["S_Goods_Quantity"] = len(S_Goods_Number)
+            pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+            pgadmin = pg.cursor()
+            pgadmin.execute('''SELECT * FROM %s''' %("Fish_" + str(S_Goods_Number[0][0:3])))
+            data_db1 = pgadmin.fetchall()
+            I_Goods_Total = 0
+            for x in range(len(S_Goods_Number)):
+                for raw1 in data_db1:
+                    if(S_Goods_Number[x] == raw1[11]):
+                        data_json["S_Goods_Status"] = raw1[13]
+                        I_Goods_Total = I_Goods_Total + int(raw1[12])
+                        break
+            data_json["I_Goods_Total"] = I_Goods_Total
+            data_out.append(data_json)
+
+    return json.dumps(data_out)
+
+
+@app.route(config['ROUTER']['app_router_Customer'] + '/Trade_list', methods = ['POST'])
+@cross_origin()
+def customer_trade_list():
+    data_out = []
+    request_data = request.get_json()
+    pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + request_data["S_Customer_Username"]))
+    data_db = pgadmin.fetchall()
+
+    for raw in data_db:
+        data_json = {}
+        data_json["S_Trade_Number"] = raw[3]
+        S_Goods_Number = str(raw[5][1 : len(list(raw[5])) - 1]).split(",")
+        data_json["S_Goods_Quantity"] = len(S_Goods_Number)
+        data_json["S_Goods_Number"] = S_Goods_Number
+        pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''SELECT * FROM %s''' %("Fish_" + str(S_Goods_Number[0][0:3])))
+        data_db1 = pgadmin.fetchall()
+        I_Goods_Total = 0
+        for x in range(len(S_Goods_Number)):
+            for raw1 in data_db1:
+                if(S_Goods_Number[x] == raw1[11]):
+                    data_json["S_Goods_Status"] = raw1[13]
+                    I_Goods_Total = I_Goods_Total + int(raw1[12])
+                    break
+        data_json["I_Goods_Total"] = I_Goods_Total
+        data_json["S_Trade_Address"] = raw[13]
+        data_out.append(data_json)
+
+    return json.dumps(data_out)
 
 app.run(host='0.0.0.0', debug=True )

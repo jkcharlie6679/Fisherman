@@ -6,7 +6,7 @@ cfgpath = path.split('Fisherman')[0] + 'Fisherman/API/config.ini'
 config = configparser.ConfigParser()
 config.read(cfgpath)
 
-def create_sensor_table(S_Blkchain_ID):
+def create_sensor_table(S_Platform_Number):
     pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
 
@@ -21,11 +21,11 @@ def create_sensor_table(S_Blkchain_ID):
          F_Ship_Wind real NOT NULL,
          F_Ship_Ref_Temp real NOT NULL,
          F_Ship_Wind_Speed real NOT NULL,
-         D_Ship_Time timestamp WITH TIME ZONE NOT NULL);''' %("Sensor_" + str(S_Blkchain_ID)))
+         D_Ship_Time timestamp WITH TIME ZONE NOT NULL);''' %("Sensor_" + str(S_Platform_Number)))
 
     pg.commit()
     
-def create_price_table(S_Blkchain_ID):
+def create_price_table(S_Platform_Number):
     pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
 
@@ -36,11 +36,11 @@ def create_price_table(S_Blkchain_ID):
          %s integer NOT NULL,
          %s integer NOT NULL,
          %s integer NOT NULL,
-         %s integer NOT NULL);''' %(("Price_" + str(S_Blkchain_ID)), config['FISH']['fish_1'], config['FISH']['fish_2'], config['FISH']['fish_3'], config['FISH']['fish_4'], config['FISH']['fish_5']))
+         %s integer NOT NULL);''' %(("Price_" + str(S_Platform_Number)), config['FISH']['fish_1'], config['FISH']['fish_2'], config['FISH']['fish_3'], config['FISH']['fish_4'], config['FISH']['fish_5']))
     
     pg.commit()
 
-def create_fish_table(S_Blkchain_ID):
+def create_fish_table(S_Platform_Number):
     pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
 
@@ -59,10 +59,22 @@ def create_fish_table(S_Blkchain_ID):
          S_Goods_Number text NOT NULL,
          I_Goods_Price integer NOT NULL,
          I_Goods_Status integer NOT NULL,
-         S_Trade_Number text);''' %("Fish_" + str(S_Blkchain_ID)))
+         S_Trade_Number text);''' %("Fish_" + str(S_Platform_Number)))
 
     pg.commit()
 
-# create_sensor_table("AAA")
-# create_price_table("AAA")
-# create_fish_table("AAA")
+def create_trade_table(S_Platform_Number):
+    pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+
+    pgadmin.execute('''CREATE TABLE %s
+        (I_Trade_ID SERIAL PRIMARY KEY NOT NULL,
+         S_Customer_Account text NOT NULL,
+         S_Customer_Username text NOT NULL,         
+         S_Trade_Number text NOT NULL,
+         S_Goods_Number text NOT NULL,
+         I_Goods_Status Integer NOT NULL);''' %("Trade_" + str(S_Platform_Number)))
+
+    pg.commit()
+
+# create_trade_table("AAB")
