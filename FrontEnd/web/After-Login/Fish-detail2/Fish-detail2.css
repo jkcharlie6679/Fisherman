@@ -13,35 +13,6 @@ input{
 .Fish-title{
     width: 100%;
 }
-.Logout{
-    position: absolute;
-      display: inline-block;
-    border-radius: 50px ;
-    top: 90px;
-    right: 20px;
-    padding: 5px 20px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    -webkit-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    transition: all 0.25s ease;
-    color: rgba(255, 255, 255, 0.158);
-    text-decoration: none;
-    border: 2px solid rgba(255, 255, 255, 0.158);
-    border-radius: 50px;
-  }
-  .Logout:hover{
-    background: #fff;
-      color: black;
-      -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-     -webkit-transform: scale(1.06);
-     -ms-transform: scale(1.06);
-     -o-transform: scale(1.06);
-     transform: scale(1.06);
-  }
 .search{
     position: relative;
     margin-left: 25%;
@@ -236,7 +207,6 @@ nav ul li a:hover{
     margin-top: 3.5%;
     width: 35%;
     height: 80%;
-    border: 7px solid #ffea2d;
     background: #4268cf;
 }
 .fish-name{
@@ -266,8 +236,9 @@ nav ul li a:hover{
     width: 400px;
     height: 35px;
     top: 200px;
-    left: 55%;
+    left: 60%;
     font-size: 20px;
+    font-weight: 500px;
     background: #eeeeee;
 }
 .fishing-weight{
@@ -281,8 +252,9 @@ nav ul li a:hover{
     width: 400px;
     height: 35px;
     top: 240px;
-    left: 55%;
+    left: 60%;
     font-size: 20px;
+    font-weight: 500px;
     background: #eeeeee;
 }
 .fishing-waterdeep{
@@ -295,8 +267,9 @@ nav ul li a:hover{
     width: 400px;
     height: 35px;
     top: 280px;
-    left: 55%;
+    left: 60%;
     font-size: 20px;
+    font-weight: 500px;
     background: #eeeeee;
 }
 .fishing-temperature{
@@ -310,8 +283,9 @@ nav ul li a:hover{
     width: 400px;
     height: 35px;
     top: 320px;
-    left: 55%;
+    left: 60%;
     font-size: 20px;
+    font-weight: 500px;
     background: #eeeeee;
 }
 .fishing-ship{
@@ -325,8 +299,9 @@ nav ul li a:hover{
     width: 400px;
     height: 35px;
     top: 360px;
-    left: 55%;
+    left: 60%;
     font-size: 20px;
+    font-weight: 500px;
     background: #eeeeee;
 }
 .fishing-port{
@@ -340,7 +315,41 @@ nav ul li a:hover{
     width: 400px;
     height: 35px;
     top: 400px;
-    left: 55%;
+    left: 60%;
     font-size: 20px;
+    font-weight: 500px;
     background: #eeeeee;
 }
+
+.Logout{
+    position: absolute;
+      display: inline-block;
+    border-radius: 50px ;
+    top: 90px;
+    right: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    color: rgba(255, 255, 255, 0.158);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.158);
+    border-radius: 50px;
+  }
+  .Logout:hover{
+    background: #fff;
+      color: black;
+      -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+     -webkit-transform: scale(1.06);
+     -ms-transform: scale(1.06);
+     -o-transform: scale(1.06);
+     transform: scale(1.06);
+  }
+  .text-weight{
+      right: 50px;
+  }

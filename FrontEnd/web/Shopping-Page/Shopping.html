@@ -5,7 +5,13 @@
 	<title>Shopping</title>
     <link rel="stylesheet" href="Shopping.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    
+    <script type="text/javascript">
+        function Click(number){
+            var Goods = number.id;
+            window.sessionStorage.setItem("fish_detail",Goods);
+            window.location.replace("../fish-detail/detail.html")
+        }
+    </script>
 </head>
 <body>
 	<div class="Fish-title">
@@ -29,19 +35,19 @@
                 <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
             </div>
 
-			<a href="Shopping.html" class="title-box">
+			<a href="../Shopping-Page/Shopping.html" class="title-box">
                 <span>Fisherman</span>
             </a>
 
-		    <div class="logo"><a href="../index.html">
+            <div class="logo"><a href="../index.html">
                 <img src="../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
             </div>
             
             <div>
-                <strong><p class="fliter-title">篩選條件</p></strong>
+                <strong><p class="fliter-title">Selector</p></strong>
                 <div class="line0"></div>
 
-                <strong><p class="fliter-section">魚種</p></strong>
+                <strong><p class="fliter-section">Fishname</p></strong>
 <!----             <div>
                     <strong><p class="fliter-section-north">北部地區</p></strong>
                     <strong><p class="fliter-section-west">西部地區</p></strong>
@@ -66,16 +72,16 @@
                 <!-- <div class="line3"></div> -->
                 <form class="form" id="myForm" action="login.html" method="POST">
                 <div>
-                    <strong><p class="fliter-price">價格</p></strong>
+                    <strong><p class="fliter-price">Price</p></strong>
 
                     <div class="min2">
-                        <input type="text" id="min2" name="min" placeholder="最小值">
+                        <input type="text" id="min2" name="min" placeholder="min">
                     </div>
                     <div class="max2">
-                        <input type="text" id="max2" name="max" placeholder="最大值">
+                        <input type="text" id="max2" name="max" placeholder="max">
                     </div>
                     <div class="line4"></div>
-                    <button class="price-btn" type="submit" ><strong>應用</strong></button>
+                    <button class="price-btn" type="submit" ><strong>Apply</strong></button>
                 </div>
 
                 <!--<div>

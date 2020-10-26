@@ -11,7 +11,7 @@ input{
     width: 100%;
 }
 *{
-    font-family: Arial;
+    font-family: Century Gothic;
 } 
 .shopping-cart{
 
@@ -321,7 +321,7 @@ nav ul li a:hover{
     position: absolute;
     width: 300px;
     height: 50px;
-    margin-left: 60px;
+    margin-left: 40px;
     top: 100px;
     text-align: center;
     font-size: 40px;
@@ -424,4 +424,7 @@ nav ul li a:hover{
     width: 130px;
     height: 130px;
     padding: 10px 20px;
+}
+.product-price-text{
+    font-weight: 700;
 }

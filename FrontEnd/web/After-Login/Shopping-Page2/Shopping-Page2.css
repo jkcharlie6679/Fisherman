@@ -19,35 +19,6 @@ input{
     width: 4%;
     height: 6%;
 }
-.Logout{
-    position: absolute;
-      display: inline-block;
-    border-radius: 50px ;
-    top: 90px;
-    right: 20px;
-    padding: 5px 20px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    -webkit-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    transition: all 0.25s ease;
-    color: rgba(255, 255, 255, 0.158);
-    text-decoration: none;
-    border: 2px solid rgba(255, 255, 255, 0.158);
-    border-radius: 50px;
-  }
-  .Logout:hover{
-    background: #fff;
-      color: black;
-      -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-     -webkit-transform: scale(1.06);
-     -ms-transform: scale(1.06);
-     -o-transform: scale(1.06);
-     transform: scale(1.06);
-  }
 .navbar{
     position: absolute;
     display: flex;
@@ -257,15 +228,15 @@ nav ul li a:hover{
 }
 .fliter-price{
     position: absolute;
-    margin-top: 30%;
+    margin-top: 20%;
     margin-left: 2%;
-    font-size: 20px;
+    font-size: 24px;
 }
 #min2{
     position: absolute;
     width: 70px;
     height: 30px;
-    margin-top: 34%;
+    margin-top: 24%;
     text-align: center;
     left: 210px;
     border: #EAEAEA;
@@ -276,7 +247,7 @@ nav ul li a:hover{
     height: 30px;
     left: 90px;
     text-align: center;
-    margin-top: 34%;
+    margin-top: 24%;
     border: #EAEAEA;
 }
 .line4{
@@ -285,7 +256,7 @@ nav ul li a:hover{
     height: 1px;
     background: gray;
     left: 170px;
-    margin-top: 35%;
+    margin-top: 25%;
 }
 .price-btn{
     position: absolute;
@@ -293,7 +264,7 @@ nav ul li a:hover{
     height: 30px;
     left: 95px;
     color: #ffffff;
-    margin-top: 37%;
+    margin-top: 27%;
     background:#1c597e;
 }
 .price-btn:hover{
@@ -465,3 +436,35 @@ nav ul li a:hover{
     height: 130px;
     padding: 10px 20px;
 }
+.Logout{
+    position: absolute;
+      display: inline-block;
+    border-radius: 50px ;
+    top: 90px;
+    right: 20px;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    color: rgba(255, 255, 255, 0.158);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.158);
+    border-radius: 50px;
+  }
+  .Logout:hover{
+    background: #fff;
+      color: black;
+      -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+     -webkit-transform: scale(1.06);
+     -ms-transform: scale(1.06);
+     -o-transform: scale(1.06);
+     transform: scale(1.06);
+  }
+  .product-price-text{
+      font-weight: 700;
+  }

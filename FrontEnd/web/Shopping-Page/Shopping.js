@@ -27,33 +27,33 @@ function PriceList(money){
     money.forEach(function(money){
         switch(money.S_Fish_Name){
             case 'Mackerel':
-                photo='../images/mackerel.png';
+                photo='../images/鮪魚2.png';
                 break;
             case 'Grouper':
-                photo='../images/grouper.png';
-                break;
-            case 'Swordfish':
                 photo='../images/swordfish.png';
                 break;
+            case 'Swordfish':
+                photo='../images/tuna.png';
+                break;
             case 'Mahi_mahi':
-                photo='../images/Θ«¬Θ¡Ü2.png';
+                photo='../images/mackerel.png';
                 break;
             case 'Tuna':
-                photo='../images/tuna.png';
+                photo='../images/grouper.png';
                 break;
         }
         output+= `
-        <a href="../fish-detail/detail.html"><button class="product-list">
+        <button class="product-list" type="click" onclick="Click(this)" id="${money.S_Goods_Number}">
         <div class="product-fishname">
             <p>${money.S_Fish_Name}</p>
         </div>
         <div class="product-price">
-            <p>$價格：${money.I_Goods_price} 元(臺幣/臺斤)</p>
+            <p class="product-price-text">Price：${money.I_Goods_price} (NT$/kg)</p>
         </div>
         <div class="product-box">
             <img src="${photo}">
         </div>
-        </button></a>
+        </button>
         `
         
 });
@@ -125,3 +125,4 @@ fetch('http://140.118.121.100:5000/Customer/Goods_list',{
         PriceList(money)
       })
 });
+

@@ -1,7 +1,8 @@
 body,input{
     margin: 0;
     padding: 0;
-    background: #154360;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    text-align: center;
 }
 input{
     display: inline-block;
@@ -20,7 +21,7 @@ input{
 }
 header{
     position: relative;
-    margin-top: 100px;
+    margin-top: 50px;
     width: auto;
     height: 50px;
 }
@@ -82,13 +83,10 @@ nav ul li a:hover{
 
 .register-box{
     position: relative;
-    height: auto;
+    height: 200px;
     width: auto;
-    min-height: 1200px;
-    top: 50px;
-    margin-top: 10px;
     z-index: 99999;
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background: #154360;
     text-align: center;
 }
 .fliter-title{
@@ -115,22 +113,21 @@ nav ul li a:hover{
     position: absolute;
     width: 300px;
     height: 50px;
-    margin-left: 40px;
-    margin-top: -15px;
-    text-align: center;
+    left: 50px;
+    top: 130px;
     font-size: 40px;
     font-weight: 800;
     color: #ffffff;
     line-height: 50px;
     text-decoration: none;
-}
-.logo{
-    position: absolute;
+  }
+  .logo{
+    position: relative;
     width: 25px;
     display: flex;
-    margin-left: 30px;
-    margin-top: -15px;
-}
+    left: 30px;
+    top: 130px;
+  }
 
 .FisherName{
 	position: absolute;
@@ -173,7 +170,7 @@ nav ul li a:hover{
 
 .OrderFinish-text{
     width: 300px;
-    left: 600px;
+    display: inline-block;
     position: relative;
     text-align: center;
     border-radius:50px ;
@@ -189,6 +186,7 @@ nav ul li a:hover{
     width: 100px;
     height: 30px;
     right: 20px;
+    top: 80px;
     padding: 5px 20px;
     text-align: center;
     font-size: 24px;

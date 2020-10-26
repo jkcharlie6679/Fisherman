@@ -23,13 +23,14 @@ function PriceList(money){
     money.forEach(function(money){
         output+= `
         <tr>
+          <td><button class="fishbutton" onclick="Click(this)" id="${money.S_Fish_Hash_Code}"><img src="../../images/key.png"></button></td>
           <td>${money.S_Goods_Number}</td>
           <td>${money.S_Fish_Name}</td>
           <td><img src="../../images/${ChooseFish(money.S_Fish_Name)}"></td>
-          <td>${money.S_Fish_Weight}</td>
-          <td>${money.S_Fish_Length}</td>
+          <td>${money.S_Fish_Weight} kg</td>
+          <td>${money.S_Fish_Length} m</td>
           <td>${money.S_Fish_Datetime}</td>
-          <td>${money.I_Goods_price}</td>
+          <td>$${money.I_Goods_price}</td>
           <td><input type="checkbox" name="Fishname" id="Fishname" value="${money.S_Goods_Number}"></td>
         </tr>`
         
@@ -69,14 +70,15 @@ function ChooseFish(Fishclassify){
 
 myForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  var form = document.getElementById("myForm");
+  const form = document.getElementById("myForm");
   
   let Good ;
-  for(var i=0;i<form.Fishname.length;i++){
-      if(form.Fishname[i].checked){
-        Good = form.Fishname[i].value
+  for(var i=0;form.Fishname.length >= i;i++){
+      if(form.Fishname[i].checked == true){
+        Good = form.Fishname[i].value;
+        console.log(form.Fishname[i].value);
         sendGood(Good);
-      }
+      } 
   } 
 });
 
@@ -106,20 +108,25 @@ fetch('http://140.118.121.100:5000/Seller/Put_Shelf',{
     Push(goods)
   })
 }
-var count = 0;
+
 function Push(goods){
+  var count = 0;
   let status = goods.S_Put_Shelf_Status;
   if(status == '0'){
-    if(count == 0){
-      swal("Success", "登入成功!系統將自動跳轉", "success", {timer: 2000,
-        showConfirmButton: false});  
+    if(count == 0){  
+      swal("Success", "下架成功", "success", {timer: 2000,
+        showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('UnShelves.html');
-      },2000);
+      },1000);
   }
   }
   else{
-    alert('上架失敗，查無魚種');
+    swal("Fail", "找不到漁貨", "error", {timer: 2000,
+      showConfirmButton: false});
+    setTimeout(function(){
+      window.location.replace('UnShelves.html');
+    },2000);
   }
 }
 

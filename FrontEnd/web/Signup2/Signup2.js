@@ -52,7 +52,8 @@
 
     if(status == '0')
     { 
-        alert('註冊成功，驗證碼已寄送至您的信箱，請點擊驗證表格認證您的信箱')
+        swal("Success", "Sign up successfully", "success", {timer: 2000,
+        showConfirmButton: false});
         myVerify.addEventListener('submit',function Verify(e){
         e.preventDefault();
     
@@ -79,20 +80,24 @@
             })
         }
         else{
-          alert('驗證碼錯誤')
+          swal("Failed", "Verify Code is wrong", "error", {timer: 2000,
+            showConfirmButton: false});
         }})
     }
     else if(status == '1'){
       console.log("Account existed");
-      alert('帳號已有人使用')
+      swal("Warning", "Email has been used", "error", {timer: 2000,
+        showConfirmButton: false});
     }
     else if(status == '2'){
       console.log("Username existed");
-      alert('暱稱已有人使用')
+      swal("Warning", "Username has been used", "error", {timer: 2000,
+        showConfirmButton: false});
     }
     else if(status == '3'){
       console.log("Account and Username existed");
-      alert('帳號及暱稱皆已有人使用')
+      swal("Warning", "Email and username have been used", "error", {timer: 2000,
+        showConfirmButton: false});
     }
   }
 
@@ -100,12 +105,14 @@
     let VerifyStatus = user.S_Customer_Verify_Status;
 
     if(VerifyStatus == '0'){
-        alert('驗證通過，點擊確認後，5秒後畫面將自動跳轉')
+        swal("Success", "Verify successfully", "success", {timer: 3000,
+        showConfirmButton: false});
         setTimeout(function(){
           window.location.replace('../login/login.html')
         },3000);
     }
     else if(VerifyStatus == '1'){
-      alert('此帳號不存在')
+      swal("Warning", "The email doesn't exist", "error", {timer: 2000,
+        showConfirmButton: false});
     }
   }

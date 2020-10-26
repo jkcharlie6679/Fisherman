@@ -44,22 +44,22 @@ function render(data){
     if(market == '0')
     {
       window.sessionStorage.setItem("Fisherman_account",data.S_Seller_Account);
-      swal("Success", "登入成功!系統將自動跳轉", "success", {timer: 3000,
+      swal("Success", "Login Successfully！", "success", {timer: 1500,
         showConfirmButton: false});
       window.sessionStorage.setItem("Fisherman", data.S_Seller_Username);
       setTimeout(function(){
         window.location.replace('../After-Login-Seller/Shelves/Shelves.html');
-      },3000);
+      },1500);
       
     }
     else if(market == '1'){
       console.log("Incorrect Password");
-      swal("Fail", "密碼錯誤!", "error", {timer: 2000,
+      swal("Fail", "Incorrect Password!", "error", {timer: 3000,
         showConfirmButton: false});
     }
     else if(market == '2'){
       console.log("Account does not exist");
-      swal("Fail", "此帳號不存在!", "error", {timer: 2000,
+      swal("Fail", "Account does not exist!", "error", {timer: 3000,
         showConfirmButton: false});
     }
 

@@ -1,7 +1,8 @@
 body,input{
     margin: 0;
     padding: 0;
-    background: #154360;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    text-align: center;
 }
 input{
     display: inline-block;
@@ -16,7 +17,7 @@ input{
 
 header{
     position: relative;
-    margin-top: 100px;
+    margin-top: 50px;
     width: auto;
     height: 50px;
 }
@@ -78,14 +79,10 @@ nav ul li a:hover{
 
 .register-box{
     position: relative;
-    height: auto;
+    height: 200px;
     width: auto;
-    text-align: center;
-    min-height: 1200px;
-    top: 50px;
-    margin-top: 10px;
     z-index: 99999;
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background: #154360;
 }
 .fliter-title{
     position: absolute;

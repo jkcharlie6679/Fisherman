@@ -6,11 +6,16 @@
 	</title>
 	<link rel="stylesheet" href="UnShelves.css" type="text/css">
 	<link rel="stylesheet" href="UnShelves2.css" type="text/css">
-    <link rel="stylesheet" href="table.css" type="text/css">
+	<link rel="stylesheet" href="table.css" type="text/css">
+	<script type="text/javascript">
+		function Click(number){
+			swal("Hash Code", JSON.stringify(number.id))
+		}	
+	</script>
 </head>
 <body>
-	<div class="Fish-title">
-	
+		<div class="register-box">
+            	
 			<div class="contact">
                 <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
 			</div>
@@ -18,8 +23,8 @@
 			<a href="../Shelves/Shelves.html" class="title-box">
                 <span>Fisherman</span>
             </a>
-			<div class="logo">
-				<img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50">
+			<div class="logo"><a href="../../index.html">
+				<img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
 			</div>
 
 			
@@ -36,50 +41,50 @@
 			</div>
 			<div id="Logout" type="click" class="Logout">Logout</div>
 		</div>
-		<div class="register-box">
-            
-			<header>
-				<div class="navbar"> 
-					<nav>
-						<ul>
-							<li><a href="../Shelves/Shelves.html">漁貨已上架</a></li>
-							<li><a href="UnShelves.html">漁貨未上架</a></li>
-							<li><a href="../OrderStatus/OrderStatus.html">訂單狀態</a></li>
-							<li><a href="../OrderFinish/OrderFinish.html">訂單已完成</a></li>
-							<li><a href="../SetFishPrice/SetFishPrice.html">設定漁貨價格</a></li>
-						</ul>
-					</nav>
-				</div>
-				</header>
 
-			<!-- Contenedor -->
-			
-			<div class="pricing-wrapper">
-			
-			<form class="form" id="myForm" action="login.html" method="POST">
-			<table id="myForm">
-                <thead>
-                  <tr>
-                    <th>商品編號</th>
-                    <th>魚種</th>
-                    <th>圖示</th>
-                    <th>重量</th>
-                    <th>長度</th>
-                    <th>補獲時間</th>
-					<th>價格</th>
-					<th>上架</th>
-                  </tr>
-                </thead>
-                <tbody id="output">
-				</tbody>
-			</table>
-				<div class="submit-box">
-					<button id = "submit-button" type="submit" value="送出">上架</button>
-				</div>
-			</form>
-			 </div> 
+		<div class="Fish-title">
+		<header>
+			<div class="navbar"> 
+				<nav>
+					<ul>
+						<li><a href="../Shelves/Shelves.html">Shelves</a></li>
+						<li><a href="UnShelves.html">UnShelves</a></li>
+						<li><a href="../OrderStatus/OrderStatus.html">Order Status</a></li>
+						<li><a href="../OrderFinish/OrderFinish.html">Order Finish</a></li>
+						<li><a href="../SetFishPrice/SetFishPrice.html">Set Fish Price</a></li>
+					</ul>
+				</nav>
+			</div>
+			</header>
+
+		<!-- Contenedor -->
+		
+		<div class="pricing-wrapper">
+		
+		<form class="form" id="myForm" action="login.html" method="POST">
+		<table id="myForm">
+			<thead>
+			  <tr>
+				<th>Hash Code</th>
+				<th>Product ID</th>
+				<th>Species</th>
+				<th>Photo</th>
+				<th>Weight</th>
+				<th>Length</th>
+				<th>Capture Time</th>
+				<th>Price</th>
+				<th>On the shelf</th>
+			  </tr>
+			</thead>
+			<tbody id="output">
+			</tbody>
+		</table>
+			<div class="submit-box">
+				<button id = "submit-button" type="submit" value="送出">On the shelf</button>
+			</div>
+		</form>
+		 </div> 
 </div>
-
 </body>
 <script src="UnShelves.js"></script>
 <script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>

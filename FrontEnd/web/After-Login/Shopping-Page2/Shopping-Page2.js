@@ -43,22 +43,24 @@ function PriceList(money){
                 break;
         }
         output+= `
-        <a href="../Fish-detail2/Fish-detail2.html"><button class="product-list">
+        <button class="product-list" type="click" onclick="Click(this)" id="${money.S_Goods_Number}">
         <div class="product-fishname">
             <p>${money.S_Fish_Name}</p>
         </div>
         <div class="product-price">
-            <p>$價格：${money.I_Goods_price} 元(臺幣/臺斤)</p>
+            <p class="product-price-text">Price：${money.I_Goods_price} (NT$/kg)</p>
         </div>
         <div class="product-box">
             <img src="${photo}">
         </div>
-        </button></a>
+        </button>
         `
         
 });
    document.getElementById('output').innerHTML = output;
 }
+
+
 
 const myForm = document.getElementById('myForm');
 myForm.addEventListener('submit', function (e) {
