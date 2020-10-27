@@ -13,7 +13,7 @@ def price_change(S_Platform_Number, price1, price2, price3, price4, price5):
     data_db = pgadmin.fetchall()
 
     for raw in data_db:
-        if(raw[13] == 0 | raw[13] == 1):
+        if((raw[13] == 0) | (raw[13] == 1)):
             if(raw[2] == "Tuna"):
                 pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE S_Fish_Name = 'Tuna';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price1))))
             elif(raw[2] == "Swordfish"):
