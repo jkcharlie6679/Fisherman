@@ -22,19 +22,19 @@ function PriceList(money){
     money.forEach(function(money){
         switch(money.S_Fish_Name){
             case 'Mackerel':
-                photo='../../images/鮪魚2.png';
-                break;
-            case 'Grouper':
-                photo='../../images/swordfish.png';
-                break;
-            case 'Swordfish':
-                photo='../../images/tuna.png';
-                break;
-            case 'Mahi_mahi':
                 photo='../../images/mackerel.png';
                 break;
-            case 'Tuna':
+            case 'Grouper':
                 photo='../../images/grouper.png';
+                break;
+            case 'Swordfish':
+                photo='../../images/swordfish.png';
+                break;
+            case 'Mahi_mahi':
+                photo='../../images/Θ«¬Θ¡Ü2.png';
+                break;
+            case 'Tuna':
+                photo='../../images/tuna.png';
                 break;
         }
         output+= ` 

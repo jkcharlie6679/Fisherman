@@ -136,16 +136,7 @@ h1{
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
-.login-inputs h1:hover{
-  padding: 10px 20px;
-  border-radius: 50px;
-  -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
- -webkit-transform: scale(1.06);
- -ms-transform: scale(1.06);
- -o-transform: scale(1.06);
- transform: scale(1.06);
-}
+
 .login-inputs form{
 	background-color: #23243c;
 	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);

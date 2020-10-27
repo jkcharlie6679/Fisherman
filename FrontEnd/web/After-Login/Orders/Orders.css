@@ -5,7 +5,6 @@ body,input{
     margin: 0;
     padding: 0;
     background: #154360;
-    font-family: 'Roboto', sans-serif;
 }
 input{
     display: inline-block;
@@ -110,7 +109,7 @@ nav ul li a:hover{
     top: 50px;
     margin-top: 170px;
     z-index: 99999;
-    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background: rgb(125, 177, 255);
 }
 .contact{
     position: absolute;
@@ -234,11 +233,10 @@ h1{
     clear: left;
     text-align: center;
     font-size: 10px;
-    font-family: arial;
     color: #fff;
   }
   .made-with-love i {
-    font-style: normal;
+
     color: #F50057;
     font-size: 14px;
     position: relative;

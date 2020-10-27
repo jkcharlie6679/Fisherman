@@ -23,7 +23,7 @@ function PriceList(money){
     money.forEach(function(money){
         output+= `
         <tr>
-          <td><button class="fishbutton" onclick="Click(this)" id="${money.S_Fish_Hash_Code}"><img  src="../../images/key.png"></button></td>
+          <td><button class="fishbutton" onclick="Click(this)" id="${money.S_Goods_Number}"><img src="../../images/blockchain.png"></button></td>
           <td>${money.S_Goods_Number}</td>
           <td>${money.S_Fish_Name}</td>
           <td><img src="../../images/${ChooseFish(money.S_Fish_Name)}"></td>
@@ -32,18 +32,53 @@ function PriceList(money){
           <td>${money.S_Fish_Datetime}</td>
           <td>$${money.I_Goods_price}</td>
           <td><input type="checkbox" name="Fishname" id="Fishname" value="${money.S_Goods_Number}"></td>
-        </tr>`        
+        </tr>`   
+         
+            
 });
    document.getElementById('output').innerHTML = output;
 }
 
+function Click(number){
+  window.sessionStorage.setItem("SellFishDetail",number.id)
+  fetch('http://140.118.121.100:5000/Customer/Goods_detail',{
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json, text/plain',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "S_Goods_Number":window.sessionStorage.getItem("SellFishDetail")
+    })
+    }).then(response => {
+        return response.json()
+        }
+    )
+    .then( (data) =>{
+        showdata(data)
+    })
+
+  
+}	
+function showdata(data){
+  Swal.fire({
+      title: data.S_Fish_Name, 
+      html: 'Hash Code  :  '+data.S_Fish_Hash_Code+'<br>Fish Weight  :  '+data.S_Fish_Weight+'kg<br>'+'Fish Length  :  '+data.S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(data.S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  X='+data.S_Fish_Location_X+',Y='+data.S_Fish_Location_Y+'<br>'+'Fish Depth  :  '+data.S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+data.S_Fish_Temperature+'°C<br>',
+      imageUrl:'../../images/'+ChooseFish(data.S_Fish_Name), 
+  },
+  function(){
+      var element =document.getElementById("register-box");
+      element.style.background = "#154360";
+});
+}
+
 
 function ChooseFish(Fishclassify){
-  let SwordfishPicture = 'swordfish.png';
-  let MackerelPicture = 'mackerel.png';
-  let TunaPicture = 'tuna.png';
-  let GrouperPicture = 'grouper.png';
-  let MahiMahiPicture = 'Θ«¬Θ¡Ü2.png';
+  let SwordfishPicture = 'swordfish(2).png';
+  let MackerelPicture = 'mackerel(2).png';
+  let TunaPicture = 'tuna(2).png';
+  let GrouperPicture = 'grouper(2).png';
+  let MahiMahiPicture = 'Θ«¬Θ¡Ü2(2).png';
 
   if(Fishclassify == 'Swordfish'){
     return SwordfishPicture; 
@@ -134,3 +169,4 @@ Logout.addEventListener('click', function change(){
     window.sessionStorage.clear();
     window.location.replace("../../Login-Seller/Login-Seller.html");
 })
+

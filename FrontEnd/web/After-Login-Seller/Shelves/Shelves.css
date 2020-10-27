@@ -37,7 +37,7 @@ nav ul{
 }
 nav ul li{
     display: inline-block;
-    width: 240px;
+    width: 180px;
     height: 40px;
     line-height: 40px;
     margin-right: 5px;
@@ -79,7 +79,7 @@ nav ul li a:hover{
 
 .register-box{
     position: relative;
-    height: 200px;
+    height: 150px;
     width: auto;
     z-index: 99999;
     background: #154360;

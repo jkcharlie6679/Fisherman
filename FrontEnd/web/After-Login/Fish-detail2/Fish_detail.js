@@ -1,3 +1,39 @@
+function buy(number)
+{
+fetch('http://140.118.121.100:5000/Customer/Add/Shop_Cart',{
+method: 'POST',
+headers: {
+    'Accept': 'application/json, text/plain',
+    'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+    "S_Customer_Username":window.sessionStorage.getItem("Username"),
+    "S_Goods_Number": number.name
+})
+}).then(response => {
+    return response.json()
+    })
+    .then( (res) =>{
+        if(res.S_Cart_Add_Status==0){
+            Swal.fire({
+                icon: 'success',
+                title: 'Add success!',
+                text: number.id+' is add to your cart',
+                timer: 2000,
+              })
+              setTimeout(function(){
+                window.location.replace('../Purchase/Purchase.html');
+              },2000);
+        }
+        else if(res.S_Cart_Add_Status==1){
+            Swal.fire({
+                icon: 'error',
+                title: 'Add fail!',
+                text: number.id+' is already in your cart',
+              })
+        }
+      })
+}
 function add_cart(number)
 {
 fetch('http://140.118.121.100:5000/Customer/Add/Shop_Cart',{
@@ -102,10 +138,7 @@ function PriceList(money){
             <p class="fishing-port"><strong>Capture Time</strong>
                 <div class="fishong-port-box">${new Date(money.S_Fish_Datetime).toLocaleString('zh-TW',{timeZone: 'Asia/Taipei'})}</div>
             </p>
-
-            <a href="../Purchase/Purchase.html" class="purchase">
-                <button id = "purchase" type="button" ><strong>Purchase</strong></button>
-            </a>     
+            <button type="button" id = "purchase" type="click" onclick="buy(this)" name="${money.S_Goods_Number}"><strong>Purchase</strong></button>
                 <button type="button" id = "purchase-car" type="click" onclick="add_cart(this)" name="${money.S_Goods_Number}"><strong>Add to cart</strong></button>
         </div>
         `    
