@@ -1050,7 +1050,7 @@ def seller_trade_list_fin():
 
 @app.route(config['ROUTER']['app_router_Customer'] + '/Trade_list_nonfin', methods = ['POST'])
 @cross_origin()
-def customer_trade_list():
+def customer_trade_list_nonfin():
     data_out = []
     request_data = request.get_json()
     pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
@@ -1085,7 +1085,7 @@ def customer_trade_list():
 
 @app.route(config['ROUTER']['app_router_Customer'] + '/Trade_list_fin', methods = ['POST'])
 @cross_origin()
-def customer_trade_list():
+def customer_trade_list_fin():
     data_out = []
     request_data = request.get_json()
     pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
