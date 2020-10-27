@@ -77,5 +77,5 @@ def create_trade_table(S_Platform_Number):
 
     pg.commit()
 
-create_trade_table("AAB")
+# create_trade_table("AAB")
 # create_price_table("AAB")

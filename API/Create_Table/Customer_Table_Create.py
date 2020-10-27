@@ -40,5 +40,5 @@ def create_trade_table(S_Customer_Username):
 
     pg.commit()
 
-create_trade_table("Charlie")
+# create_trade_table("Charlie")
 # create_cart_table("Charlie")

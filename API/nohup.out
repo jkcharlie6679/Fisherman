@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "api.py", line 9, in <module>
+    from Create_Table.Fisherman_Table_Create import create_price_table, create_sensor_table, create_fish_table, create_trade_table
+  File "/home/zhongyu/Fisherman/API/Create_Table/Fisherman_Table_Create.py", line 80, in <module>
+    create_trade_table("AAB")
+  File "/home/zhongyu/Fisherman/API/Create_Table/Fisherman_Table_Create.py", line 76, in create_trade_table
+    I_Goods_Status Integer NOT NULL);''' %("Trade_" + str(S_Platform_Number)))
+psycopg2.errors.DuplicateTable: relation "trade_aab" already exists
+
