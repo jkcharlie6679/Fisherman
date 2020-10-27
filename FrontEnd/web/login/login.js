@@ -39,28 +39,30 @@ function render(data){
 
     if(market == '0')
     {
-      swal("Success", "Login Successfully！", "success", {timer: 1500,
+      swal("Success", "登入成功!系統將自動跳轉", "success", {timer: 3000,
         showConfirmButton: false});
       window.sessionStorage.setItem("Username", data.S_Customer_Username);
+      window.sessionStorage.setItem("Account", data.S_Customer_Account);
       setTimeout(function(){
-        window.location.replace('../After-Login/Shopping-Page2/Shopping-Page2.html');
-      },1500);
+        window.location.replace('../After-Login/HomePage2/HomePage2.html');
+      },3000);
     }
     else if(market == '1'){
       console.log("Please Verify your email account");
-      swal("Please Verify", "Please verify your account first!", "warning", {timer: 3000,
+      swal("Please Verify", "請先至您的信箱驗證您的帳號!", "warning", {timer: 2000,
         showConfirmButton: false});
     }
     else if(market == '2'){
       console.log("Incorrect Password");
-      swal("Fail", "Incorrect Password!", "error", {timer: 3000,
+      swal("Fail", "密碼錯誤!", "error", {timer: 2000,
         showConfirmButton: false});
     }
     else if(market == '3'){
       console.log("Account does not exist");
-      swal("Fail", "Account does not exist!", "error", {timer: 3000,
+      swal("Fail", "此帳號不存在!", "error", {timer: 2000,
         showConfirmButton: false});
     }
 
 }
+
 
