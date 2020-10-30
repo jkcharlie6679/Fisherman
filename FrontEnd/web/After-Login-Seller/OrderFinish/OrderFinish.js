@@ -110,18 +110,12 @@ function ChooseFish(Fishclassify){
 
 function SelectStatus(status){
   //0為上架 1以上價 2售出未完成 3售出完成
-  let prepare = "order.png";
-  let finish = "delivered.png"
-  if(status =='2'){
-    return prepare
-  }
-  else if(status == '3'){
-    return finish
-  }
+  let prepare = "delivered.png";
+  return prepare
 }
 
 function DisplayGoodsNumber(Goodsnumber){
-  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block; border:none;'>"+Goodsnumber[0]+"</br>";
+  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' >"+Goodsnumber[0]+"</br>";
   for(var i=0;i<=Goodsnumber.length-2;i++){
      count = count + "<button onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
   }

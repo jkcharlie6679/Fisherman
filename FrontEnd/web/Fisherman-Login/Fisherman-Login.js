@@ -34,7 +34,7 @@ function render(data){
 
     if(market == '0')
     {
-      swal("Success", "Login Successfully！", "success", {timer: 1500,
+      swal("Success", "Login Successfully！", "success", {timer: 1000,
         showConfirmButton: false});
       setTimeout(function(){
         window.location.replace('../Fishermen_center_console/home.html');
