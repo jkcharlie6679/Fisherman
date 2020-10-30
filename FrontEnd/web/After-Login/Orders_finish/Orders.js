@@ -1,8 +1,4 @@
-const Logout = document.getElementById('Logout');
-Logout.addEventListener('click', function change(){
-    window.sessionStorage.clear();
-    window.location.replace("../../login/login.html");
-})
+
 
 
 /*-----fetch API-----*/ 
@@ -29,6 +25,9 @@ Logout.addEventListener('click', function change(){
 function PriceList(order){    
   let output = ``;
   order.forEach(function(order){
+    if(order.S_Goods_Status==2){
+        Status==''
+    }
       output+= `
       <tr>
         <td>xxx</td>
@@ -121,7 +120,7 @@ function SelectStatus(status){
 }
 
 function DisplayGoodsNumber(Goodsnumber){
-  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block; '>"+Goodsnumber[0]+"</br>";
+  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block; border:none;'>"+Goodsnumber[0]+"</br>";
   for(var i=0;i<=Goodsnumber.length-2;i++){
      count = count + "<button onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
   }

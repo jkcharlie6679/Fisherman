@@ -23,7 +23,7 @@ myForm.addEventListener('submit', function (e) {
   .then( (data) =>{
     if(data.S_Fisherman_Login_Log=="Login success"){
         window.location.replace('../admin_page/admin.html')
-        window.sessionStorage.setItem("Username", data.S_Fishman_Account);
+        window.sessionStorage.setItem("admin", data.S_Fisherman_Username);
       }
     else{
         alert('account or password incorrect')

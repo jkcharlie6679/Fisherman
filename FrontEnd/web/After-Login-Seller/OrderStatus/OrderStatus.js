@@ -2,9 +2,8 @@
 const Logout = document.getElementById('Logout');
 Logout.addEventListener('click', function change(){
     window.sessionStorage.clear();
-    window.location.replace("../../Login-Seller/Login-Seller.html");
+    window.location.replace("../../login/login.html");
 })
-
 /*-----fetch API-----*/ 
 
 let Account = window.sessionStorage.getItem("Fisherman_account");

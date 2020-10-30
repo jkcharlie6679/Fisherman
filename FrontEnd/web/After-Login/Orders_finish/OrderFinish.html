@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SetFishPrice
+	</title>
+    <link rel="stylesheet" href="OrderFinish.css" type="text/css">
+    <link rel="stylesheet" href="Wrapper.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+		<div class="register-box">
+            	
+			<div class="contact">
+        <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
+      </div>
+
+      <a href="../Shopping-Page2/Shopping-Page2.html" class="title-box">
+        <span>Fisherman</span>
+      </a>
+      <div class="logo"><a href="../../index.html">
+        <img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
+      </div>
+
+      <div class="FisherName">
+          <img src="../../images/user-profile.png"><a href="#" id="Username"></a>
+
+      <script>
+      if (window.sessionStorage.getItem("Username")==null) {
+              window.location.replace("../../login/login.html")
+          }
+      else{
+          document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username");
+      }
+    </script>  
+      </div>
+
+<div id="Logout" type="click" class="Logout">Logout</div>
+
+        </div>
+<!---------------------------------------------->
+<div class="Fish-title">
+        <header>
+          <div class="navbar"> 
+            <nav>
+              <ul>
+                <li><a href="../Orders/Orders.html">Order Status</a></li>
+                <li><a href="OrderFinish.html" style="color: #6ebff2;">Order Finish </a></li>
+              </ul>
+            </nav>
+          </div>
+          </header>
+              <p class="OrderFinish-text">Order Finish</p>
+              <!-- Contenedor -->
+              <table>
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Trade ID</th>
+                      <th>Product ID</th>
+                      <th>Quantity</th>
+                      <th>Status</th>
+                      <th>Total</th>
+                      <th>Address</th>
+                    </tr>
+                  </thead>
+                  <tbody id="output">
+                  </tbody>
+                </table>
+
+
+</body>
+<script src="OrderFinish.js"></script>
+</html>

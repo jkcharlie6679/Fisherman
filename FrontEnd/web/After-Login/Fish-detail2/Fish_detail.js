@@ -138,6 +138,9 @@ function PriceList(money){
             <p class="fishing-port"><strong>Capture Time</strong>
                 <div class="fishong-port-box">${new Date(money.S_Fish_Datetime).toLocaleString('zh-TW',{timeZone: 'Asia/Taipei'})}</div>
             </p>
+            <p class="fishing-hash"><strong>Hash code</strong>
+                <div class="fishong-hash-box" style="word-wrap:break-all;">${money.S_Fish_Hash_Code}</div>
+            </p>
             <button type="button" id = "purchase" type="click" onclick="buy(this)" name="${money.S_Goods_Number}"><strong>Purchase</strong></button>
                 <button type="button" id = "purchase-car" type="click" onclick="add_cart(this)" name="${money.S_Goods_Number}"><strong>Add to cart</strong></button>
         </div>
@@ -151,3 +154,4 @@ Logout.addEventListener('click', function change(){
     window.sessionStorage.clear();
     window.location.replace("../../Shopping-Page/Shopping.html");
 })
+

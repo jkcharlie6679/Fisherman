@@ -37,6 +37,7 @@ function render(data){
       swal("Success", "Login Successfully！", "success", {timer: 1500,
         showConfirmButton: false});
       setTimeout(function(){
+        window.sessionStorage.setItem("fishermen", data.S_Fisherman_Username);
         window.location.replace('../Fishermen_center_console/home.html');
       },1500);
     }
