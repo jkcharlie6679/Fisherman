@@ -325,7 +325,7 @@ def fish_list():
         data_json["S_Fish_Location_X"] = raw[7]
         data_json["S_Fish_Location_Y"] = raw[8]
         data_json["S_Fish_Depth"] = raw[9]
-        data_json["S_Fish_Temperature"] = raw[11]
+        data_json["S_Fish_Temperature"] = raw[10]
         data_out.append(data_json)
     
     return json.dumps(data_out), 200
@@ -980,7 +980,7 @@ def seller_trade_list_nonfin():
     pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + str(S_Platform_Number)))
     data_db = pgadmin.fetchall()
     for raw in data_db:
-        if(raw[5] == 4):
+        if((raw[5] == 2) | (raw[5] == 3)):
             S_Goods_Number = str(raw[4][1 : len(list(raw[4])) - 1]).split(",")
             data_json = {}
             data_json["S_Customer_Account"] = raw[1]
@@ -1023,7 +1023,7 @@ def seller_trade_list_fin():
     pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + str(S_Platform_Number)))
     data_db = pgadmin.fetchall()
     for raw in data_db:
-        if((raw[5] == 2) | (raw[5] == 3)):
+        if(raw[5] == 4):
             S_Goods_Number = str(raw[4][1 : len(list(raw[4])) - 1]).split(",")
             data_json = {}
             data_json["S_Customer_Account"] = raw[1]
@@ -1116,5 +1116,65 @@ def customer_trade_list_fin():
             data_out.append(data_json)
 
     return json.dumps(data_out)
+
+
+@app.route(config['ROUTER']['app_router_Seller'] + '/Trade_Deal', methods = ['POST'])
+@cross_origin()
+def seller_trade_deal():
+    request_data = request.get_json()
+    data_json = {}
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('SELECT * FROM Fisherman_Account')
+    data_db = pgadmin.fetchall()
+
+    for raw in data_db:
+        if(request_data["S_Seller_Account"] == raw[1]):
+            S_Platform_Number = raw[16]
+ 
+    if(request_data["S_Goods_Deal"] == "0"):
+        pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '2' WHERE S_Trade_Number = '%s' ''' %(("Trade_" + str(S_Platform_Number)), request_data["S_Trade_Number"]))
+        pg.commit()
+        pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '2' WHERE S_Trade_Number = '%s' ''' %(("Trade_" + str(request_data["S_Customer_Username"])), request_data["S_Trade_Number"]))
+        pg.commit()
+        pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '2' WHERE S_Trade_Number = '%s' ''' %(("Fish_" + str(S_Platform_Number)), request_data["S_Trade_Number"]))
+        pg.commit()
+    elif(request_data["S_Goods_Deal"] == "1"):
+        pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '3' WHERE S_Trade_Number = '%s' ''' %(("Trade_" + str(S_Platform_Number)), request_data["S_Trade_Number"]))
+        pg.commit()
+        pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '3' WHERE S_Trade_Number = '%s' ''' %(("Trade_" + str(request_data["S_Customer_Username"])), request_data["S_Trade_Number"]))
+        pg.commit()
+        pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '3' WHERE S_Trade_Number = '%s' ''' %(("Fish_" + str(S_Platform_Number)), request_data["S_Trade_Number"]))
+        pg.commit()
+    elif(request_data["S_Goods_Deal"] == "2"):
+        pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '4' WHERE S_Trade_Number = '%s' ''' %(("Trade_" + str(S_Platform_Number)), request_data["S_Trade_Number"]))
+        pg.commit()
+        pg = psycopg2.connect(database = config['POSTGRES']['platform_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '4' WHERE S_Trade_Number = '%s' ''' %(("Trade_" + str(request_data["S_Customer_Username"])), request_data["S_Trade_Number"]))
+        pg.commit()
+        pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+        pgadmin = pg.cursor()
+        pgadmin.execute('''UPDATE %s SET I_Goods_Status = '4' WHERE S_Trade_Number = '%s' ''' %(("Fish_" + str(S_Platform_Number)), request_data["S_Trade_Number"]))
+        pg.commit()
+
+    data_json["S_Trade_Status"] = "1"
+    data_json["S_Trade_Log"] = "Success"
+    return json.dumps(data_json)
+
 
 app.run(host='0.0.0.0', debug=True )
