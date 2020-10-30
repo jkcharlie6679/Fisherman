@@ -28,9 +28,18 @@
 				<img src="../img/fish_logo.png" style=" float: left;" width="50" height="50">Fisherman</a>
 			</a>	
 		</div>
-		<div id = account style="color: white; font-size: 12px;" >
-			<p style="float: right; margin-top: -55px;" >b10702124@gapps.ntust.edu.tw</p>
-		</div>
+		<div class="FisherName">
+			<img src="../images/user-profile.png" style="float: right; margin-top: -55px; margin-right: 280px;" width="40" height="40"><a href="#" id="admin" style="float: right; margin-top: -45px; margin-right: 230px; color: white;"></a>
+  		<div id="Logout" type="click" class="Logout" style="float: right; margin-top: -55px; margin-right: 50px;">Logout</div>
+			
+		<script>
+		if (window.sessionStorage.getItem("admin")==null) {
+				window.location.replace("../login_admin/login.html")
+			}
+		else{
+			document.getElementById("admin").innerHTML= window.sessionStorage.getItem("admin");
+		}
+	  </script>  
 	</header>
     <div id='main'>
 		<signup>
@@ -73,7 +82,7 @@
 				  <div class="S_Fishman_Company_Serial-box">
 					<label for="S_Fishman_Company_Serial">公司行號：</label>
 					<div class="S_Fishman_Company_Serial-input">
-					  <input type="text" id="S_Fishman_Company_Serial" name="S_Fishman_Company_Serial" placeholder="請再次輸入密碼" required/>
+					  <input type="text" id="S_Fishman_Company_Serial" name="S_Fishman_Company_Serial" placeholder="請輸入公司行號" required/>
 					</div>
 				  </div>
 				  
@@ -167,12 +176,12 @@
 			<li>
 				<a href="#" onclick="Customer_list(); return false;">客戶資訊</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#" onclick="order(); return false;">訂單資訊</a>
 			</li>
 			<li>
 				<a href="#" onclick="kind(); return false;">新增魚種</a>
-			</li>
+			</li> -->
 		</ul>
 	</select_bar>
     </div>

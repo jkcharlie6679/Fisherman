@@ -5,10 +5,11 @@ Logout.addEventListener('click', function change(){
 })
 
 
+
 /*-----fetch API-----*/ 
 
-
-    fetch('http://140.118.121.100:5000/Customer/Trade_list_nonfin',{
+let Account = window.sessionStorage.getItem("Fisherman_account");
+    fetch('http://140.118.121.100:5000/Customer/Trade_list_fin',{
       method: 'POST',
       headers: {
         'Accept': 'application/json, text/plain',
@@ -35,7 +36,7 @@ function PriceList(order){
         <td>${order.S_Trade_Number}</td>
         <td>${DisplayGoodsNumber(order.S_Goods_Number)}</td>
         <td>${order.S_Goods_Quantity}</td>
-        <td><img src="../../images/OrderStatus/${SelectStatus(order.S_Goods_Status)}" width="50" height="50"></td>
+        <td><img src="../../images/OrderStatus/delivered.png" width="68" height="50"></td>
         <td>${order.I_Goods_Total}</td>
         <td>${order.S_Trade_Address}</td>
       </tr>`   
@@ -107,21 +108,9 @@ function ChooseFish(Fishclassify){
 
 }
 
-function SelectStatus(status){
-  //0為上架 1以上價 2售出未完成 3售出完成
-  let prepare = "order.png";
-  let deliverd = "delivered.png"
-  if(status =='2'){
-    return prepare
-  }
-  else if(status =='3'){
-    return deliverd
-  }
-
-}
 
 function DisplayGoodsNumber(Goodsnumber){
-  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block; '>"+Goodsnumber[0]+"</br>";
+  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block;'>"+Goodsnumber[0]+"</br>";
   for(var i=0;i<=Goodsnumber.length-2;i++){
      count = count + "<button onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
   }

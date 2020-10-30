@@ -164,7 +164,7 @@ nav ul li a:hover{
     text-align: center;
   }
 #purchase{
-    top: 460px;
+    top: 520px;
     left: 960px;
     position: absolute;
     display: inline-block;
@@ -178,7 +178,7 @@ nav ul li a:hover{
     background: #2c83b9
 }
 #purchase-car{
-    top: 460px;
+    top: 520px;
     left: 850px;
     position: absolute;
     display: inline-block;
@@ -195,7 +195,7 @@ nav ul li a:hover{
 
 .fish-detail{
     position: relative;
-    height: 500px;
+    height: 600px;
     width: 1200px;;
     top: 8%;
     left: 10%;
@@ -319,7 +319,23 @@ nav ul li a:hover{
     font-weight: 500px;
     background: #eeeeee;
 }
-
+.fishing-hash{
+    position: absolute;
+    top: 420px;
+    left: 45%;
+    font-size: 24px;
+}
+.fishong-hash-box{
+    position: absolute;
+    width: 400px;
+    height: 60px;
+    top: 440px;
+    left: 60%;
+    font-size: 20px;
+    font-weight: 500px;
+    background: #eeeeee;
+    word-break:break-all;
+}
 .Logout{
     position: absolute;
       display: inline-block;

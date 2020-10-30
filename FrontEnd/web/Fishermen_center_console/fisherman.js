@@ -85,7 +85,7 @@ function reply_click(clicked_id) {
   console.log(clicked_id)
   Swal.fire({
     title: 'Fish Name:'+info_json[clicked_id].S_Fish_Name, 
-    html: 'Fish Weight  :  '+info_json[clicked_id].S_Fish_Weight+'kg<br>'+'Fish Length  :  '+info_json[clicked_id].S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(info_json[clicked_id].S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  X='+info_json[clicked_id].S_Fish_Location_X+',Y='+info_json[clicked_id].S_Fish_Location_Y+'<br>'+'Fish Depth  :  '+info_json[clicked_id].S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+info_json[clicked_id].S_Fish_Temperature+'°C<br>',
+    html: 'Fish Weight  :  '+info_json[clicked_id].S_Fish_Weight+'kg<br>'+'Fish Length  :  '+info_json[clicked_id].S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(info_json[clicked_id].S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  ('+info_json[clicked_id].S_Fish_Location_X+','+info_json[clicked_id].S_Fish_Location_Y+')<br>'+'Fish Depth  :  '+info_json[clicked_id].S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+info_json[clicked_id].S_Fish_Temperature+'°C<br>',
     confirmButtonText: "<u>ok</u>",
     imageUrl:'https://unsplash.it/400/200',
   });
@@ -161,3 +161,8 @@ var data_Pull = function(){
 }
 
 var timeoutID = window.setInterval(data_Pull(),5000);
+const Logout = document.getElementById('Logout');
+Logout.addEventListener('click', function change(){
+    window.sessionStorage.clear();
+    window.location.replace("../Fisherman-Login/Fisherman-Login.html");
+})

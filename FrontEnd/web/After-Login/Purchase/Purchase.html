@@ -56,36 +56,36 @@
             <div class="shopping-cart">
                 <table>
                     <tr>
-                        <th>商品</th>
-                        <th style="width: 290px;">數量</th>
-                        <th>小計</th>
+                        <th>Commodity</th>
+                        <th style="width: 290px;">Quantity</th>
+                        <th>subtotal</th>
                     </tr>
                         <table id="output"></table>
                 </table> 
                 <form class="form" id="myForm" action="login.html" method="POST">
                 <table>
                     <tr>
-                        <th>設定物流</th>
-                        <th>統編</th>
-                        <th>收件人電話</th>
-                        <th>郵遞區號</th>
-                        <th style="width: 270px;">郵件地址</th>
-                        <th>收件人</th>
+                        <th>Shopline</th>
+                        <th>tax ID number</th>
+                        <th>The recipient's phone</th>
+                        <th>Postal code</th>
+                        <th style="width: 270px;">Mail address</th>
+                        <th>Recipient</th>
                     </tr>
                     <tr>
                         <td>
                             <div class="cart-info">
                                 <div>
-                                    <p><strong>宅配到府</strong></p>
+                                    <p><strong>Home delivery</strong></p>
                                 </div>
                             </div>
 
                         </td>
-                        <td><input style=width:60px type="text" name="S_Trade_Tax_ID" id="S_Trade_Tax_ID"/></td>
-                        <td><input style=width:80px type="text" name="S_Receiver_Phone" id="S_Receiver_Phone"/></td>
-                        <td><input style=width:40px type="text" name="I_Trade_Post_Number" id="I_Trade_Post_Number"/></td>
-                        <td><input style=width:280px type="text" name="S_Trade_Address" id="S_Trade_Address"/></td>
-                        <td><input style=width:60px type="text" name="S_Trade_Receiver" id="S_Trade_Receiver"/></td>
+                        <td><input style=width:100px type="text" name="S_Trade_Tax_ID" id="S_Trade_Tax_ID" value="" placeholder="choose or not"/></td>
+                        <td><input style=width:80px type="text" name="S_Receiver_Phone" id="S_Receiver_Phone" value="0987654321"/></td>
+                        <td><input style=width:40px type="text" name="I_Trade_Post_Number" id="I_Trade_Post_Number" value="220"/></td>
+                        <td><input style=width:280px type="text" name="S_Trade_Address" id="S_Trade_Address" value="台北市大安區基隆路四段43號"/></td>
+                        <td><input style=width:60px type="text" name="S_Trade_Receiver" id="S_Trade_Receiver"value="york"/></td>
                         
                         <!-- <td><button class="select-button">選擇</button></td> -->
                     </tr>
@@ -94,15 +94,15 @@
                 <div class="total-price">
                     <table>
                         <tr>
-                            <td>小計</td>
+                            <td>subtotal</td>
                             <td><p id="fish_price"></p></td>
                         </tr>
                         <tr>
-                            <td>運費</td>
+                            <td>Shipping Rate</td>
                             <td>60</td>
                         </tr>
                         <tr>
-                            <td>總價</td>
+                            <td>total</td>
                             <td><p id="total_price"></td>
                         </tr>
                         

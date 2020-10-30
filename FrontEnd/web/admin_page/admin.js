@@ -305,9 +305,14 @@ function locate() {
 
 
 
-if (window.sessionStorage.getItem("Username")==null) {
+if (window.sessionStorage.getItem("admin")==null) {
     //window.location.replace("../login/login.html")
 }
 else{
-    document.getElementById("Username").innerHTML= window.sessionStorage.getItem("Username");
+    document.getElementById("admin").innerHTML= window.sessionStorage.getItem("admin");
 }
+const Logout = document.getElementById('Logout');
+Logout.addEventListener('click', function change(){
+    window.sessionStorage.clear();
+    window.location.replace("../login_admin/login.html");
+})
