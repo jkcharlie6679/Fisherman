@@ -39,13 +39,13 @@ function render(data){
 
     if(market == '0')
     {
-      swal("Success", "Login Successfully！", "success", {timer: 1500,
-        showConfirmButton: false});
+      swal("Success", "Login Successfully！", "success", {timer: 1000
+        ,showConfirmButton: false});
       window.sessionStorage.setItem("Username", data.S_Customer_Username);
       window.sessionStorage.setItem("Account", data.S_Customer_Account);
       setTimeout(function(){
         window.location.replace('../After-Login/Shopping-Page2/Shopping-Page2.html');
-      },1500);
+      },1000);
     }
     else if(market == '1'){
       console.log("Please Verify your email account");
@@ -64,4 +64,6 @@ function render(data){
     }
 
 }
+
+
 

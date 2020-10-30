@@ -34,7 +34,7 @@ function render(data){
 
     if(market == '0')
     {
-      swal("Success", "Login Successfully！", "success", {timer: 1500,
+      swal("Success", "Login Successfully！", "success", {timer: 1000,
         showConfirmButton: false});
       setTimeout(function(){
         window.sessionStorage.setItem("fishermen", data.S_Fisherman_Username);
