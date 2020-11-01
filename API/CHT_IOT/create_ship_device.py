@@ -34,6 +34,14 @@ def cht_create_ship(S_Platform_Number):
     x = x + 1
     data = {
         "id": (str(S_Platform_Number) + "_Sensor" + str(x)),
+        "name": "Ship_Direction",
+        "type": "gauge",
+        "unit": "°"
+    }
+    response = requests.post(url, headers = headers, data = json.dumps(data))
+    x = x + 1
+    data = {
+        "id": (str(S_Platform_Number) + "_Sensor" + str(x)),
         "name": "Engine_Temp",
         "type": "gauge",
         "unit": "℃"

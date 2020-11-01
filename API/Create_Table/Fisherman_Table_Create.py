@@ -12,16 +12,28 @@ def create_sensor_table(S_Platform_Number):
 
     pgadmin.execute('''CREATE TABLE %s
         (I_Ship_ID SERIAL PRIMARY KEY NOT NULL,
+         D_Ship_Time timestamp WITH TIME ZONE NOT NULL,
          S_Ship_Location_X text NOT NULL,
          S_Ship_Location_Y text NOT NULL,
+         S_Ship_Direction real NOT NULL,
          F_Ship_Engine_Temp real NOT NULL,
-         F_Ship_Temperature real NOT NULL,
-         F_Ship_Pressure real NOT NULL,
+         F_Ship_Engine_Tern real NOT NULL,
+         F_Ship_Air_Temperature real NOT NULL,
+         F_Ship_Water_Temperature real NOT NULL,
+         F_Ship_Air_Pressure real NOT NULL,
+         F_Ship_Water_Pressure real NOT NULL,
          F_Ship_Humidity real NOT NULL,
-         F_Ship_Wind real NOT NULL,
+         F_Ship_Wind_Dir real NOT NULL,
          F_Ship_Ref_Temp real NOT NULL,
          F_Ship_Wind_Speed real NOT NULL,
-         D_Ship_Time timestamp WITH TIME ZONE NOT NULL);''' %("Sensor_" + str(S_Platform_Number)))
+         I_Ship_Ref_Open integer NOT NULL,
+         F_Ship_Gyro_x real NOT NULL,
+         F_Ship_Gyro_y real NOT NULL,
+         F_Ship_Gyro_z real NOT NULL,
+         I_Ship_Rain integer NOT NULL,
+         I_Ship_Water_Intrusion_1 integer NOT NULL,
+         I_Ship_Water_Intrusion_2 integer NOT NULL,
+         I_Ship_Water_Intrusion_3 integer NOT NULL);''' %("Sensor_" + str(S_Platform_Number)))
 
     pg.commit()
     
@@ -69,6 +81,7 @@ def create_trade_table(S_Platform_Number):
 
     pgadmin.execute('''CREATE TABLE %s
         (I_Trade_ID SERIAL PRIMARY KEY NOT NULL,
+         D_Trade_Datetime timestamp WITH TIME ZONE NOT NULL,
          S_Customer_Account text NOT NULL,
          S_Customer_Username text NOT NULL,         
          S_Trade_Number text NOT NULL,
@@ -79,3 +92,4 @@ def create_trade_table(S_Platform_Number):
 
 # create_trade_table("AAB")
 # create_price_table("AAB")
+# create_sensor_table("AAB")

@@ -12,13 +12,13 @@ config.read(cfgpath)
 def on_connect(client, userdata, flags, rc):
 
     print("Connected with result code ", rc)
-    client.subscribe(config["PUBLISHER"]["MQTT_TOPIC_S1"])
+    client.subscribe(config["MQTT"]["topic_s"])
     # client.subscribe("Ship1")
 
 
 def on_message(client, userdata, msg):
     mqtt_data = json.loads(msg.payload)
-    print(mqtt_data)
+    # print(mqtt_data, "\n")
     ship_sent_to_DB(mqtt_data)
     print("done")
 
@@ -26,7 +26,7 @@ def on_message(client, userdata, msg):
 
 
 mqtt_client = mqtt.Client()
-mqtt_client.connect(config["PUBLISHER"]["MQTT_SERVER"], int(config["PUBLISHER"]["MQTT_PORT"]), int(config["PUBLISHER"]["MQTT_ALIVE"]))    
+mqtt_client.connect(config["MQTT"]["host"], int(config["MQTT"]["port"]), int(config["MQTT"]["alive"]))    
 mqtt_client.on_connect = on_connect
 mqtt_client.on_message = on_message
 mqtt_client.loop_forever()

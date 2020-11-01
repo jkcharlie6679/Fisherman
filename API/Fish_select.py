@@ -1,4 +1,4 @@
-import psycopg2, json, configparser, os
+import psycopg2, json, configparser, os, datetime
 
 path = os.path.abspath('.')
 cfgpath = path.split('Fisherman')[0] + 'Fisherman/API/config.ini'
@@ -46,13 +46,14 @@ def fish_select(request_data, S_Platform_Number):
 
 
 def json_add(raw):
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     data_json = {}
     data_json["S_Fish_Hash_Code"] = raw[1]
     data_json["S_Fish_Name"] = raw[2]
     data_json["S_Fish_Weight"] = raw[3]
     data_json["S_Fish_Length"] = raw[4]
     data_json["S_Fish_Picture"] = raw[5]
-    data_json["S_Fish_Datetime"] = str(raw[6])
+    data_json["S_Fish_Datetime"] = str(raw[6].astimezone(tz_utc_8))
     data_json["S_Fish_Location_X"] = raw[7]
     data_json["S_Fish_Location_Y"] = raw[8]
     data_json["S_Fish_Depth"] = raw[9]

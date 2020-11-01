@@ -97,7 +97,6 @@ def fish_sent_to_DB(mqtt_data, hash_code):
     pg.commit()
     
 
-
 def ship_sent_to_DB(mqtt_data):
     pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
@@ -107,25 +106,39 @@ def ship_sent_to_DB(mqtt_data):
         if(mqtt_data["S_Fisherman_Account"] == raw[1]):
             S_Platform_Number = raw[16]
 
-    print(S_Platform_Number)
+    # print(S_Platform_Number)
     pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
 
-    INSERT = ('''INSERT into %s(S_Ship_Location_X, S_Ship_Location_Y, F_Ship_Engine_Temp, F_Ship_Temperature, F_Ship_Pressure, F_Ship_Humidity, F_Ship_Wind, F_Ship_Ref_Temp, F_Ship_Wind_Speed, D_Ship_Time)''' %("Sensor_" + str(S_Platform_Number))) + '''VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'''
+    INSERT = ('''INSERT into %s(D_Ship_Time, S_Ship_Location_X, S_Ship_Location_Y, S_Ship_Direction, F_Ship_Engine_Temp, F_Ship_Engine_Tern, F_Ship_Air_Temperature, F_Ship_Water_Temperature, F_Ship_Air_Pressure, F_Ship_Water_Pressure, F_Ship_Humidity, 
+    F_Ship_Wind_Dir, F_Ship_Ref_Temp, F_Ship_Wind_Speed, I_Ship_Ref_Open, F_Ship_Gyro_x, F_Ship_Gyro_y, F_Ship_Gyro_z, I_Ship_Rain, I_Ship_Water_Intrusion_1, I_Ship_Water_Intrusion_2, I_Ship_Water_Intrusion_3)''' %("Sensor_" + str(S_Platform_Number))) + '''VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);'''
 
     insert_data = (
+        mqtt_data["D_Ship_Datetime"],
         mqtt_data["S_Ship_Location_X"],
         mqtt_data["S_Ship_Location_Y"],
+        mqtt_data["S_Ship_Direction"],
         mqtt_data["F_Ship_Engine_Temp"],
-        mqtt_data["F_Ship_Temperature"],
-        mqtt_data["F_Ship_Pressure"],
+        mqtt_data["F_Ship_Engine_Tern"],
+        mqtt_data["F_Ship_Air_Temperature"],
+        mqtt_data["F_Ship_Water_Temperature"],
+        mqtt_data["F_Ship_Air_Pressure"],
+        mqtt_data["F_Ship_Water_Pressure"],
         mqtt_data["F_Ship_Humidity"],
-        mqtt_data["F_Ship_Wind"],
+        mqtt_data["F_Ship_Wind_Dir"],
         mqtt_data["F_Ship_Ref_Temp"],
         mqtt_data["F_Ship_Wind_Speed"],
-        mqtt_data["D_Ship_Time"]
+        mqtt_data["I_Ship_Ref_Open"],
+        mqtt_data["F_Ship_Gyro_x"],
+        mqtt_data["F_Ship_Gyro_y"],
+        mqtt_data["F_Ship_Gyro_z"],
+        mqtt_data["I_Ship_Rain"],
+        mqtt_data["I_Ship_Water_Intrusion_1"],
+        mqtt_data["I_Ship_Water_Intrusion_2"],
+        mqtt_data["I_Ship_Water_Intrusion_3"]
     )
 
+    # print(insert_data)
     pgadmin.execute(INSERT, insert_data)
-    print("insert\n")
+    # print("insert\n")
     pg.commit()

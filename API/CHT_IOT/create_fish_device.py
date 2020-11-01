@@ -27,13 +27,6 @@ def cht_create_fish(S_Platform_Number):
     x = 1
     data = {
         "id": (str(S_Platform_Number) + "_Sensor" + str(x)),
-        "name": "Hash_Code",
-        "type": "text"
-    }
-    response = requests.post(url, headers = headers, data = json.dumps(data))
-    x = x + 1
-    data = {
-        "id": (str(S_Platform_Number) + "_Sensor" + str(x)),
         "name": "Name",
         "type": "text"
     }
@@ -52,13 +45,6 @@ def cht_create_fish(S_Platform_Number):
         "name": "length",
         "type": "gauge",
         "unit": "m"
-    }
-    response = requests.post(url, headers = headers, data = json.dumps(data))
-    x = x + 1
-    data = {
-        "id": (str(S_Platform_Number) + "_Sensor" + str(x)),
-        "name": "Picture",
-        "type": "snapshot"
     }
     response = requests.post(url, headers = headers, data = json.dumps(data))
     x = x + 1

@@ -313,21 +313,27 @@ def fish_list():
     pgadmin.execute('SELECT * FROM %s;' %("Fish_" + S_Platform_Number))
     data_db = pgadmin.fetchall()
 
+    day = datetime.timedelta(days=1) 
+    tz_utc_0 = datetime.timezone(datetime.timedelta(hours=0))
+    now_0 = datetime.datetime.now().astimezone(tz_utc_0)
+    now_24 = now_0 - day
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     data_out[0] = {"S_Fisherman_Fish_list_Status": "1", "S_Fisherman_Fish_list_Log":  "Success"}
     for raw in data_db:
-        data_json = {}
-        data_json["S_Fish_Hash_Code"] = raw[1]
-        data_json["S_Fish_Name"] = raw[2]
-        data_json["S_Fish_Weight"] = raw[3]
-        data_json["S_Fish_Length"] = raw[4]
-        data_json["S_Fish_Picture"] = raw[5]
-        data_json["S_Fish_Datetime"] = str(raw[6])
-        data_json["S_Fish_Location_X"] = raw[7]
-        data_json["S_Fish_Location_Y"] = raw[8]
-        data_json["S_Fish_Depth"] = raw[9]
-        data_json["S_Fish_Temperature"] = raw[10]
-        data_out.append(data_json)
-    
+        if(raw[6] > now_24):
+            data_json = {}
+            data_json["S_Fish_Hash_Code"] = raw[1]
+            data_json["S_Fish_Name"] = raw[2]
+            data_json["S_Fish_Weight"] = raw[3]
+            data_json["S_Fish_Length"] = raw[4]
+            data_json["S_Fish_Picture"] = raw[5]
+            data_json["S_Fish_Datetime"] = str(raw[6].astimezone(tz_utc_8))
+            data_json["S_Fish_Location_X"] = raw[7]
+            data_json["S_Fish_Location_Y"] = raw[8]
+            data_json["S_Fish_Depth"] = raw[9]
+            data_json["S_Fish_Temperature"] = raw[10]
+            data_out.append(data_json)
+        
     return json.dumps(data_out), 200
 
 
@@ -338,12 +344,12 @@ def Admin_Fix_list():
     pgadmin = pg.cursor()
     pgadmin.execute('SELECT * FROM Ship_Fix')
     data_db = pgadmin.fetchall()
-
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     data_out = []
     for raw in data_db:
         data_json = {}
         data_json['D_Ship_Fix_ID'] = raw[0]
-        data_json['D_Ship_Fix_Time'] = str(raw[1])
+        data_json['D_Ship_Fix_Time'] = str(raw[1].astimezone(tz_utc_8))
         data_json['S_Fisherman_Account'] = raw[2]
         data_json['S_Ship_Fix_Item'] = raw[3]
         data_json['S_Ship_Fix_Log'] = raw[4]
@@ -532,40 +538,6 @@ def Fisherman_list():
     return json.dumps(data_out), 200
 
 
-@app.route(config['ROUTER']['app_router_Fisherman'] + '/Ship_sensor', methods = ['POST'])
-@cross_origin()
-def ship_sensor():
-    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
-    pgadmin = pg.cursor()
-    pgadmin.execute('SELECT * FROM Fisherman_Account')
-    data_db = pgadmin.fetchall()
-    request_data = request.get_json()
-
-    for raw in data_db:
-        if(request_data["S_Fisherman_Account"] == raw[1]):
-            S_Platform_Number = raw[16]
-
-    pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
-    pgadmin = pg.cursor()
-    pgadmin.execute('SELECT * FROM %s' %("Sensor_" + S_Platform_Number))
-    data_db = pgadmin.fetchall()
-    
-    for raw in data_db:
-        data_json = {}
-        data_json["S_Ship_Location_X"] = raw[1]
-        data_json["S_Ship_Location_Y"] = raw[2]
-        data_json["F_Ship_Engine_Temp"] = raw[3]
-        data_json["F_Ship_Temperature"] = raw[4]
-        data_json["F_Ship_Pressure"] = raw[5]
-        data_json["F_Ship_Humidity"] = raw[6]
-        data_json["F_Ship_Wind"] = raw[7]
-        data_json["F_Ship_Ref_Temp"] = raw[8]
-        data_json["F_Ship_Wind_Speed"] = raw[9]
-        data_json["D_Ship_Time"] = str(raw[10])
-
-    return json.dumps(data_json), 200
-
-
 @app.route(config['ROUTER']['app_router_Admin'] + '/Customer_list', methods = ['GET'])
 @cross_origin()
 def customer_lisr():
@@ -613,7 +585,7 @@ def unsell_list():
     pgadmin = pg.cursor()
     pgadmin.execute('SELECT * FROM %s;' %("Fish_" + S_Platform_Number))
     data_db = pgadmin.fetchall()
-    
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     for raw in data_db:
         data_json = {}
         if(raw[13] == 0):
@@ -622,7 +594,7 @@ def unsell_list():
             data_json["S_Fish_Weight"] = raw[3]
             data_json["S_Fish_Length"] = raw[4]
             data_json["S_Fish_Picture"] = raw[5]
-            data_json["S_Fish_Datetime"] = str(raw[6])
+            data_json["S_Fish_Datetime"] = str(raw[6].astimezone(tz_utc_8))
             data_json["S_Fish_Location_X"] = raw[7]
             data_json["S_Fish_Location_Y"] = raw[8]
             data_json["S_Fish_Depth"] = raw[9]
@@ -686,7 +658,7 @@ def shelf_list():
     pgadmin = pg.cursor()
     pgadmin.execute('SELECT * FROM %s;' %("Fish_" + S_Platform_Number))
     data_db = pgadmin.fetchall()
-
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     for raw in data_db:
         data_json = {}
         if(raw[13] == 1):
@@ -695,7 +667,7 @@ def shelf_list():
             data_json["S_Fish_Weight"] = raw[3]
             data_json["S_Fish_Length"] = raw[4]
             data_json["S_Fish_Picture"] = raw[5]
-            data_json["S_Fish_Datetime"] = str(raw[6])
+            data_json["S_Fish_Datetime"] = str(raw[6].astimezone(tz_utc_8))
             data_json["S_Fish_Location_X"] = raw[7]
             data_json["S_Fish_Location_Y"] = raw[8]
             data_json["S_Fish_Depth"] = raw[9]
@@ -827,7 +799,8 @@ def cart_list():
     for raw in data_db:
         S_Platform_Number.append(raw[1])
     S_Platform_Number.sort()
-    print(S_Platform_Number)
+    # print(S_Platform_Number)
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     for x in range(len(S_Platform_Number)):
         pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
         pgadmin = pg.cursor()
@@ -841,7 +814,7 @@ def cart_list():
                 data_json["S_Fish_Weight"] = raw[3]
                 data_json["S_Fish_Length"] = raw[4]
                 data_json["S_Fish_Picture"] = raw[5]
-                data_json["S_Fish_Datetime"] = str(raw[6])
+                data_json["S_Fish_Datetime"] = str(raw[6].astimezone(tz_utc_8))
                 data_json["S_Fish_Location_X"] = raw[7]
                 data_json["S_Fish_Location_Y"] = raw[8]
                 data_json["S_Fish_Depth"] = raw[9]
@@ -861,6 +834,7 @@ def Goods_detail():
     pgadmin = pg.cursor()
     pgadmin.execute("SELECT * FROM %s" %("Fish_" + request_data["S_Goods_Number"][0:3]))
     data_db = pgadmin.fetchall()
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     for raw in data_db:
         if(raw[11] == request_data["S_Goods_Number"]):
             data_json = {}
@@ -869,7 +843,7 @@ def Goods_detail():
             data_json["S_Fish_Weight"] = raw[3]
             data_json["S_Fish_Length"] = raw[4]
             data_json["S_Fish_Picture"] = raw[5]
-            data_json["S_Fish_Datetime"] = str(raw[6])
+            data_json["S_Fish_Datetime"] = str(raw[6].astimezone(tz_utc_8))
             data_json["S_Fish_Location_X"] = raw[7]
             data_json["S_Fish_Location_Y"] = raw[8]
             data_json["S_Fish_Depth"] = raw[9]
@@ -937,8 +911,9 @@ def trade():
 
     pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
-    INSERT = '''INSERT INTO %s(S_Customer_Account, S_Customer_Username, S_Trade_Number, S_Goods_Number, I_Goods_Status)''' %("Trade_" + str(request_data[1][0]["S_Goods_Number"][0:3])) + '''VALUES(%s, %s, %s, %s, %s)'''
+    INSERT = '''INSERT INTO %s(D_Trade_Datetime, S_Customer_Account, S_Customer_Username, S_Trade_Number, S_Goods_Number, I_Goods_Status)''' %("Trade_" + str(request_data[1][0]["S_Goods_Number"][0:3])) + '''VALUES(%s, %s, %s, %s, %s, %s)'''
     insert_data = (
+        str(datetime.datetime.now().replace(tzinfo=tz_utc_8)),
         request_data[0]["S_Customer_Account"],
         request_data[0]["S_Customer_Username"],
         S_Trade_Number,
@@ -975,17 +950,19 @@ def seller_trade_list_nonfin():
         if(request_data["S_Seller_Account"] == raw[1]):
             S_Platform_Number = raw[16]
 
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
     pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + str(S_Platform_Number)))
     data_db = pgadmin.fetchall()
     for raw in data_db:
-        if((raw[5] == 2) | (raw[5] == 3)):
-            S_Goods_Number = str(raw[4][1 : len(list(raw[4])) - 1]).split(",")
+        if((raw[6] == 2) | (raw[6] == 3)):
+            S_Goods_Number = str(raw[5][1 : len(list(raw[5])) - 1]).split(",")
             data_json = {}
-            data_json["S_Customer_Account"] = raw[1]
-            data_json["S_Customer_Username"] = raw[2]
-            data_json["S_Trade_Number"] = raw[3]
+            data_json["D_Trade_Time"] = str(raw[1].astimezone(tz_utc_8))
+            data_json["S_Customer_Account"] = raw[2]
+            data_json["S_Customer_Username"] = raw[3]
+            data_json["S_Trade_Number"] = raw[4]
             data_json["S_Goods_Number"] = S_Goods_Number
             data_json["S_Goods_Quantity"] = len(S_Goods_Number)
             pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
@@ -1018,17 +995,19 @@ def seller_trade_list_fin():
         if(request_data["S_Seller_Account"] == raw[1]):
             S_Platform_Number = raw[16]
 
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     pg = psycopg2.connect(database = config['POSTGRES']['seller_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
     pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + str(S_Platform_Number)))
     data_db = pgadmin.fetchall()
     for raw in data_db:
-        if(raw[5] == 4):
-            S_Goods_Number = str(raw[4][1 : len(list(raw[4])) - 1]).split(",")
+        if(raw[6] == 4):
+            S_Goods_Number = str(raw[5][1 : len(list(raw[5])) - 1]).split(",")
             data_json = {}
-            data_json["S_Customer_Account"] = raw[1]
-            data_json["S_Customer_Username"] = raw[2]
-            data_json["S_Trade_Number"] = raw[3]
+            data_json["D_Trade_Time"] = str(raw[1].astimezone(tz_utc_8))
+            data_json["S_Customer_Account"] = raw[2]
+            data_json["S_Customer_Username"] = raw[3]
+            data_json["S_Trade_Number"] = raw[4]
             data_json["S_Goods_Number"] = S_Goods_Number
             data_json["S_Goods_Quantity"] = len(S_Goods_Number)
             pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
@@ -1057,10 +1036,12 @@ def customer_trade_list_nonfin():
     pgadmin = pg.cursor()
     pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + request_data["S_Customer_Username"]))
     data_db = pgadmin.fetchall()
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
 
     for raw in data_db:
         if((raw[14] == 2) | (raw[14] == 3)):
             data_json = {}
+            data_json["D_Trade_Time"] = str(raw[4].astimezone(tz_utc_8))
             data_json["S_Trade_Number"] = raw[3]
             S_Goods_Number = str(raw[5][1 : len(list(raw[5])) - 1]).split(",")
             data_json["S_Goods_Quantity"] = len(S_Goods_Number)
@@ -1092,10 +1073,12 @@ def customer_trade_list_fin():
     pgadmin = pg.cursor()
     pgadmin.execute('''SELECT * FROM %s''' %("Trade_" + request_data["S_Customer_Username"]))
     data_db = pgadmin.fetchall()
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
 
     for raw in data_db:
         if(raw[14] == 4):
             data_json = {}
+            data_json["D_Trade_Time"] = str(raw[4].astimezone(tz_utc_8))
             data_json["S_Trade_Number"] = raw[3]
             S_Goods_Number = str(raw[5][1 : len(list(raw[5])) - 1]).split(",")
             data_json["S_Goods_Quantity"] = len(S_Goods_Number)
@@ -1175,6 +1158,116 @@ def seller_trade_deal():
     data_json["S_Trade_Status"] = "1"
     data_json["S_Trade_Log"] = "Success"
     return json.dumps(data_json)
+
+
+@app.route(config['ROUTER']['app_router_Fisherman'] + '/Ship_sensor', methods = ['POST'])
+@cross_origin()
+def ship_sensor():
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('SELECT * FROM Fisherman_Account')
+    data_db = pgadmin.fetchall()
+    request_data = request.get_json()
+
+    for raw in data_db:
+        if(request_data["S_Fisherman_Account"] == raw[1]):
+            S_Platform_Number = raw[16]
+
+    pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('SELECT * FROM %s' %("Sensor_" + S_Platform_Number))
+    data_db = pgadmin.fetchall()
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
+    for raw in data_db:
+        data_json = {}
+        data_json["D_Ship_Datetime"] = str(raw[1].astimezone(tz_utc_8))
+        data_json["S_Ship_Location_X"] = raw[2]
+        data_json["S_Ship_Location_Y"] = raw[3]
+        data_json["S_Ship_Direction"] = raw[4]
+        data_json["F_Ship_Engine_Temp"] = raw[5]
+        data_json["F_Ship_Engine_Tern"] = raw[6]
+        data_json["F_Ship_Air_Temperature"] = raw[7]
+        data_json["F_Ship_Water_Temperature"] = raw[8]
+        data_json["F_Ship_Air_Pressure"] = raw[9]
+        data_json["F_Ship_Water_Pressure"] = raw[10]
+        data_json["F_Ship_Humidity"] = raw[11]
+        data_json["F_Ship_Wind_Dir"] = raw[12]
+        data_json["F_Ship_Ref_Temp"] = raw[13]
+        data_json["F_Ship_Wind_Speed"] = raw[14]
+        data_json["I_Ship_Ref_Open"] = raw[15]
+        data_json["F_Ship_Gyro_X"] = raw[16]
+        data_json["F_Ship_Gyro_Y"] = raw[17]
+        data_json["F_Ship_Gyro_Z"] = raw[18]
+        data_json["I_Ship_Rain"] = raw[19]
+        data_json["I_Ship_Water_Intrusion_1"] = raw[20]
+        data_json["I_Ship_Water_Intrusion_2"] = raw[21]
+        data_json["I_Ship_Water_Intrusion_3"] = raw[22]
+
+
+    return json.dumps(data_json), 200
+
+
+@app.route(config['ROUTER']['app_router_Fisherman'] + '/Sensor_board', methods = ['POST'])
+@cross_origin()
+def Sensor_board():
+    data_out = {}
+    tz_utc_0 = datetime.timezone(datetime.timedelta(hours = 0))
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
+    request_data = request.get_json()
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('SELECT * FROM Fisherman_Account')
+    data_db = pgadmin.fetchall()
+
+    for raw in data_db:
+        if(request_data["S_Fisherman_Account"] == raw[1]):
+            S_Platform_Number = raw[16]
+    pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute('SELECT * FROM %s' %("Sensor_" + S_Platform_Number))
+    data_db = pgadmin.fetchall()
+    S_Sensor_Time_Up_8 = datetime.datetime.strptime(request_data["S_Sensor_Time_Up"], "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo = tz_utc_8)
+    S_Sensor_Time_Low_8 = datetime.datetime.strptime(request_data["S_Sensor_Time_Low"], "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo = tz_utc_8)
+    S_Sensor_Time_Up_0 = S_Sensor_Time_Up_8.astimezone(tz_utc_0)
+    S_Sensor_Time_Low_0 = S_Sensor_Time_Low_8.astimezone(tz_utc_0)
+
+    S_Sensor_Time = []
+    F_Ship_Engine_Temp = []
+    F_Ship_Engine_Tern = []
+    F_Ship_Air_Temperature = []
+    F_Ship_Water_Temperature = []
+    F_Ship_Air_Pressure = []
+    F_Ship_Water_Pressure = []
+    F_Ship_Humidity = []
+    F_Ship_Ref_Temp = []
+
+    for raw in data_db:
+        if((raw[1] > S_Sensor_Time_Low_0) & (raw[1] < S_Sensor_Time_Up_0)):
+            S_Sensor_Time.append(str(raw[1].astimezone(tz_utc_8)))
+            F_Ship_Engine_Temp.append(raw[5])
+            F_Ship_Engine_Tern.append(raw[6])
+            F_Ship_Air_Temperature.append(raw[7])
+            F_Ship_Water_Temperature.append(raw[8])
+            F_Ship_Air_Pressure.append(raw[9])
+            F_Ship_Water_Pressure.append(raw[10])
+            F_Ship_Humidity.append(raw[11])
+            F_Ship_Ref_Temp.append(raw[13])
+
+            data_out["S_Sensor_Time"] = S_Sensor_Time
+            data_out["F_Ship_Engine_Temp"] = F_Ship_Engine_Temp
+            data_out["F_Ship_Engine_Tern"] = F_Ship_Engine_Tern
+            data_out["F_Ship_Air_Temperature"] = F_Ship_Air_Temperature
+            data_out["F_Ship_Water_Temperature"] = F_Ship_Water_Temperature
+            data_out["F_Ship_Air_Pressure"] = F_Ship_Air_Pressure
+            data_out["F_Ship_Water_Pressure"] = F_Ship_Water_Pressure
+            data_out["F_Ship_Humidity"] = F_Ship_Humidity
+            data_out["F_Ship_Ref_Temp"] = F_Ship_Ref_Temp
+
+
+    # print(len(data_out["S_Sensor_Time"]))
+    return json.dumps(data_out) 
+
+
 
 
 app.run(host='0.0.0.0', debug=True )
