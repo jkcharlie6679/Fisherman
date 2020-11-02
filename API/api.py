@@ -934,7 +934,7 @@ def trade():
 
     data_json["S_Trade_Status"] = "Add success"
     data_json["S_Trade_Number"] = (S_Trade_Number)
-    return json.dumps(data_json)
+    return json.dumps(data_json), 200
 
 
 @app.route(config['ROUTER']['app_router_Seller'] + '/Trade_list_nonfin', methods = ['POST'])
@@ -979,7 +979,7 @@ def seller_trade_list_nonfin():
             data_json["I_Goods_Total"] = I_Goods_Total
             data_out.append(data_json)
 
-    return json.dumps(data_out)
+    return json.dumps(data_out), 200
 
 
 @app.route(config['ROUTER']['app_router_Seller'] + '/Trade_list_fin', methods = ['POST'])
@@ -1024,7 +1024,7 @@ def seller_trade_list_fin():
             data_json["I_Goods_Total"] = I_Goods_Total
             data_out.append(data_json)
 
-    return json.dumps(data_out)
+    return json.dumps(data_out), 200
 
 
 @app.route(config['ROUTER']['app_router_Customer'] + '/Trade_list_nonfin', methods = ['POST'])
@@ -1061,7 +1061,7 @@ def customer_trade_list_nonfin():
             data_json["S_Trade_Address"] = raw[13]
             data_out.append(data_json)
 
-    return json.dumps(data_out)
+    return json.dumps(data_out), 200
 
 
 @app.route(config['ROUTER']['app_router_Customer'] + '/Trade_list_fin', methods = ['POST'])
@@ -1098,7 +1098,7 @@ def customer_trade_list_fin():
             data_json["S_Trade_Address"] = raw[13]
             data_out.append(data_json)
 
-    return json.dumps(data_out)
+    return json.dumps(data_out), 200
 
 
 @app.route(config['ROUTER']['app_router_Seller'] + '/Trade_Deal', methods = ['POST'])
@@ -1157,7 +1157,7 @@ def seller_trade_deal():
 
     data_json["S_Trade_Status"] = "1"
     data_json["S_Trade_Log"] = "Success"
-    return json.dumps(data_json)
+    return json.dumps(data_json), 200
 
 
 @app.route(config['ROUTER']['app_router_Fisherman'] + '/Ship_sensor', methods = ['POST'])
@@ -1226,8 +1226,8 @@ def Sensor_board():
     pgadmin = pg.cursor()
     pgadmin.execute('SELECT * FROM %s' %("Sensor_" + S_Platform_Number))
     data_db = pgadmin.fetchall()
-    S_Sensor_Time_Up_8 = datetime.datetime.strptime(request_data["S_Sensor_Time_Up"], "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo = tz_utc_8)
-    S_Sensor_Time_Low_8 = datetime.datetime.strptime(request_data["S_Sensor_Time_Low"], "%Y-%m-%d %H:%M:%S.%f").replace(tzinfo = tz_utc_8)
+    S_Sensor_Time_Up_8 = datetime.datetime.strptime(request_data["S_Sensor_Time_Up"], "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo = tz_utc_8)
+    S_Sensor_Time_Low_8 = datetime.datetime.strptime(request_data["S_Sensor_Time_Low"], "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo = tz_utc_8)
     S_Sensor_Time_Up_0 = S_Sensor_Time_Up_8.astimezone(tz_utc_0)
     S_Sensor_Time_Low_0 = S_Sensor_Time_Low_8.astimezone(tz_utc_0)
 
@@ -1265,9 +1265,7 @@ def Sensor_board():
 
 
     # print(len(data_out["S_Sensor_Time"]))
-    return json.dumps(data_out) 
-
-
+    return json.dumps(data_out), 200
 
 
 app.run(host='0.0.0.0', debug=True )
