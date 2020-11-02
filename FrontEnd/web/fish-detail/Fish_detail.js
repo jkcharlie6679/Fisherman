@@ -46,16 +46,16 @@ function PriceList(money){
                 <div class="fishong-location-box">${money.S_Fish_Location_X}, ${money.S_Fish_Location_Y}</div>
             </p>
             <p class="fishing-weight"><strong>Weight</strong>
-                <div class="fishong-weight-box">${money.S_Fish_Weight}KG</div>
+                <div class="fishong-weight-box">${money.S_Fish_Weight} kg</div>
             </p>
             <p class="fishing-waterdeep"><strong>Depth</strong>
-                <div class="fishong-waterdeep-box">${money.S_Fish_Depth}m</div>
+                <div class="fishong-waterdeep-box">${money.S_Fish_Depth} m</div>
             </p>
             <p class="fishing-temperature"><strong>Temperature</strong>
-                <div class="fishong-temperature-box">${money.S_Fish_Temperature}度</div>
+                <div class="fishong-temperature-box">${money.S_Fish_Temperature} °C</div>
             </p>
             <p class="fishing-ship"><strong>Length</strong>
-                <div class="fishong-ship-box">${money.S_Fish_Length}m</div>
+                <div class="fishong-ship-box">${money.S_Fish_Length} m</div>
             </p>
             <p class="fishing-port"><strong>Capture Time</strong>
                 <div class="fishong-port-box">${new Date(money.S_Fish_Datetime).toLocaleString('zh-TW',{timeZone: 'Asia/Taipei'})}</div>

@@ -5,10 +5,7 @@ myForm.addEventListener('submit', function (e) {
   let S_Fishman_Account = document.getElementById('S_Fishman_Account').value;
   let S_Fishman_Password = document.getElementById('S_Fishman_Password').value;
 
-  //測試使用
-  if(S_Fishman_Account == 'rtlab601@gmail.com' && S_Fishman_Password == 'rtlab666'){
-    window.location.replace('../After-Login-Ship/Fishermen_center_console/home.html')
-  }
+
 
 
   fetch('http://140.118.121.100:5000/Fisherman/Login',{

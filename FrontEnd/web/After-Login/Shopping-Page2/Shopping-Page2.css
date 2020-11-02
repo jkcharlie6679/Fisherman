@@ -115,7 +115,7 @@ nav ul li a:hover{
     display: inline-block;
 }
 .register-box{
-    height: 1500px;
+    height: auto;
     width: auto;
     top: 50px;
     margin-top: 170px;

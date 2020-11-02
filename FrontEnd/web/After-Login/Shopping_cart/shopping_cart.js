@@ -80,8 +80,8 @@ body: JSON.stringify({
         if(res.S_Cart_Delete_Status==0){
             Swal.fire({
                 icon: 'success',
-                title: '移除成功!',
-                text: number.id+' 已經成功移除',
+                title: 'success',
+                text: number.id+'Remove successfully! ',
                 timer: 2000,
               })
               setTimeout(function(){
