@@ -8,7 +8,7 @@ table {
 	line-height: 24px;
 	margin: 30px auto;
 	text-align: left;
-    width: 1100px;
+    width: 1300px;
     
 }	
 
@@ -20,7 +20,8 @@ th {
 	border-bottom: 1px solid #333;
 	box-shadow: inset 0 1px 0 #999;
 	color: #fff;
-    font-weight: bold;
+	font-weight: bold;
+	text-align: center;
 	padding: 10px 15px;
 	position: relative;
     text-shadow: 0 1px 0 #000;	
@@ -70,7 +71,17 @@ td:last-child {
 	border-right: 1px solid #e8e8e8;
 	box-shadow: inset -1px 0 0 #fff;
 }	
-
+td:nth-child(4){
+	width: 120px;
+	text-align: center;
+}
+th:nth-child(8){
+	width: 100px;
+}
+td:nth-child(8){
+	width: 100px;
+	text-align: center;
+}
 
 
 tr:last-of-type td {
@@ -89,4 +100,78 @@ td img{
     width: 50px;
     height: 40px;
     text-align: center;
+}
+#Fishname{
+	width: 20px;
+	height: 20px;
+}
+.ChangeStatus3{
+	padding: 5px 10px;
+	color: #fff;
+	font-weight: 500;
+	background: rgb(96, 153, 245);
+	border: none;
+	border-radius: 25px;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.ChangeStatus3:hover{
+    background: rgb(75, 216, 241);
+    color: #fff;
+    border-radius: 50px;
+    -webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
+}
+.ChangeStatus4{
+	margin-top: 5px;
+	width: 70px;
+	font-weight: 500;
+	color: #fff;
+	background: rgb(71, 202, 152);
+	padding: 5px 10px;
+	border: none;
+	border-radius: 25px;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.ChangeStatus4:hover{
+	background: rgb(20, 251, 90);
+    color: #fff;
+    border-radius: 50px;
+    -webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
+}
+.GoodsNumber{
+	margin-top: 5px;
+	width: 100px;
+	font-weight: 500;
+	color: #fff;
+	background: rgb(226, 199, 44);
+	padding: 5px 10px;
+	border: none;
+	border-radius: 25px;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.GoodsNumber:hover{
+	background: rgb(223, 144, 53);
+    color: #fff;
+    border-radius: 50px;
+    -webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
 }

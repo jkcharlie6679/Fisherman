@@ -37,11 +37,101 @@ function PriceList(order){
         <td>${order.S_Goods_Quantity}</td>
         <td><img src="../../images/OrderStatus/${SelectStatus(order.S_Goods_Status)}"></td>
         <td>${order.I_Goods_Total}</td>
-      </tr>`   
-       
-          
+        <td>
+          <button class="ChangeStatus3" onclick="ChangeStatus3(this)" name="${order.S_Customer_Username}" id="${order.S_Trade_Number}" style="display: inline-block;">delivery</button>
+          <button class="ChangeStatus4" onclick="ChangeStatus4(this)" name="${order.S_Customer_Username}" id="${order.S_Trade_Number}" style="display: inline-block;">Finish</button>
+        </td>
+      </tr>`        
 });
  document.getElementById('output').innerHTML = output;
+}
+function ChangeStatus3(status){
+  console.log(status);
+  let account = window.sessionStorage.getItem("Fisherman_account");
+  let username = status.name;
+  let id = status.id;
+  fetch('http://140.118.121.100:5000/Seller/Trade_Deal',{
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json, text/plain',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      S_Seller_Account: account,
+      S_Customer_Username: username,
+      S_Goods_Deal: "1",
+      S_Trade_Number: id
+    })
+    }).then(response => {
+        return response.json()
+        }
+    )
+    .then( (data) =>{
+        change3(data)
+    })
+
+
+}
+function change3(money){
+  if(money.S_Trade_Status == '1'){
+  swal("Success", "Change to transportation Successfully！", "success", {timer: 1000,
+    showConfirmButton: false});
+  setTimeout(function(){
+    window.location.replace('OrderStatus.html');
+  },1000);
+  }
+  else{
+    swal("Fail", "Change status fail!", "error", {timer: 3000,
+      showConfirmButton: false});
+    setTimeout(function(){
+      window.location.replace('OrderStatus.html');
+    },2500);
+  }
+}
+
+/*-----Change Finish----------*/ 
+function ChangeStatus4(status){
+  console.log(status);
+  let account = window.sessionStorage.getItem("Fisherman_account");
+  let username = status.name;
+  let id = status.id;
+  fetch('http://140.118.121.100:5000/Seller/Trade_Deal',{
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json, text/plain',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      S_Seller_Account: account,
+      S_Customer_Username: username,
+      S_Goods_Deal: "2",
+      S_Trade_Number: id
+    })
+    }).then(response => {
+        return response.json()
+        }
+    )
+    .then( (data) =>{
+        change4(data)
+    })
+
+
+}
+function change4(money){
+  if(money.S_Trade_Status == '1'){
+  swal("Success", "Change to Finish Successfully！", "success", {timer: 1000,
+    showConfirmButton: false});
+  setTimeout(function(){
+    window.location.replace('OrderStatus.html');
+  },1000);
+  }
+  else{
+    swal("Fail", "Change status fail!", "error", {timer: 3000,
+      showConfirmButton: false});
+    setTimeout(function(){
+      window.location.replace('OrderStatus.html');
+    },2500);
+  }
 }
 
 function Click(number){
@@ -107,7 +197,7 @@ function ChooseFish(Fishclassify){
 }
 
 function SelectStatus(status){
-  //0為上架 1以上價 2售出未完成 3售出完成
+  //0為上架 1以上價 2售出未完成、3運送 4售出完成
   let prepare = "order.png";
   let truck = "delivery-truck.png"
   if(status =='2'){
@@ -120,9 +210,9 @@ function SelectStatus(status){
 }
 
 function DisplayGoodsNumber(Goodsnumber){
-  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block;'>"+Goodsnumber[0]+"</br>";
+  var count = "<button class='GoodsNumber' onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block;'>"+Goodsnumber[0]+"</br>";
   for(var i=0;i<=Goodsnumber.length-2;i++){
-     count = count + "<button  onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
+     count = count + "<button class='GoodsNumber' onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
   }
 //  var x = Goodsnumber[0]+"<br>"+Goodsnumber[1]+"<br>"
   return count

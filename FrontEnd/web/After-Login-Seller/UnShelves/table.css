@@ -149,6 +149,21 @@ td img{
 }
 
 .fishbutton{
+	border-radius: 50px;
 	border: none;
 	text-decoration: none;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.fishbutton:hover{
+	-webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    -o-transform: scale(1.06);
+    transform: scale(1.06);
+}
+#Fishname{
+	width: 20px;
+	height: 20px;
+
 }

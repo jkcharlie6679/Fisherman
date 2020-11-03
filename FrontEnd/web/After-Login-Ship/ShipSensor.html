@@ -11,21 +11,20 @@
     <div class="FisherName">
         <img src="../images/user-profile.png"><a href="#" id="Fisherman"></a>
         <script>
-            /*
-          if (window.sessionStorage.getItem("Fisherman")==null) {
-              window.location.replace("../../Login-Seller/Login-Seller.html")
-          }
-          else{*/
-              document.getElementById("Fisherman").innerHTML= window.sessionStorage.getItem("Fisherman");
-        //   }
+            if (window.sessionStorage.getItem("fishermen")==null) {
+                window.location.replace("../Fisherman-Login/Fisherman-Login.html")
+            }
+            else{
+                document.getElementById("Fisherman").innerHTML= window.sessionStorage.getItem("fishermen");
+            }
         </script> 
     </div>
 
-    <div class="logo"><a href="../../index.html">
-        <img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
+    <div class="logo"><a href="../index.html">
+        <img src="../img/fish_logo.png" style=" float: left;" width="50" height="50"></a>
     </div>
 
-    <a href="../../index.html" class="title-box">
+    <a href="../Fishermen_center_console/home.html" class="title-box">
         <span>Fisherman</span>
     </a>
     <div class="D_Ship_Datetime" id="D_Ship_Datetime"></div>
@@ -64,13 +63,25 @@
             <div id="chart_div" style="width: 100%; height: 400px;"></div>
         </div>
         <div class="Sensor2">
-            <div id="curve_chart" style="width: 700px; height: 400px;"></div>
+            <div id="curve_chart" style="width: 750px; height: 400px;"></div>
         </div>
         <div class="Sensor3">
-            <div id="chartContainer" style="position: relative; height: 350px; width:700px; left: 30px;"></div>
+            <div id="curve_chart2" style="width: 750px; height: 400px;"></div>
         </div>
         <div class="Sensor4">
             <div id="chart_div2" style="height: 400px;"></div>
+        </div>
+        <div class="Sensor5">
+            <div id="chart_div3" style="height: 400px;"></div>
+        </div>
+        <div class="Sensor6">
+            <div id="curve_chart3" style="width: 750px; height: 400px;"></div>
+        </div>
+        <div class="Sensor7">
+            <div id="curve_chart4" style="width: 750px; height: 400px;"></div>
+        </div>
+        <div class="Sensor8">
+            <div id="chart_div4" style="width: 700px; height: 400px;"></div>
         </div>
       </div>  
     </header>    
@@ -79,7 +90,7 @@
 </body>
 <script type="text/javascript" src="Ship_Sensor.js" defer></script>
 <script type="text/javascript" src="javascript/Sensor1.js"></script>
-<script type="text/javascript" src="javascript/Sensor2.js"></script>
+<script type="text/javascript" src="javascript/Sensor2.js" defer ></script>
 <script type="text/javascript" src="javascript/Sensor3.js"></script>
 <script type="text/javascript" src="javascript/Sensor4.js"></script>
 
