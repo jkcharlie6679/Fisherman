@@ -1,3 +1,7 @@
+if(window.sessionStorage.getItem("fishermen")!=null){
+  window.location.replace("../Fishermen_center_console/home.html");
+}
+else{
 const myForm = document.getElementById('myForm');
 myForm.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -55,5 +59,5 @@ function render(data){
     }
 
 }
-
+}
 

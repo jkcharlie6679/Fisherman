@@ -32,6 +32,9 @@
     color:#333;
     
   }
+  #Fisherman{
+    color: #000000;
+  }
   
   @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);  
   header{
@@ -133,7 +136,7 @@
     font-weight: 700;
   }
   li{
-    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
   }
   /*---------Sensor Charts-------------*/
   .warrper{
@@ -170,6 +173,34 @@
     width: 750px;
     height: 400px;
     display: inline-block;
+  }
+  .Sensor5{
+    position: relative;
+    border: 1px solid #555;
+    width: 750px;
+    height: 400px;
+    display: inline-block;
+  }
+  .Sensor6{
+    position: relative;
+    border: 1px solid #555;
+    width: 750px;
+    height: 400px;
+    display: inline-block; 
+  }
+  .Sensor7{
+    position: relative;
+    border: 1px solid #555;
+    width: 750px;
+    height: 400px;
+    display: inline-block; 
+  }
+  .Sensor8{
+    position: relative;
+    border: 1px solid #555;
+    width: 750px;
+    height: 400px;
+    display: inline-block; 
   }
   .form{
     position: relative;
