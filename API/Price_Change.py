@@ -14,14 +14,15 @@ def price_change(S_Platform_Number, price1, price2, price3, price4, price5):
 
     for raw in data_db:
         if((raw[13] == 0) | (raw[13] == 1)):
+            I_Fish_ID = raw[0]
             if(raw[2] == "Tuna"):
-                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE S_Fish_Name = 'Tuna';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price1))))
+                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE I_Fish_ID = '%s';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price1)), I_Fish_ID))
             elif(raw[2] == "Swordfish"):
-                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE S_Fish_Name = 'Swordfish';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price2))))
+                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE I_Fish_ID = '%s';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price2)), I_Fish_ID))
             elif(raw[2] == "Grouper"):
-                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE S_Fish_Name = 'Grouper';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price3))))
+                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE I_Fish_ID = '%s';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price3)), I_Fish_ID))
             elif(raw[2] == "Mackerel"):
-                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE S_Fish_Name = 'Mackerel';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price4))))
+                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE I_Fish_ID = '%s';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price4)), I_Fish_ID))
             elif(raw[2] == "Mahi_mahi"):
-                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE S_Fish_Name = 'Mahi_mahi';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price5))))
+                pgadmin.execute("UPDATE %s SET I_Goods_Price = %s WHERE I_Fish_ID = '%s';" %("Fish_" + S_Platform_Number, int(raw[3] * int(price5)), I_Fish_ID))
             pg.commit()
