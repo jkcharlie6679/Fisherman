@@ -209,3 +209,79 @@ nav ul li a:hover{
    transform: scale(1.06);
   }
 
+  .FisherName1{
+	position: absolute;
+	display: inline-block;
+    border-radius: 50px ;
+    top: 5px;
+    right: 230px;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.FisherName1 a{
+    color: #fff;
+    text-decoration: none;
+}
+.FisherName1 a:hover{
+    color: #000000;
+    text-decoration: none;
+}
+.FisherName1:hover{
+	background: #fff;
+	color: black;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+   -webkit-transform: scale(1.06);
+   -ms-transform: scale(1.06);
+   -o-transform: scale(1.06);
+   transform: scale(1.06);
+}
+.FisherName1 img{
+	width: 60px;
+    height: 50px;
+    text-align: center;
+}
+.FisherName2{
+	position: absolute;
+	display: inline-block;
+    border-radius: 50px ;
+    top: 5px;
+    right: 150px;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.FisherName2 a{
+    color: #fff;
+    text-decoration: none;
+}
+.FisherName2 a:hover{
+    color: #000000;
+    text-decoration: none;
+}
+.FisherName2:hover{
+	background: #fff;
+	color: black;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+   -webkit-transform: scale(1.06);
+   -ms-transform: scale(1.06);
+   -o-transform: scale(1.06);
+   transform: scale(1.06);
+}
+.FisherName2 img{
+	width: 60px;
+    height: 50px;
+    text-align: center;
+}

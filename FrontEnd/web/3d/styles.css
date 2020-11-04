@@ -1,0 +1,333 @@
+body {
+  margin: 0;
+  height: 100%;
+  font: 24px Helvetica;
+  background: #154360;
+  height: 100%;
+}
+.title-box{
+  width: 300px;
+  height: 60px;
+  margin-left: 1px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  color: #ffffff;
+  background: #154360;
+  line-height: 50px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* .map {
+  margin:10px;
+  border:5px solid green;
+  position: relative;
+  display: inline-block;
+
+} */
+
+.map img {
+  max-width:100%;
+  display: block;
+}
+
+#temp {
+  width:8%;
+  height:8%;
+  background-image:   url(img/temp.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:70%;
+  left:68%;
+}
+
+#turn {
+  width:7%;
+  height:7%;
+  background-image:   url(img/speed.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:80%;
+  left:70%;
+}
+#air_temp {
+  width:8%;
+  height:8%;
+  background-image:   url(img/temp.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:50%;
+  left:38%;
+}
+#water_temp {
+  width:8%;
+  height:8%;
+  background-image:   url(img/temp.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:90%;
+  left:28%;
+}
+#Air_Pressure {
+  width:7%;
+  height:7%;
+  background-image:   url(img/turn.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:60%;
+  left:85%;
+}
+#Water_Pressure {
+  width:7%;
+  height:7%;
+  background-image:   url(img/turn.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:90%;
+  left:50%;
+}
+#Humidity {
+  width:7%;
+  height:7%;
+  background-image:   url(img/Humidity.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:50%;
+  left:85%;
+}
+#Wind_Speed {
+  width:7%;
+  height:7%;
+  background-image:   url(img/Wind_Speed.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:40%;
+  left:85%;
+}
+#Wind_Dir {
+  width:7%;
+  height:7%;
+  background-image:   url(img/wind_dir.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:20%;
+  left:85%;
+}
+#Ref_Temp {
+  width:7%;
+  height:7%;
+  background-image:   url(img/temp.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:60%;
+  left:30%;
+}
+#Ref_Open {
+  width:7%;
+  height:7%;
+  background-image:   url(img/turn_speed.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:68%;
+  left:30%;
+}
+#Rain {
+  width:7%;
+  height:7%;
+  background-image:   url(img/weather.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:30%;
+  left:85%;
+}
+#Water_Intrusion_1 {
+  width:7%;
+  height:7%;
+  background-image:   url(img/error.png);
+  background-size: auto 20px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:79%;
+  left:30%;
+}
+#Water_Intrusion_2 {
+  width:7%;
+  height:7%;
+  background-image:   url(img/error.png);
+  background-size: auto 20px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top:79%;
+  left:50%;
+}
+
+#Water_Intrusion_3 {
+  width:7%;
+  height:7%;
+  background-image:   url(img/error.png);
+  background-size: auto 20px;
+  background-position:center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:76%;
+  left:65%;
+}
+
+#S_Ship_Direction {
+  width:12%;
+  height:12%;
+  background-image:   url(img/compaas.png);
+  background-size: auto 80px;
+  background-position:center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:10%;
+  left:0%;
+  margin: auto;
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	transform: rotate(0deg);
+}
+#S_Ship_Direction1 {
+  width:12%;
+  height:12%;
+  background-size: auto 80px;
+  background-position:center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:13%;
+  left:6%;
+  margin: auto;
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	transform: rotate(0deg);
+}
+#time {
+  width:7%;
+  height:7%;
+  background-image:   url(img/error.png);
+  background-size: auto 20px;
+  background-position:center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:10%;
+  left:74%;
+}
+/* .box {
+  width:8%;
+  height:8%;
+  background-image:   url(temp_hot.png);
+  background-size: auto 30px;
+  background-position:center;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  display: none;
+} */
+
+/* #pin-2 {
+  top:60%;
+  left:68%;
+  
+} */
+.box:hover > .pin-text {
+  display: block;
+}
+
+.pin-text {
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:75%;
+  white-space:nowrap;
+  /* display: none; */
+}
+
+.pin-text h3 {
+    color:white;
+    text-shadow: 1px 1px 1px #000;
+}
+#img1 {
+  width:12%;
+  height:12%;
+  background-image:   url(img/dir.png);
+  background-size: auto 80px;
+  background-position:center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top:10%;
+  left:0%;
+}
+.Logout{
+  position: absolute;
+  width: 130px;
+  height: 40px;
+  right: 20px;
+
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  color: rgba(255, 255, 255, 0.158);
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.158);
+  border-radius: 50px;
+}
+.Logout:hover{
+background: #fff;
+color: black;
+-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+box-shadow: 0 0 15px rgba(0,0,0,0.4);
+ -webkit-transform: scale(1.06);
+ -ms-transform: scale(1.06);
+ -o-transform: scale(1.06);
+ transform: scale(1.06);
+}

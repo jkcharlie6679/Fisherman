@@ -18,7 +18,7 @@ setInterval(function(){
       
 
     function PriceList(sensor){
-            document.getElementById("D_Ship_Datetime").innerHTML='Date '+new Date(sensor.D_Ship_Datetime).toISOString();
+            document.getElementById("D_Ship_Datetime").innerHTML='Date '+new Date(sensor.D_Ship_Datetime);
             document.getElementById("S_Ship_Location_X").innerHTML='<u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Location &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</u><br>( '+LocationXY(sensor.S_Ship_Location_Y)+' , '+LocationXY(sensor.S_Ship_Location_X)+' )';
             document.getElementById("S_Ship_Direction").innerHTML='<u>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Ship Direction &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</u><br>'+sensor.S_Ship_Direction+' °';
             document.getElementById("F_Ship_Engine_Temp").innerHTML='<u>&nbsp&nbsp Engine Temperature &nbsp&nbsp</u><br>'+sensor.F_Ship_Engine_Temp+' °C';

@@ -2,7 +2,6 @@
 <html lang="en">
   	<head>
 		<meta charset=utf8 />
-		<title>Home</title>
 		<link rel="stylesheet" href="fishman.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="./fisherman.js" defer></script>
@@ -25,16 +24,20 @@
 			</a>
 			<a href="home.html" style="color:white; text-decoration:none;float: left;">
 				Fisherman
+			</a>	
 		</div>
-		<a href="../After-Login-Ship/ShipSensor.html" style="color:white; text-decoration:none;">
-			<img src="../images/Dashboard.png" style="float: right; margin-top: -55px;margin-right: 50px;" width="40" height="40"></a>
-		</a>
 		<a href="../Fishermen_report/report.html" style="color:white; text-decoration:none;">
 			<img src="../img/setting.png" style="float: right; margin-top: -55px;" width="40" height="40"></a>
 		</a>
 		<div class="FisherName">
-			<img src="../images/user-profile.png" style="float: right; margin-top: -55px; margin-right: 320px;" width="40" height="40"><a href="#" id="fishermen" style="float: right; margin-top: -45px; margin-right: 260px; color: white;"></a>
-  
+			<img src="../images/user-profile.png" style="float: right; margin-top: -55px; margin-right: 400px;" width="40" height="40"><a href="#" id="fishermen" style="float: right; margin-top: -45px; margin-right: 350px; color: white;"></a>
+			<a href="../3d/index.html" style="color:white; text-decoration:none;">
+				<img src="../img/3d.png" style="float: right; margin-top: -55px; margin-right: 50px;" width="40" height="40"><a href="#" id="fishermen" style="float: right; margin-top: -45px; margin-right: 230px; color: white;"></a>
+			</a>
+			<a href="../dashboard/ShipSensor.html" style="color:white; text-decoration:none;">
+				<img src="../img/dashboard.png" style="float: right; margin-top: -55px; margin-right: 100px;" width="40" height="40"><a href="#" id="fishermen" style="float: right; margin-top: -45px; margin-right: 230px; color: white;"></a>
+			</a>
+		</div>
 		<script>
 		if (window.sessionStorage.getItem("fishermen")==null) {
 				window.location.replace("../Fisherman-Login/Fisherman-Login.html")
@@ -43,9 +46,9 @@
 			document.getElementById("fishermen").innerHTML= window.sessionStorage.getItem("fishermen");
 		}
 	  </script>  
-		</div>
+		
   
-  <div id="Logout" type="click" class="Logout" style="float: right; margin-top: -55px; margin-right: 90px;">Logout</div>
+  		<div id="Logout" type="click" class="Logout" style="float: right; margin-top: -55px; margin-right: 180px;">Logout</div>
   
 		  </div>
 	</header>

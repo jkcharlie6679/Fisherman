@@ -61,6 +61,7 @@ function getposts(){
             button.className +="info" ;
             console.log("info"+click_id)
             click_id+=1;
+            console.log
             button.setAttribute("onClick", "reply_click(this.id)");
             let cell = row.insertCell();
             cell.appendChild(button);

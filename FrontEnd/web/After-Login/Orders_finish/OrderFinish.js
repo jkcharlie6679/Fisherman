@@ -32,7 +32,7 @@ function PriceList(order){
   order.forEach(function(order){
       output+= `
       <tr>
-        <td>${order.D_Trade_Time}</td>
+        <td>xxx</td>
         <td>${order.S_Trade_Number}</td>
         <td>${DisplayGoodsNumber(order.S_Goods_Number)}</td>
         <td>${order.S_Goods_Quantity}</td>
@@ -110,9 +110,9 @@ function ChooseFish(Fishclassify){
 
 
 function DisplayGoodsNumber(Goodsnumber){
-  var count = "<button class='GoodsNumber' onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block;'>"+Goodsnumber[0]+"</br>";
+  var count = "<button onclick='Click(this)' id='"+Goodsnumber[0]+"' style='display: inline-block;'>"+Goodsnumber[0]+"</br>";
   for(var i=0;i<=Goodsnumber.length-2;i++){
-     count = count + "<button class='GoodsNumber' onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
+     count = count + "<button onclick='Click(this)' id='"+Goodsnumber[i+1]+"'>"+Goodsnumber[i+1]+"</br>";
   }
 //  var x = Goodsnumber[0]+"<br>"+Goodsnumber[1]+"<br>"
   return count
