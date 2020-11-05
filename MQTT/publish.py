@@ -173,7 +173,7 @@ while (track != 4):
     iot_pub_ship(ship_deice_id, data_iot)
     # print(json.dumps(data), "\n")
 
-    if(random.randint(1,1)):
+    if(random.randint(0,1)):
         tz_utc_8 = timezone(timedelta(hours=8))
         data1 = {}
         data1["S_Fisherman_Account"] = S_Fisherman_Account

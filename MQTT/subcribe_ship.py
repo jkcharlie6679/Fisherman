@@ -1,7 +1,6 @@
 import paho.mqtt.client as mqtt
 import os, configparser, psycopg2, json
 from MQTT_to_DB import ship_sent_to_DB
-from Ethereum_Transaction import Transaction
 
 path = os.path.abspath('.')
 cfgpath = path.split('Fisherman')[0] + 'Fisherman/API/config.ini'
