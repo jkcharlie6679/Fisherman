@@ -5,7 +5,8 @@ var click_id=1;
 crossorigin="anonymous"//??
 
 //create select bar table
-function getposts(){
+var getposts = function(){
+  // console.log("hihi")
   fetch('http://140.118.121.100:5000/Fisherman/Fish_list', {
     method:'POST',
     body:JSON.stringify({
@@ -23,8 +24,17 @@ function getposts(){
     Log_result = result[0]
     info_json = result
     delete result[0]
-    console.log(JSON.stringify(result))
-    console.log(result)
+    // console.log(JSON.stringify(result))
+    // console.log(result)
+    var tbl = document.getElementById('fish');
+    tbl.parentNode.removeChild(tbl);
+    let output = ``;
+    output+= `
+    <table id="fish">
+    <!-- here goes our data! -->
+    </table>
+        `
+    document.getElementById('output').innerHTML = output;
     function generateTableHead(table, data) {
       let thead = table.createTHead();
       let row = thead.insertRow();
@@ -37,7 +47,8 @@ function getposts(){
     }
     
     function generateTable(table, data) {
-      for (let element of data) {
+      
+      for (let element of data.reverse()) {
         let row = table.insertRow();
         for (key in element) {
           if(key=="S_Fish_Hash_Code" || key=="S_Fish_Name")
@@ -59,9 +70,9 @@ function getposts(){
             button.id +=click_id;
             button.value = "click me";
             button.className +="info" ;
-            console.log("info"+click_id)
+            // console.log("info"+click_id)
             click_id+=1;
-            console.log
+            // console.log
             button.setAttribute("onClick", "reply_click(this.id)");
             let cell = row.insertCell();
             cell.appendChild(button);
@@ -71,19 +82,20 @@ function getposts(){
     }
     let table = document.querySelector("table");
     let data = Object.keys(result[1]);
-    console.log(data)
     generateTableHead(table, ["Hash Code", "Fish Name","Datetime","Detail"]);
     generateTable(table, result);
-    console.log(result)
+    // console.log(result)
   }
+  return getposts
 }
-getposts();
+var timeoutID1 = window.setInterval(getposts(),5000);
+// getposts();
 
 
 //設定按鈕反應
   
 function reply_click(clicked_id) {
-  console.log(clicked_id)
+  // console.log(clicked_id)
   Swal.fire({
     title: 'Fish Name:'+info_json[clicked_id].S_Fish_Name, 
     html: 'Fish Weight  :  '+info_json[clicked_id].S_Fish_Weight+'kg<br>'+'Fish Length  :  '+info_json[clicked_id].S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(info_json[clicked_id].S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  ('+info_json[clicked_id].S_Fish_Location_X+','+info_json[clicked_id].S_Fish_Location_Y+')<br>'+'Fish Depth  :  '+info_json[clicked_id].S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+info_json[clicked_id].S_Fish_Temperature+'°C<br>',
@@ -127,12 +139,14 @@ function setMarkers(S_Fish_Location_Y,S_Fish_Location_X) {
     markers['ship'].setLatLng([S_Fish_Location_Y, S_Fish_Location_X],{icon:ship_icon}).bindTooltip("Your locate");
     console.log(S_Fish_Location_Y,S_Fish_Location_X)
   }
-  for (var i=1;i<click_id;i++)
+  for (var i=0;i<(click_id-1);i++)
     {
+      
       marker = new L.marker([info_json[i].S_Fish_Location_Y, info_json[i].S_Fish_Location_X],{icon: fish_icon})
     .bindTooltip(info_json[i].S_Fish_Name)
     .addTo(map);
     }
+    click_id=0;
 }
 
 //Ship_sensor_get
@@ -162,6 +176,7 @@ var data_Pull = function(){
 }
 
 var timeoutID = window.setInterval(data_Pull(),5000);
+
 const Logout = document.getElementById('Logout');
 Logout.addEventListener('click', function change(){
     window.sessionStorage.clear();

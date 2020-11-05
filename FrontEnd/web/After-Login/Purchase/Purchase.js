@@ -51,10 +51,10 @@ function PriceList(money){
                     <img src=${photo}>
                     <div>
                         <p><strong>${money.S_Fish_Name}</strong></p>
-                        <small>價格: $${money.S_Goods_Price}</small>
-                        <small>商品編號: ${money.S_Goods_Number}</small>
+                        <small>sell: $${money.S_Goods_Price}</small>
+                        <small>Product ID: ${money.S_Goods_Number}</small>
                         <br>
-                        <button type="button" type="click" onclick="delete_cart(this)" name="${money.S_Goods_Number}"><strong>移除</strong></button>
+                        <button type="button" type="click" onclick="delete_cart(this)" name="${money.S_Goods_Number}"><strong>Remove</strong></button>
                     </div>
                 </div>
 
@@ -88,8 +88,8 @@ body: JSON.stringify({
         if(res.S_Cart_Delete_Status==0){
             Swal.fire({
                 icon: 'success',
-                title: '移除成功!',
-                text: number.id+' 已經成功移除',
+                title: 'remove success!',
+                text: number.id+' have been remove',
                 timer: 2000,
               })
               setTimeout(function(){

@@ -52,3 +52,8 @@ function Switch(status) {
         return opendoor
     }
 }
+const Logout = document.getElementById('Logout');
+Logout.addEventListener('click', function change(){
+    window.sessionStorage.clear();
+    window.location.replace("../Fisherman-Login/Fisherman-Login.html");
+})

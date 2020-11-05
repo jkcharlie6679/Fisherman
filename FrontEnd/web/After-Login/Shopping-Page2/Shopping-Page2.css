@@ -184,18 +184,18 @@ nav ul li a:hover{
     position: absolute;
     width: 70px;
     height: 30px;
+    left: 90px;
     margin-top: 22%;
     text-align: center;
-    left: 210px;
     border: #EAEAEA;
 }
 #max1{
     position: absolute;
     width: 70px;
     height: 30px;
-    left: 90px;
     margin-top: 22%;
     text-align: center;
+    left: 210px;
     border: #EAEAEA;
 }
 .line2{
@@ -236,19 +236,20 @@ nav ul li a:hover{
     position: absolute;
     width: 70px;
     height: 30px;
-    margin-top: 24%;
+    left: 90px;
     text-align: center;
-    left: 210px;
+    margin-top: 24%;
     border: #EAEAEA;
 }
 #max2{
     position: absolute;
     width: 70px;
     height: 30px;
-    left: 90px;
-    text-align: center;
     margin-top: 24%;
+    text-align: center;
+    left: 210px;
     border: #EAEAEA;
+    
 }
 .line4{
     position: absolute;

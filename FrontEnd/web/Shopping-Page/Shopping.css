@@ -217,27 +217,28 @@ nav ul li a:hover{
 }
 .fliter-price{
     position: absolute;
-    margin-top: 30%;
+    margin-top: 20%;
     margin-left: 2%;
-    font-size: 20px;
+    font-size: 24px;
 }
 #min2{
     position: absolute;
     width: 70px;
     height: 30px;
-    margin-top: 34%;
+    left: 90px;
     text-align: center;
-    left: 210px;
+    margin-top: 24%;
     border: #EAEAEA;
 }
 #max2{
     position: absolute;
     width: 70px;
     height: 30px;
-    left: 90px;
+    margin-top: 24%;
     text-align: center;
-    margin-top: 34%;
+    left: 210px;
     border: #EAEAEA;
+    
 }
 .line4{
     position: absolute;
@@ -245,7 +246,7 @@ nav ul li a:hover{
     height: 1px;
     background: gray;
     left: 170px;
-    margin-top: 35%;
+    margin-top: 25%;
 }
 .price-btn{
     position: absolute;
@@ -253,7 +254,7 @@ nav ul li a:hover{
     height: 30px;
     left: 95px;
     color: #ffffff;
-    margin-top: 37%;
+    margin-top: 27%;
     background:#1c597e;
 }
 .price-btn:hover{

@@ -30,47 +30,47 @@ function getposts(){
             if(element["S_Ship_Fix_Item"]==0)
             {
               console.log('element["S_Ship_Fix_Item"]')
-              let text = document.createTextNode('漁船位置異常');
+              let text = document.createTextNode('Abnormal position of fishing boat');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==1)
             {
-              let text = document.createTextNode('氣溫異常');
+              let text = document.createTextNode('Abnormal temperature');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==2)
             {
-              let text = document.createTextNode('大氣壓力異常');
+              let text = document.createTextNode('Abnormal atmospheric pressure');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==3)
             {
-              let text = document.createTextNode('引擎溫度異常');
+              let text = document.createTextNode('Engine temperature is abnormal');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==4)
             {
-              let text = document.createTextNode('風速異常');
+              let text = document.createTextNode('Abnormal wind speed');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==5)
             {
-              let text = document.createTextNode('風向異常');
+              let text = document.createTextNode('Abnormal wind direction');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==6)
             {
-              let text = document.createTextNode('冰庫溫度異常');
+              let text = document.createTextNode('Abnormal temperature in ice storage');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==7)
             {
-              let text = document.createTextNode('濕度異常');
+              let text = document.createTextNode('Abnormal humidity');
               cell.appendChild(text);
             }
             else if(element["S_Ship_Fix_Item"]==8)
             {
-              let text = document.createTextNode('其他');
+              let text = document.createTextNode('other error');
               cell.appendChild(text);
             } 
           }
