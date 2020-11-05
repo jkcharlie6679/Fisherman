@@ -31,7 +31,7 @@ function PriceList(order){
   order.forEach(function(order){
       output+= `
       <tr>
-        <td>${new Date(order.D_Trade_Time).toLocaleString('zh-TW',{timeZone: 'Asia/Taipei'})}</td>
+        <td>${new Date(order.D_Trade_Time).Format("yyyy-MM-dd hh:mm:ss")}</td>
         <td>${order.S_Trade_Number}</td>
         <td>${DisplayGoodsNumber(order.S_Goods_Number)}</td>
         <td>${order.S_Goods_Quantity}</td>
@@ -69,7 +69,7 @@ function Click(number){
 function showdata(data){
   Swal.fire({
       title: data.S_Fish_Name, 
-      html: 'Hash Code  :  '+data.S_Fish_Hash_Code+'<br>Fish Weight  :  '+data.S_Fish_Weight+'kg<br>'+'Fish Length  :  '+data.S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(data.S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  X='+data.S_Fish_Location_X+',Y='+data.S_Fish_Location_Y+'<br>'+'Fish Depth  :  '+data.S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+data.S_Fish_Temperature+'°C<br>',
+      html: 'Hash Code  :  '+data.S_Fish_Hash_Code+'<br>Fish Weight  :  '+data.S_Fish_Weight+' kg<br>'+'Fish Length  :  '+data.S_Fish_Length+' m<br>'+'Fish Datetime  :  '+new Date(data.S_Fish_Datetime).Format("yyyy-MM-dd hh:mm:ss")+'<br>'+'Fish Location  : <br>( '+data.S_Fish_Location_Y+' , '+data.S_Fish_Location_X+' )<br>'+'Fish Depth  :  '+data.S_Fish_Depth+' m<br>'+'Fish Temperature  :  '+data.S_Fish_Temperature+'°C<br>',
       imageUrl:'../../images/'+ChooseFish(data.S_Fish_Name), 
   },
   function(){
@@ -110,7 +110,7 @@ function ChooseFish(Fishclassify){
 function SelectStatus(status){
   //0為上架 1以上價 2售出未完成 3售出完成
   let prepare = "order.png";
-  let deliverd = "delivered.png"
+  let deliverd = "delivery-truck.png"
   if(status =='2'){
     return prepare
   }
@@ -128,3 +128,19 @@ function DisplayGoodsNumber(Goodsnumber){
 //  var x = Goodsnumber[0]+"<br>"+Goodsnumber[1]+"<br>"
   return count
 }
+Date.prototype.Format = function (fmt) { 
+  var o = {
+      "M+": this.getMonth() + 1, //月份 
+      "d+": this.getDate(), //日 
+      "h+": this.getHours(), //小时 
+      "m+": this.getMinutes(), //分 
+      "s+": this.getSeconds(), //秒 
+      "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+      "S": this.getMilliseconds() //毫秒 
+  };
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+  if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+}
+

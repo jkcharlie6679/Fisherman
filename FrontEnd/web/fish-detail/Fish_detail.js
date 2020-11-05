@@ -21,19 +21,19 @@ function PriceList(money){
     console.log(money)
         switch(money.S_Fish_Name){
             case 'Mackerel':
-                photo='../images/鮪魚2.png';
-                break;
-            case 'Grouper':
-                photo='../images/swordfish.png';
-                break;
-            case 'Swordfish':
-                photo='../images/tuna.png';
-                break;
-            case 'Mahi_mahi':
                 photo='../images/mackerel.png';
                 break;
-            case 'Tuna':
+            case 'Grouper':
                 photo='../images/grouper.png';
+                break;
+            case 'Swordfish':
+                photo='../images/swordfish.png';
+                break;
+            case 'Mahi_mahi':
+                photo='../images/Θ«¬Θ¡Ü2.png';
+                break;
+            case 'Tuna':
+                photo='../images/tuna.png';
                 break;
         }
         output+= `
@@ -43,7 +43,7 @@ function PriceList(money){
             <p class="fish-price"><strong>$${money.S_Goods_Price}</strong></p>
             
             <p class="fishing-location"><strong>Location</strong>
-                <div class="fishong-location-box">${money.S_Fish_Location_X}, ${money.S_Fish_Location_Y}</div>
+                <div class="fishong-location-box">${money.S_Fish_Location_Y}, ${money.S_Fish_Location_X}</div>
             </p>
             <p class="fishing-weight"><strong>Weight</strong>
                 <div class="fishong-weight-box">${money.S_Fish_Weight} kg</div>
@@ -58,7 +58,7 @@ function PriceList(money){
                 <div class="fishong-ship-box">${money.S_Fish_Length} m</div>
             </p>
             <p class="fishing-port"><strong>Capture Time</strong>
-                <div class="fishong-port-box">${new Date(money.S_Fish_Datetime).toLocaleString('zh-TW',{timeZone: 'Asia/Taipei'})}</div>
+                <div class="fishong-port-box">${new Date(money.S_Fish_Datetime).Format("yyyy-MM-dd hh:mm:ss")}</div>
             </p>
 
             <a href="../login/login.html" class="purchase">
@@ -73,3 +73,20 @@ function PriceList(money){
 document.getElementById('output').innerHTML = output;
 }
 
+
+
+  Date.prototype.Format = function (fmt) { 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}

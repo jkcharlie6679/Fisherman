@@ -1,6 +1,116 @@
 //https://www.valentinog.com/blog/html-table/
 //create table 
 //https://jsonplaceholder.typicode.com/posts   =>test
+
+function decode_Report(key){
+  if(key == 'D_Ship_Fix_ID'){
+    return "ID"; 
+  }
+  else if(key == 'D_Ship_Fix_Time'){
+    return "Fix Time";
+  }
+  else if(key == 'S_Fisherman_Account'){
+    return "Account";
+  }
+  else if(key == 'S_Ship_Fix_Item'){
+    return "Fix Item";
+  }
+  else if(key == 'S_Ship_Fix_Log'){
+    return "Fix Log";
+  }
+  else if(key == 'S_Ship_Fix_Finish'){
+    return "Fix Finish";
+  }
+}
+
+function decode_fisherman(key){
+  if(key == 'S_Fisherman_ID'){
+    return "ID"; 
+  }
+  else if(key == 'S_Fisherman_Account'){
+    return "Account";
+  }
+  else if(key == 'S_Fisherman_Password'){
+    return "Password";
+  }
+  else if(key == 'S_Fisherman_Username'){
+    return "Username";
+  }
+  else if(key == 'I_Fisherman_Verify'){
+    return "Verify";
+  }
+  else if(key == 'S_Fisherman_Owner'){
+    return "Owner";
+  }
+  else if(key == 'S_Fisherman_Company'){
+    return "Company";
+  }
+  else if(key == 'S_Fisherman_Company_Serial'){
+    return "Company Serial";
+  }
+  else if(key == 'S_Fisherman_Serial'){
+    return "Ship Serial";
+  }
+  else if(key == 'S_Fisherman_Phone'){
+    return "Phone number";
+  }
+  else if(key == 'S_Fisherman_Tele'){
+    return "telephone";
+  }
+  else if(key == 'S_Fisherman_Blkchain_ID'){
+    return "Blkchain ID";
+  }
+  else if(key == 'S_Fisherman_Blkchain_passwd'){
+    return "Blkchain_passwd";
+  }
+  else if(key == 'S_Fisherman_Company_Address'){
+    return "Company Address";
+  }
+  else if(key == 'S_Fisherman_Port'){
+    return "Fisherman Port";
+  }
+}
+function decode_customer(key){
+  if(key == 'S_Customer_ID'){
+    return "ID"; 
+  }
+  else if(key == 'S_Customer_Account'){
+    return "Account";
+  }
+  else if(key == 'S_Customer_Password'){
+    return "Password";
+  }
+  else if(key == 'S_Customer_Username'){
+    return "Username";
+  }
+  else if(key == 'S_Customer_First_Name'){
+    return "First Name";
+  }
+  else if(key == 'S_Customer_Last_Name'){
+    return "Last Name";
+  }
+  else if(key == 'I_Customer_Verify'){
+    return "Verify";
+  }
+  else if(key == 'D_Customer_Birthday'){
+    return "Birthday";
+  }
+  else if(key == 'S_Customer_Post_Number'){
+    return "Post Number";
+  }
+  else if(key == 'S_Customer_City'){
+    return "City";
+  }
+  else if(key == 'S_Customer_Town'){
+    return "Town";
+  }
+  else if(key == 'S_Customer_Other'){
+    return "Other";
+  }
+  else if(key == 'S_Customer_Phone'){
+    return "Phone number";
+  }
+}
 function getposts(){ 
   fetch('http://140.118.121.100:5000/Admin/Fix_list')
   .then(response => {return response.json()})
@@ -13,7 +123,7 @@ function getposts(){
       let row = thead.insertRow();
       for (let key of data) {
         let th = document.createElement("th");
-        let text = document.createTextNode(key);
+        let text = document.createTextNode(decode_Report(key));
         th.appendChild(text);
         row.appendChild(th);
       }
@@ -103,7 +213,7 @@ function getposts_Fishman_list(){
       let row = thead.insertRow();
       for (let key of data) {
         let th = document.createElement("th");
-        let text = document.createTextNode(key);
+        let text = document.createTextNode(decode_fisherman(key));
         th.appendChild(text);
         row.appendChild(th);
       }
@@ -140,7 +250,7 @@ function getposts_Customer_list(){
       let row = thead.insertRow();
       for (let key of data) {
         let th = document.createElement("th");
-        let text = document.createTextNode(key);
+        let text = document.createTextNode(decode_customer(key));
         th.appendChild(text);
         row.appendChild(th);
       }
@@ -269,38 +379,43 @@ function locate() {
   $("report").hide();
   $("Customer_list").hide();
   $("Fishman_list").hide();
-  if("geolocation" in navigator){
-  console.log('geolocation available');
-  navigator.geolocation.getCurrentPosition(position => {
+  //地圖生成
+  fetch('http://140.118.121.100:5000/Admin/Ship_Location')
+  .then(response => {return response.json()})
+  .then((res) =>{map(res)}) 
+  
+  // if("geolocation" in navigator){
+  // console.log('geolocation available');
+  // navigator.geolocation.getCurrentPosition(position => {
 
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
-    console.log(position);
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
+  //   var lat = position.coords.latitude;
+  //   var long = position.coords.longitude;
+  //   console.log(position);
+  //   console.log(position.coords.latitude);
+  //   console.log(position.coords.longitude);
 
-    const mymap = L.map('mapid').setView([25.00, 122.00], 9);
-    var marker = L.marker([lat, long]).addTo(mymap);
-    marker.bindPopup("<b>Hello !</b><br>Your locate.").openPopup();
-    var marker1 = L.marker([24.898, 121.941]).addTo(mymap);		
-    marker1.bindPopup("<b>CTR-KH5491</b>").openPopup();
-    var marker2 = L.marker([24.898, 122.041]).addTo(mymap);		
-    marker2.bindPopup("<b>CT3-3327</b>").openPopup();
+  //   const mymap = L.map('mapid').setView([25.00, 122.00], 9);
+  //   var marker = L.marker([lat, long]).addTo(mymap);
+  //   marker.bindPopup("<b>Hello !</b><br>Your locate.").openPopup();
+  //   var marker1 = L.marker([24.898, 121.941]).addTo(mymap);		
+  //   marker1.bindPopup("<b>CTR-KH5491</b>").openPopup();
+  //   var marker2 = L.marker([24.898, 122.041]).addTo(mymap);		
+  //   marker2.bindPopup("<b>CT3-3327</b>").openPopup();
     
-    const attribution =
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  //   const attribution =
+  //     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
-    const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    const tiles = L.tileLayer(tileUrl, { attribution });
+  //   const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  //   const tiles = L.tileLayer(tileUrl, { attribution });
 
-    tiles.addTo(mymap);
+  //   tiles.addTo(mymap);
 
 
-  }); 
-  } else{
-    console.log('geolocation not available');
-  }
-    return false;
+  // }); 
+  // } else{
+  //   console.log('geolocation not available');
+  // }
+  //   return false;
 }
 
 
@@ -316,3 +431,48 @@ Logout.addEventListener('click', function change(){
     window.sessionStorage.clear();
     window.location.replace("../login_admin/login.html");
 })
+
+
+function map(res){
+  var map = L.map('mapid', {
+    'center': [25.748, 121.941],
+    'zoom': 9,
+    'layers': [
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      })
+    ]
+  });
+
+  var markers = {};
+
+  var fish_icon = L.icon({
+      iconUrl: '../img/fish_icon.png',
+      iconSize:     [10, 10], // size of the icon
+      iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-10, -10] // point from which the popup should open relative to the iconAnchor
+    });
+    var ship_icon = L.icon({
+      iconUrl: '../img/ship_icon.png',
+      iconSize:     [38, 38], // size of the icon
+      iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
+      popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+    });
+    // if (!markers.hasOwnProperty('ship')) {
+    //   markers['ship'] = new L.Marker([25.748, 121.941],{icon:ship_icon}).bindTooltip("Your locate").addTo(map);
+    //   markers['ship'].previousLatLngs = [];
+    // } else {
+    //   markers['ship'].previousLatLngs.push(markers['ship'].getLatLng());
+    //   markers['ship'].setLatLng([25.748, 121.941],{icon:ship_icon}).bindTooltip("Your locate");
+    //   console.log(25.748, 121.941)
+    // }
+    for (var i=0;i<res.length;i++)
+      {
+        console.log(res.length)
+        console.log(res[i].S_Fisherman_Serial)
+        marker = new L.marker([res[i].S_Ship_Location_Y, res[i].S_Ship_Location_X],{icon:ship_icon})
+      .bindTooltip(res[i].S_Fisherman_Serial)
+      .addTo(map);
+      }
+      click_id=0;
+}

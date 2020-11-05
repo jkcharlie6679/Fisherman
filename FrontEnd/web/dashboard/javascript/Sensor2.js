@@ -1,9 +1,10 @@
+
 const myForm = document.getElementById('myForm');
 myForm.addEventListener('submit', function (e) {
   e.preventDefault();
+  myStopFunction();
   let Time_Up = document.getElementById('Time_Up').value;
   let Time_LOW = document.getElementById('Time_LOW').value;
-  console.log(Time_Up)
   const date_fix1 = new Date(+new Date(Time_Up) + 8 * 3600 * 1000);
   const date_fix2 = new Date(+new Date(Time_LOW) + 8 * 3600 * 1000);
   var T1 = new Date(date_fix1).toISOString()
@@ -35,6 +36,7 @@ myForm.addEventListener('submit', function (e) {
       Sensor8(data);
     })
 })
+
 /*---------Sensor1--------*/ 
 function Sensor1(date){
   google.charts.load('current', {'packages':['corechart']});
@@ -276,11 +278,11 @@ function transformDate(date){
 
 
 /*--------------Preset---------------*/ 
-setInterval(function(){
-  const date_fix1 = new Date() - (-8) * 3600 * 1000;
-  const date_fix2 = new Date() - (-7.95) * 3600 * 1000;
-  var T1 = new Date(date_fix1).toISOString()
-  var T2 = new Date(date_fix2).toISOString() 
+
+const datelog1 = new Date() - (-8) * 3600 * 1000;
+const datelog2 = new Date() - (-7.95) * 3600 * 1000;
+var text1 = new Date(datelog1).toISOString();
+var text2 = new Date(datelog2).toISOString() ;
 
 fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
     method: 'POST',
@@ -290,8 +292,8 @@ fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
     },
     body: JSON.stringify({
       S_Fisherman_Account: "b10702130@gapps.ntust.edu.tw",
-      S_Sensor_Time_Up: T1,
-      S_Sensor_Time_Low: T2
+      S_Sensor_Time_Up: text1,
+      S_Sensor_Time_Low: text2
     })
   }).then(response => {
         return response.json()
@@ -306,31 +308,65 @@ fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
       Sensor6(data);
       Sensor7(data);
       Sensor8(data);
+      createbutton();
     })
-  },5000)
+    function createbutton(){    
+      let output = ``;
+      output+= ` <button class="transmit2" id = "transmit2" onclick="myTimer()"><strong>Realtime</strong></button>`       
+      document.getElementById('output').innerHTML = output;
+  }
+  var myVar = setInterval(myTimer, 5000);
+  function myTimer() {
+      const date_fix1 = new Date() - (-8) * 3600 * 1000;
+      const date_fix2 = new Date() - (-7.95) * 3600 * 1000;
+      var T1 = new Date(date_fix1).toISOString()
+      var T2 = new Date(date_fix2).toISOString() 
+    
+    fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          S_Fisherman_Account: "b10702130@gapps.ntust.edu.tw",
+          S_Sensor_Time_Up: T1,
+          S_Sensor_Time_Low: T2
+        })
+      }).then(response => {
+            return response.json()
+          }
+        )
+        .then( (data) =>{      
+          Sensor1(data);
+          Sensor2(data);
+          Sensor3(data);
+          Sensor4(data);
+          Sensor5(data);
+          Sensor6(data);
+          Sensor7(data);
+          Sensor8(data);
+        })
+  }
+  function myStopFunction() {
+    clearInterval(myVar);
+  }
 
-fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json, text/plain',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      S_Fisherman_Account: "b10702130@gapps.ntust.edu.tw",
-      S_Sensor_Time_Up: "2020-11-01T11:12:20.568Z",
-      S_Sensor_Time_Low: "2020-10-31T12:23:23.568Z"
-    })
-  }).then(response => {
-        return response.json()
-      }
-    )
-    .then( (data) =>{      
-      Sensor1(data);
-      Sensor2(data);
-      Sensor3(data);
-      Sensor4(data);
-      Sensor5(data);
-      Sensor6(data);
-      Sensor7(data);
-      Sensor8(data);
-    })
+  
+
+    Date.prototype.Format = function (fmt) { 
+      var o = {
+          "M+": this.getMonth() + 1, //月份 
+          "d+": this.getDate(), //日 
+          "h+": this.getHours(), //小时 
+          "m+": this.getMinutes(), //分 
+          "s+": this.getSeconds(), //秒 
+          "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+          "S": this.getMilliseconds() //毫秒 
+      };
+      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+      for (var k in o)
+      if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      return fmt;
+  }
+  

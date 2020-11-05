@@ -13,7 +13,7 @@
     position: absolute;
     width: 300px;
     height: 50px;
-    margin-top: 10px;
+    margin-top: -30px;
     margin-left: 40px;
     text-align: center;
     font-size: 40px;
@@ -127,7 +127,7 @@
     width: 25px;
     display: flex;
     left: 30px;
-    top: 60px;
+    top: 20px;
   }
   .D_Ship_Datetime{
     position: absolute;
@@ -235,6 +235,36 @@
    -o-transform: scale(1.06);
    transform: scale(1.06);
   }
+  .transmit2{
+    position: relative;
+    width: 150px;
+    height: 40px;
+    margin-left: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 20px;
+    border: none;
+    border-radius: 25px;
+    background: #81a6bd;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+  }
+  .transmit2:hover{
+    background: #add1e7;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+   -webkit-transform: scale(1.06);
+   -ms-transform: scale(1.06);
+   -o-transform: scale(1.06);
+   transform: scale(1.06);
+  }
+  #output{
+    position: relative;
+    display: inline-block;
+  }
   #Time_Up{
     position: relative;
     margin-left: 10px;
@@ -253,6 +283,11 @@
     font-weight: 700;
     color: #154360;
     border: 2px solid #154360;
+  }
+  .textclock{
+    position: relative;
+    display: inline-block;
+    color: #fff;
   }
   /*----Sensor2-----*/
   

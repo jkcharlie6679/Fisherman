@@ -244,6 +244,7 @@ th:last-child{
 #Checkout{
     position: relative;
     margin-left: 90%;
+    margin-top: 5px;
     width: 100px;
     height: 30px;
     color: #fff;

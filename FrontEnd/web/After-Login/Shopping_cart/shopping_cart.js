@@ -52,7 +52,7 @@ function PriceList(money){
                 </div>
 
             </td>
-            <td>$50</td>
+            <td>$${money.S_Goods_Price}</td>
         <tr>
         `
         

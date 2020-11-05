@@ -48,7 +48,7 @@ input{
     font-size: 20px;
 }
 .register-box{
-    height: 600px;
+    min-height: 780px;
     width: auto;
     top: 50px;
     margin-top: 170px;
@@ -196,16 +196,15 @@ nav ul li a:hover{
 .fish-detail{
     position: relative;
     height: 600px;
-    width: 1200px;;
+    width: auto;;
     top: 8%;
-    left: 10%;
     background: #ffffff;
 }
 .fish-detail-img{
     position: relative;
-    left: 5%;
+    left: 12%;
     margin-top: 3.5%;
-    width: 35%;
+    width: 25%;
     height: 80%;
 }
 .fish-name{
@@ -216,7 +215,8 @@ nav ul li a:hover{
 }
 .fish-price{
     position: absolute;
-    width: 600px;
+    padding-top: 10px;
+    width: 630px;
     height: 50px;
     top: 100px;
     left: 45%;
@@ -233,12 +233,13 @@ nav ul li a:hover{
 .fishong-location-box{
     position: absolute;
     width: 400px;
-    height: 35px;
+    height: 30px;
     top: 200px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
+    padding-top: 5px;
 }
 .fishing-weight{
     position: absolute;
@@ -249,12 +250,13 @@ nav ul li a:hover{
 .fishong-weight-box{
     position: absolute;
     width: 400px;
-    height: 35px;
+    height: 30px;
     top: 240px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
+    padding-top: 5px;
 }
 .fishing-waterdeep{
     position: absolute;
@@ -264,12 +266,13 @@ nav ul li a:hover{
 .fishong-waterdeep-box{
     position: absolute;
     width: 400px;
-    height: 35px;
+    height: 30px;
     top: 280px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
+    padding-top: 5px;
 }
 .fishing-temperature{
     position: absolute;
@@ -280,12 +283,13 @@ nav ul li a:hover{
 .fishong-temperature-box{
     position: absolute;
     width: 400px;
-    height: 35px;
+    height: 30px;
     top: 320px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
+    padding-top: 5px;
 }
 .fishing-ship{
     position: absolute;
@@ -296,12 +300,13 @@ nav ul li a:hover{
 .fishong-ship-box{
     position: absolute;
     width: 400px;
-    height: 35px;
+    height: 30px;
     top: 360px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
+    padding-top: 5px;
 }
 .fishing-port{
     position: absolute;
@@ -312,12 +317,13 @@ nav ul li a:hover{
 .fishong-port-box{
     position: absolute;
     width: 400px;
-    height: 35px;
+    height: 30px;
     top: 400px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
+    padding-top: 5px;
 }
 .fishing-hash{
     position: absolute;
@@ -328,13 +334,14 @@ nav ul li a:hover{
 .fishong-hash-box{
     position: absolute;
     width: 400px;
-    height: 60px;
+    height: 55px;
     top: 440px;
     left: 60%;
     font-size: 20px;
     font-weight: 500px;
     background: #eeeeee;
     word-break:break-all;
+    padding-top: 5px;
 }
 .Logout{
     position: absolute;

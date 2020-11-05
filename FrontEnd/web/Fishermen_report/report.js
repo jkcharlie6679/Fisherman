@@ -26,6 +26,16 @@ myForm.addEventListener('submit', function (e) {
       S_Ship_Fix_Log:S_Ship_Fix_Log,
     })
   }).then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      console.log(data);
+
+      Swal.fire({
+      title: 'Report Successfully', 
+      html: 'You have report successfully!'
+      })
+      setTimeout(function(){
+      window.location.replace('report.html');
+      },2000);
+  })
 });
 

@@ -11,8 +11,8 @@
     <div class="FisherName">
   		<div id="Logout" type="click" class="Logout" style="float: right; color: white; ">Logout</div>
     </div>
-    <a href="#" id="fishermen" style="float: right; margin-right: 160px; margin-top: 15px; font-size: 24px; color: white;"></a>
-    <img src="../images/user-profile.png" style="float: right; margin-top: 13px; margin-right: 10px;" width="40" height="40">
+    <a href="#" id="fishermen" style="text-decoration: none;float: right; margin-right: 160px; margin-top: 20px; font-size: 24px; color: white;"></a>
+    <img src="../images/user-profile.png" style=" float: right; margin-top: 13px; margin-right: 10px;" width="40" height="40">
 
     <a href="../Fishermen_report/report.html" style="color:white; text-decoration:none; float: right;margin-top: 13px; margin-right: 20px;">
         <img src="../img/setting.png" style="float: right;" width="40" height="40"></a>
@@ -68,10 +68,12 @@
             </nav>
         </div>
         <form class="form" id="myForm" method="POST">
-                <input type="datetime-local" id="Time_LOW" name="Time_LOW"/>to
+                <input type="datetime-local" id="Time_LOW" name="Time_LOW"/><p class="textclock">to</p>
                 <input type="datetime-local" id="Time_Up" name="Time_Up"/>
-            <button class="transmit" id = "transmit" type="submit"><strong>Apply</strong></button>
+            <button class="transmit" id = "transmit" type="submit" ><strong>Interval</strong></button> 
+            <div id="output"></div>
         </form>
+
 
      <div class="warrper">   
         <div class="Sensor1">
@@ -96,7 +98,7 @@
             <div id="curve_chart4" style="width: 750px; height: 400px;"></div>
         </div>
         <div class="Sensor8">
-            <div id="chart_div4" style="width: 700px; height: 400px;"></div>
+            <div id="chart_div4" style="width: 750px; height: 400px;"></div>
         </div>
       </div>  
     </header>    

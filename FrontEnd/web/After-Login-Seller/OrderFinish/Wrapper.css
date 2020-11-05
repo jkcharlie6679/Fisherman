@@ -79,7 +79,10 @@ td:nth-child(6){
 	width: 80px;
 	text-align: center;
 }	
-
+td:nth-child(8){
+	width: 110px;
+	text-align: center;
+}
 
 tr:last-of-type td {
 	box-shadow: inset 0 -1px 0 #fff; 

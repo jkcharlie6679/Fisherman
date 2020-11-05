@@ -25,7 +25,8 @@ th {
 	position: relative;
     text-shadow: 0 1px 0 #000;	
     font-size: 18px;
-    font-weight: 600;
+	font-weight: 600;
+	text-align: center;
 }
 
 th:after {
@@ -59,7 +60,8 @@ td {
 	position: relative;
     transition: all 300ms;
     font-size: 18px;
-    font-weight: 600;
+	font-weight: 600;
+
 }
 
 td:first-child {
@@ -70,6 +72,11 @@ td:last-child {
 	border-right: 1px solid #e8e8e8;
 	box-shadow: inset -1px 0 0 #fff;
 }	
+td:nth-child(3){
+	width: 120px;
+	text-align: center;
+}
+
 
 
 
@@ -85,9 +92,6 @@ tr:last-of-type td:last-child {
 	box-shadow: inset -1px -1px 0 #fff;
 }	
 
-tbody:hover td {
-	
-}
 
 tbody:hover tr:hover td {
 	color: #444;
