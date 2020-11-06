@@ -28,7 +28,7 @@ ABC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"
 @app.route(config['ROUTER']['app_router_Customer'] + '/Sign_up', methods = ['POST'])
 @cross_origin()
 def Customer_Sign_up():
-    pg = psycopg2.connect(database = config['POSTGRES']['Account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
     data_json = {}
     pgadmin.execute("SELECT * FROM Customer_Account")
@@ -90,7 +90,7 @@ def Customer_Sign_up():
 @app.route(config['ROUTER']['app_router_Customer'] + '/Login', methods = ['POST'])
 @cross_origin()
 def Customer_Login():
-    pg = psycopg2.connect(database = config['POSTGRES']['Account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
     pgadmin = pg.cursor()
     data_json = {}
     request_data = request.get_json()
@@ -280,7 +280,7 @@ def Ship_Fix():
         request_data['S_Ship_Fix_Log'], 
         '0'
     )
-
+    print(datetime.datetime.now().replace(tzinfo=tz_utc_8))
     pgadmin.execute(INSERT, insert_data)
     pg.commit()
 
@@ -799,7 +799,7 @@ def cart_list():
     for raw in data_db:
         S_Platform_Number.append(raw[1])
     S_Platform_Number.sort()
-    # print(S_Platform_Number)
+
     tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
     for x in range(len(S_Platform_Number)):
         pg = psycopg2.connect(database = config['POSTGRES']['fish_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
@@ -1267,5 +1267,85 @@ def Sensor_board():
     # print(len(data_out["S_Sensor_Time"]))
     return json.dumps(data_out), 200
 
+@app.route(config['ROUTER']['app_router_Admin'] + '/Log_in', methods = ['POST'])
+@cross_origin()
+def admin_login():
+    data_json = {}
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    request_data = request.get_json()
+    pgadmin.execute("SELECT * FROM Admin_Account")
+    data_db = pgadmin.fetchall()
+
+    for raw in data_db:
+        if((raw[4] == request_data["S_Admin_Account"]) & (raw[5] == request_data["S_Admin_Password"])):
+            data_json["S_Admin_Login_Account"] = raw[4]
+            data_json["S_Admin_Login_Username"] = raw[3]
+            data_json["S_Admin_Login_Status"] = "0"
+            data_json["S_Admin_Login_Log"] = "Login success"
+            return json.dumps(data_json), 200
+        elif((raw[4] == request_data["S_Admin_Account"]) & (raw[5] != request_data["S_Admin_Password"])):
+            data_json["S_Admin_Login_Account"] = raw[4]
+            data_json["S_Admin_Login_Status"] = "1"
+            data_json["S_Admin_Login_Log"] = "Incorrect password"
+            return json.dumps(data_json), 400
+    data_json["S_Admin_Login_Account"] = request_data["S_Admin_Account"]
+    data_json["S_Admin_Login_Status"] = "2"
+    data_json["S_Admin_Login_Log"] = "Account does not exist"
+    return json.dumps(data_json), 400
+    
+
+@app.route(config['ROUTER']['app_router_Admin'] + '/Ship_Location', methods = ['GET'])
+@cross_origin()
+def admin_ship_location():
+    data_out = []
+    pg = psycopg2.connect(database = config['POSTGRES']['account_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute("SELECT * FROM Fisherman_Account")
+    data_db = pgadmin.fetchall()
+    S_Platform_Number = []
+    S_Fisherman_Account = []
+    S_Fisherman_Username = []
+    S_Fisherman_Serial = []
+
+    for raw in data_db:
+        if(raw[15] == 0):
+            S_Platform_Number.append(raw[16])
+            S_Fisherman_Account.append(raw[1])
+            S_Fisherman_Username.append(raw[3])
+            S_Fisherman_Serial.append(raw[8])
+
+    tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
+    pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    for x in range(len(S_Platform_Number)):
+        data_json = {}
+        pgadmin.execute("SELECT * FROM %s" %("Sensor_" + S_Platform_Number[x]))
+        data_json["S_Fisherman_Account"] = S_Fisherman_Account[x]
+        data_json["S_Fisherman_Username"] = S_Fisherman_Username[x]
+        data_json["S_Fisherman_Serial"] = S_Fisherman_Serial[x]
+        data_db = pgadmin.fetchall()
+        for raw in data_db:
+            data_json["D_Ship_Time"] = str(raw[1].astimezone(tz_utc_8))
+            data_json["S_Ship_Location_X"] = raw[2]
+            data_json["S_Ship_Location_Y"] = raw[3]
+        data_out.append(data_json)
+
+    return json.dumps(data_out), 200
+
+
+@app.route(config['ROUTER']['app_router_Admin'] + '/Fix_Change', methods = ['POST'])
+@cross_origin()
+def admin_fix_change():
+    data_json = {}
+    request_data = request.get_json()
+    pg = psycopg2.connect(database = config['POSTGRES']['ship_data_db'], user = config['POSTGRES']['user'], password = config['POSTGRES']['password'], host = config['POSTGRES']['host'], port = config['POSTGRES']['port'])
+    pgadmin = pg.cursor()
+    pgadmin.execute("UPDATE Ship_Fix SET I_Ship_Fix_Finish = '1' WHERE I_Ship_Fix_ID = '%s' " %(request_data["I_Ship_Fix_ID"]))
+    data_json["S_Ship_Fix_Status"] = "1"
+    data_json["S_Ship_Fix_Log"] = "Success"
+    pg.commit()
+
+    return json.dumps(data_json)
 
 app.run(host='0.0.0.0', debug=True )
