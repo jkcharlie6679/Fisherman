@@ -54,6 +54,7 @@ input{
     margin-top: 170px;
     z-index: 99999;
     background:#EAEAEA;
+    padding-bottom: 250px;
 }
 .contact{
     position: absolute;

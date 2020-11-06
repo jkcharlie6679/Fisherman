@@ -11,7 +11,7 @@ var getposts = function(){
   fetch('http://140.118.121.100:5000/Fisherman/Fish_list', {
     method:'POST',
     body:JSON.stringify({
-      "S_Fisherman_Account" : "b10702130@gapps.ntust.edu.tw"
+      "S_Fisherman_Account" : window.sessionStorage.getItem("fishermenAccount")
     }),
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -99,7 +99,7 @@ function reply_click(clicked_id) {
   // console.log(clicked_id)
   Swal.fire({
     title: ''+info_json[clicked_id].S_Fish_Name, 
-    html: 'Fish Weight  :  '+info_json[clicked_id].S_Fish_Weight+'kg<br>'+'Fish Length  :  '+info_json[clicked_id].S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(info_json[clicked_id].S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  ('+info_json[clicked_id].S_Fish_Location_Y+','+info_json[clicked_id].S_Fish_Location_X+')<br>'+'Fish Depth  :  '+info_json[clicked_id].S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+info_json[clicked_id].S_Fish_Temperature+'°C<br>',
+    html: 'Fish Weight  :  '+info_json[clicked_id].S_Fish_Weight+'kg<br>'+'Fish Length  :  '+info_json[clicked_id].S_Fish_Length+'m<br>'+'Fish Datetime  :  '+new Date(info_json[clicked_id].S_Fish_Datetime).toLocaleString('zh-Hans-CN')+'<br>'+'Fish Location  :  ('+info_json[clicked_id].S_Fish_Location_X+','+info_json[clicked_id].S_Fish_Location_Y+')<br>'+'Fish Depth  :  '+info_json[clicked_id].S_Fish_Depth+'m<br>'+'Fish Temperature  :  '+info_json[clicked_id].S_Fish_Temperature+'°C<br>',
     confirmButtonText: "<u>ok</u>",
     imageUrl:"../images/"+ChooseFish(info_json[clicked_id].S_Fish_Name),
   });
@@ -140,9 +140,8 @@ function setMarkers(S_Fish_Location_Y,S_Fish_Location_X) {
     markers['ship'].setLatLng([S_Fish_Location_Y, S_Fish_Location_X],{icon:ship_icon}).bindTooltip("Your locate");
     console.log(S_Fish_Location_Y,S_Fish_Location_X)
   }
-  for (var i=0;i<(click_id-1);i++)
+  for (var i=1;i<(click_id-1);i++)
     {
-      
       marker = new L.marker([info_json[i].S_Fish_Location_Y, info_json[i].S_Fish_Location_X],{icon: fish_icon})
     .bindTooltip(info_json[i].S_Fish_Name)
     .addTo(map);
@@ -155,7 +154,7 @@ var data_Pull = function(){
   fetch('http://140.118.121.100:5000/Fisherman/Ship_sensor', {
   method:'POST',
   body:JSON.stringify({
-    "S_Fisherman_Account": "b10702130@gapps.ntust.edu.tw"
+    "S_Fisherman_Account": window.sessionStorage.getItem("fishermenAccount") 
   }),
   headers: {
     'Accept': 'application/json, text/plain, */*',
@@ -167,12 +166,12 @@ var data_Pull = function(){
   ship_Y=res.S_Ship_Location_Y
   ship_X=res.S_Ship_Location_X
   setMarkers(res.S_Ship_Location_Y, res.S_Ship_Location_X);
-  document.getElementById("sensor_0").innerHTML ="Ship Direct<br><br>" + res.S_Ship_Direction + "°C";
-  document.getElementById("sensor_1").innerHTML ="Engine Temp<br><br>" + res.F_Ship_Engine_Temp + "%";
-  document.getElementById("sensor_2").innerHTML ="Engine Turn<br><br>" + res.F_Ship_Engine_Tern + "Pa";
-  document.getElementById("sensor_3").innerHTML ="Ref Temp<br><br>" + res.F_Ship_Ref_Temp + "°C";
+  document.getElementById("sensor_0").innerHTML ="Ship Direct<br><br>" + res.S_Ship_Direction + "°";
+  document.getElementById("sensor_1").innerHTML ="Engine Temp<br><br>" + res.F_Ship_Engine_Temp + "°C";
+  document.getElementById("sensor_2").innerHTML ="Engine Turn<br><br>" + res.F_Ship_Engine_Tern + "Rpm";
+  document.getElementById("sensor_3").innerHTML ="Freeze Temp<br><br>" + res.F_Ship_Ref_Temp + "°C";
   document.getElementById("sensor_4").innerHTML ="Wind Speed<br><br>" + res.F_Ship_Wind_Speed + "m/s";
-  document.getElementById("sensor_5").innerHTML ="Refigerator<br><br>" + ref(res.I_Ship_Ref_Open) + "";
+  document.getElementById("sensor_5").innerHTML ="Freeze<br><br>" + ref(res.I_Ship_Ref_Open) + "";
   document.getElementById("sensor_6").innerHTML ="Air Temp<br><br>" + res.F_Ship_Air_Temperature + "°C";
 })
   return data_Pull

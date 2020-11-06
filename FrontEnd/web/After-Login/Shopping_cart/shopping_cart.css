@@ -49,13 +49,13 @@ input{
     font-size: 20px;
 }
 .register-box{
-    overflow: auto;
     width: auto;
     height: 750px;
     top: 50px;
     margin-top: 170px;
     z-index: 99999;
     background:#EAEAEA;
+    padding-bottom: 270px;
 }
 .contact{
     position: absolute;

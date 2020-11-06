@@ -7,7 +7,6 @@
   body{
     height: auto;
     background: #154360;
-
   }
   .title-box{
     position: absolute;
@@ -84,12 +83,14 @@
     color: #154360;
     transition: 0.6s ease;
   }
-  .FisherName{
+  .Logout{
       position: absolute;
       display: inline-block;
       border-radius: 50px ;
       top: 10px;
       right: 20px;
+      color: rgba(255, 255, 255, 0.096);
+      border: 2px solid rgba(230, 230, 230, 0.062);
       padding: 10px 20px;
       text-decoration: none;
       text-align: center;
@@ -99,15 +100,7 @@
       -o-transition: all 0.25s ease;
       transition: all 0.25s ease;
   }
-  .FisherName a{
-      color: #fff;
-      text-decoration: none;
-  }
-  .FisherName a:hover{
-      color: #000000;
-      text-decoration: none;
-  }
-  .FisherName:hover{
+  .Logout:hover{
       background: #fff;
       color: black;
       -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
@@ -147,7 +140,6 @@
   .Sensor1{
     position: relative;
     margin-top: 50px;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block;
@@ -156,7 +148,6 @@
   
   .Sensor2{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block;
@@ -164,42 +155,36 @@
   }
   .Sensor3{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block;
   }
   .Sensor4{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block;
   }
   .Sensor5{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block;
   }
   .Sensor6{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block; 
   }
   .Sensor7{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block; 
   }
   .Sensor8{
     position: relative;
-    border: 1px solid #555;
     width: 750px;
     height: 400px;
     display: inline-block; 
@@ -260,10 +245,14 @@
    -ms-transform: scale(1.06);
    -o-transform: scale(1.06);
    transform: scale(1.06);
-  }
+  } 
   #output{
     position: relative;
-    display: inline-block;
+    width: 200px;
+    text-align: center;
+    float: right;
+    right: 10%;
+    margin-top: -44px;
   }
   #Time_Up{
     position: relative;
@@ -290,4 +279,3 @@
     color: #fff;
   }
   /*----Sensor2-----*/
-  

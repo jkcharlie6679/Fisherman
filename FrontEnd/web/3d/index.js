@@ -1,8 +1,9 @@
+var fiaccount = window.sessionStorage.getItem("fishermenAccount");
 var data_Pull = function(){
     fetch('http://140.118.121.100:5000/Fisherman/Ship_sensor', {
     method:'POST',
     body:JSON.stringify({
-      "S_Fisherman_Account": "b10702130@gapps.ntust.edu.tw"
+      "S_Fisherman_Account": fiaccount
     }),
     headers: {
       'Accept': 'application/json, text/plain, */*',
