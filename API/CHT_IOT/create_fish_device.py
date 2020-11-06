@@ -72,5 +72,5 @@ def cht_create_fish(S_Platform_Number):
     response = requests.post(url, headers = headers, data = json.dumps(data))
 
     
-# cht_create_fish("AAB")
+# cht_create_fish("AAC")
 

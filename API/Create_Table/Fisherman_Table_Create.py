@@ -90,6 +90,9 @@ def create_trade_table(S_Platform_Number):
 
     pg.commit()
 
-# create_trade_table("AAB")
+# create_trade_table("AAC")
 # create_price_table("AAB")
 # create_sensor_table("AAB")
+# create_fish_table("AAB")
+# create_fish_table("AAC")
+

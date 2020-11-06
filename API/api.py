@@ -11,7 +11,7 @@ from Create_Table.Customer_Table_Create import create_cart_table, create_trade_t
 from Price_Week_Count import week_count
 from Price_Change import price_change
 from Fish_select import fish_select
-from CHT_IOT import create_ship_device
+from CHT_IOT import create_ship_device, create_fish_device
 
 
 app = Flask(__name__)
@@ -195,6 +195,9 @@ def Fisherman_Sign_up():
     create_price_table(S_Platform_Number)
     create_fish_table(S_Platform_Number)
     create_trade_table(S_Platform_Number)
+    create_ship_device(S_Platform_Number)
+    cht_create_fish(S_Platform_Number)
+
 
     insert_data = (
         request_data['S_Fisherman_Account'],
@@ -1178,6 +1181,7 @@ def ship_sensor():
     pgadmin.execute('SELECT * FROM %s' %("Sensor_" + S_Platform_Number))
     data_db = pgadmin.fetchall()
     tz_utc_8 = datetime.timezone(datetime.timedelta(hours = 8))
+    data_json = {}
     for raw in data_db:
         data_json = {}
         data_json["D_Ship_Datetime"] = str(raw[1].astimezone(tz_utc_8))
@@ -1202,7 +1206,6 @@ def ship_sensor():
         data_json["I_Ship_Water_Intrusion_1"] = raw[20]
         data_json["I_Ship_Water_Intrusion_2"] = raw[21]
         data_json["I_Ship_Water_Intrusion_3"] = raw[22]
-
 
     return json.dumps(data_json), 200
 

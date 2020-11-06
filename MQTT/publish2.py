@@ -44,10 +44,10 @@ y3 = 26.518220
 # 25.920339, 122.442752
 S_Fisherman_Account = "b10702124@gapps.ntust.edu.tw"
 S_Platform_Number = "AAC"
-ship_deice_id = 25088929238
-fish_deice_id = 25088307131
-ship_topic = config["MQTT"]["topic_s"]
-fish_topic = config["MQTT"]["topic_f"]
+ship_deice_id = 25146487447
+fish_deice_id = 25146687463
+ship_topic = config["MQTT"]["topic_s2"]
+fish_topic = config["MQTT"]["topic_f2"]
 name = ['Tuna', 'Swordfish', 'Grouper', 'Mackerel', 'Mahi_mahi']
 
 def x_gps_Track(x_now):
@@ -173,7 +173,7 @@ while (track != 4):
     iot_pub_ship(ship_deice_id, data_iot)
     # print(json.dumps(data), "\n")
 
-    if(random.randint(1,1)):
+    if(random.randint(0, 1)):
         tz_utc_8 = timezone(timedelta(hours=8))
         data1 = {}
         data1["S_Fisherman_Account"] = S_Fisherman_Account

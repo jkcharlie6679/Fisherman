@@ -14,22 +14,22 @@ print ("Opened database successfully")
 
 pgadmin = pg.cursor()
 
-# pgadmin.execute('''CREATE TABLE Customer_Account
-#        (I_Customer_ID SERIAL PRIMARY KEY NOT NULL,
-#        S_Customer_First_Name text NOT NULL,
-#        S_Customer_Last_Name text NOT NULL,
-#        S_Customer_Account text NOT NULL,
-#        S_Customer_Username text NOT NULL,
-#        S_Customer_Password text NOT NULL,
-#        I_Customer_Verify INT NOT NULL,
-#        D_Customer_Birthday DATE NOT NULL,
-#        S_Customer_Phone text NOT NULL,
-#        S_Customer_Post_Number text NOT NULL,
-#        S_Customer_City text NOT NULL,
-#        S_Customer_Town text NOT NULL,
-#        S_Customer_Other text NOT NULL);''')
+pgadmin.execute('''CREATE TABLE Customer_Account
+       (I_Customer_ID SERIAL PRIMARY KEY NOT NULL,
+       S_Customer_First_Name text NOT NULL,
+       S_Customer_Last_Name text NOT NULL,
+       S_Customer_Account text NOT NULL,
+       S_Customer_Username text NOT NULL,
+       S_Customer_Password text NOT NULL,
+       I_Customer_Verify INT NOT NULL,
+       D_Customer_Birthday DATE NOT NULL,
+       S_Customer_Phone text NOT NULL,
+       S_Customer_Post_Number text NOT NULL,
+       S_Customer_City text NOT NULL,
+       S_Customer_Town text NOT NULL,
+       S_Customer_Other text NOT NULL);''')
 
-# print ("Customer_Account Table created successfully")
+print ("Customer_Account Table created successfully")
 
 pgadmin.execute('''CREATE TABLE Fisherman_Account
        (I_Fisherman_ID SERIAL PRIMARY KEY NOT NULL,

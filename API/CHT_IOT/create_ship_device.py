@@ -177,5 +177,5 @@ def cht_create_ship(S_Platform_Number):
     response = requests.post(url, headers = headers, data = json.dumps(data))
 
     
-# cht_create_ship("AAB")
+# cht_create_ship("AAC")
 
