@@ -525,12 +525,9 @@ function reply_click(clicked_id) {
   .then((res) =>{
     Swal.fire({
       title: '', 
-      html: 'Done',
+      html: 'Fish Weight',
       confirmButtonText: "<u>ok</u>",
 
     });
-    setTimeout(function(){
-      window.location.replace("admin.html");
-    },3000)
-  })
+  }) 
 };

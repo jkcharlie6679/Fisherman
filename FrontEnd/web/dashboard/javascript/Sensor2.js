@@ -1,4 +1,5 @@
 
+var fiaccount = window.sessionStorage.getItem("fishermenAccount");
 const myForm = document.getElementById('myForm');
 myForm.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -17,7 +18,7 @@ myForm.addEventListener('submit', function (e) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      S_Fisherman_Account: "b10702130@gapps.ntust.edu.tw",
+      S_Fisherman_Account: fiaccount,
       S_Sensor_Time_Up: T1,
       S_Sensor_Time_Low: T2
     })
@@ -283,7 +284,7 @@ const datelog1 = new Date() - (-8) * 3600 * 1000;
 const datelog2 = new Date() - (-7.95) * 3600 * 1000;
 var text1 = new Date(datelog1).toISOString();
 var text2 = new Date(datelog2).toISOString() ;
-var fiaccount = window.sessionStorage.getItem("fishermenAccount");
+
 
 fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
     method: 'POST',
@@ -317,15 +318,16 @@ fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
   //     document.getElementById('output').innerHTML = output;
   // }
   var myVar = setInterval(myTimer, 5000);
+  let output = ``;
+  output+= ` <button class="transmit2" id = "transmit2" onclick="myTimer()"><strong>Realtime</strong></button>`       
+  document.getElementById('output').innerHTML = output;
   function myTimer() {
       const date_fix1 = new Date() - (-8) * 3600 * 1000;
       const date_fix2 = new Date() - (-7.95) * 3600 * 1000;
       var T1 = new Date(date_fix1).toISOString()
       var T2 = new Date(date_fix2).toISOString() 
 
-      let output = ``;
-      output+= ` <button class="transmit2" id = "transmit2" onclick="myTimer()"><strong>Realtime</strong></button>`       
-      document.getElementById('output').innerHTML = output;
+
     
     fetch('http://140.118.121.100:5000/Fisherman/Sensor_board',{
         method: 'POST',

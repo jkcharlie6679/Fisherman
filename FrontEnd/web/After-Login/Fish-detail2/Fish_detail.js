@@ -43,7 +43,7 @@ headers: {
     'Content-Type': 'application/json'
 },
 body: JSON.stringify({
-    "S_Customer_Username":"Charlie",
+    "S_Customer_Username":window.sessionStorage.getItem("Username"),
     "S_Goods_Number": number.name
 })
 }).then(response => {

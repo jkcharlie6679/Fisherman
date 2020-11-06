@@ -5,7 +5,7 @@ fetch('http://140.118.121.100:5000/Customer/Cart_list',{
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "S_Customer_Username": "Charlie"
+        "S_Customer_Username": window.sessionStorage.getItem("Username")
       })
     }).then(response => {
           return response.json()
@@ -69,7 +69,7 @@ headers: {
     'Content-Type': 'application/json'
 },
 body: JSON.stringify({
-    "S_Customer_Username":"Charlie",
+    "S_Customer_Username":window.sessionStorage.getItem("Username"),
     "S_Goods_Number": number.name
 })
 }).then(response => {
