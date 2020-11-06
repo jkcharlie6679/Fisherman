@@ -21,6 +21,7 @@ input{
 header{
     position: relative;
     margin-top: 50px;
+    right: 15px;
     width: auto;
     height: 50px;
 }
@@ -69,7 +70,7 @@ nav ul li a{
 }
 nav ul li:hover{
     background: rgb(15, 214, 188);
-    color: black;
+    color: #000;
     border-radius: 50px;
     -webkit-transform: scale(1.06);
     -ms-transform: scale(1.06);
@@ -77,7 +78,7 @@ nav ul li:hover{
     transform: scale(1.06);
 }
 nav ul li a:hover{
-    color: black;
+    color: #000;
 }
 
 .register-box{

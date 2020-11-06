@@ -35,7 +35,7 @@ var data_Pull = function(){
     document.getElementById("Water_Intrusion_11").innerHTML ="<h3>" + error(res.I_Ship_Water_Intrusion_1) + "</h3>";
     document.getElementById("Water_Intrusion_21").innerHTML ="<h3>" + error(res.I_Ship_Water_Intrusion_2) + "</h3>";
     document.getElementById("Water_Intrusion_31").innerHTML ="<h3>" + error(res.I_Ship_Water_Intrusion_3) + "</h3>";
-    document.getElementById("time1").innerHTML ="<h3>" + new Date(res.D_Ship_Datetime).toLocaleString('zh-TW',{timeZone: 'Asia/Taipei'}) + "</h3>";
+    document.getElementById("time1").innerHTML ="<h3>" + new Date(res.D_Ship_Datetime).Format("yyyy-MM-dd hh:mm:ss") + "</h3>";
     document.getElementById("S_Ship_Direction1").innerHTML ="<h3>" + res.S_Ship_Direction + "°</h3>";
 
     // document.getElementById("sensor_1").innerHTML ="Humidity<br>" + res.F_Ship_Humidity + "%";
@@ -73,3 +73,19 @@ Logout.addEventListener('click', function change(){
     window.sessionStorage.clear();
     window.location.replace("../Fisherman-Login/Fisherman-Login.html");
 })
+
+Date.prototype.Format = function (fmt) { 
+  var o = {
+      "M+": this.getMonth() + 1, //月份 
+      "d+": this.getDate(), //日 
+      "h+": this.getHours(), //小时 
+      "m+": this.getMinutes(), //分 
+      "s+": this.getSeconds(), //秒 
+      "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+      "S": this.getMilliseconds() //毫秒 
+  };
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+  if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+}

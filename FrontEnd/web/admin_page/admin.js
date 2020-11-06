@@ -1,7 +1,7 @@
 //https://www.valentinog.com/blog/html-table/
 //create table 
 //https://jsonplaceholder.typicode.com/posts   =>test
-
+var click_id=1;
 function decode_Report(key){
   if(key == 'D_Ship_Fix_ID'){
     return "ID"; 
@@ -121,9 +121,10 @@ function getposts(){
     function generateTableHead(table, data) {
       let thead = table.createTHead();
       let row = thead.insertRow();
+      console.log(data+1)
       for (let key of data) {
         let th = document.createElement("th");
-        let text = document.createTextNode(decode_Report(key));
+        let text = document.createTextNode(key);
         th.appendChild(text);
         row.appendChild(th);
       }
@@ -184,18 +185,37 @@ function getposts(){
               cell.appendChild(text);
             } 
           }
+          else if(key=="D_Ship_Fix_Time"){
+            let cell = row.insertCell();
+            let text = document.createTextNode(new Date(element[key]).Format("yyyy-MM-dd hh:mm:ss"));
+            cell.appendChild(text);
+          }
           else if(key!="S_Ship_Fix_Item"){
             let cell = row.insertCell();
             let text = document.createTextNode(element[key]);
             cell.appendChild(text);
-          }   
+          }
+
+          if(key=="S_Ship_Fix_Finish"){
+            var button = document.createElement("input");
+            button.type = "button";
+            button.id +=click_id;
+            button.value = "click me";
+            button.className +="info" ;
+            // console.log("info"+click_id)
+            click_id+=1;
+            // console.log
+            button.setAttribute("onClick", "reply_click(this.id)");
+            let cell = row.insertCell();
+            cell.appendChild(button);
+          }
         }
       }
     }
     
     let table = document.querySelector("table");
     let data = Object.keys(mountains[0]);
-    generateTableHead(table, data);
+    generateTableHead(table, ["ID", "Fix Time","Account","Fix Item","Fix Log","Fix Status","Fix Finish"]);
     generateTable(table, mountains);
   }
 }
@@ -291,7 +311,7 @@ myForm.addEventListener('submit', function (e) {
   let S_Fisherman_Blkchain_passwd= document.getElementById('S_Fishman_Blkchain_passwd').value;
   let S_Fisherman_Company_Address = document.getElementById('S_Fishman_Company_Address').value;
   let S_Fisherman_Port = document.getElementById('S_Fishman_Port').value;
-  let I_Fisherman_Role = document.getElementById('I_Fishman_Role').value;
+  let I_Fisherman_Role = 0;
   
 
   fetch('http://140.118.121.100:5000/Fisherman/Sign_up',{
@@ -330,13 +350,9 @@ let status = data.S_Fisherman_Signup_Status;
 
   if(status == '0')
   { 
-    myVerify.addEventListener('submit',function Verify(e){
-    e.preventDefault();
     alert('帳號註冊成功')
-    })
   }
   else if(status == '1'){
-    console.log("Account existed");
     alert('帳號已有人使用')
   }
 }
@@ -476,3 +492,45 @@ function map(res){
       }
       click_id=0;
 }
+Date.prototype.Format = function (fmt) { 
+  var o = {
+      "M+": this.getMonth() + 1, //月份 
+      "d+": this.getDate(), //日 
+      "h+": this.getHours(), //小时 
+      "m+": this.getMinutes(), //分 
+      "s+": this.getSeconds(), //秒 
+      "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+      "S": this.getMilliseconds() //毫秒 
+  };
+  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o)
+  if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+  return fmt;
+}
+
+function reply_click(clicked_id) {
+  // console.log(clicked_id)
+  fetch('http://140.118.121.100:5000/Admin/Fix_Change', {
+    method:'POST',
+    body:JSON.stringify({
+      "I_Ship_Fix_ID": clicked_id
+    }),
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      "Access-Control-Request-Headers": "*"
+    }
+  })
+  .then(response => {return response.json()})
+  .then((res) =>{
+    Swal.fire({
+      title: '', 
+      html: 'Done',
+      confirmButtonText: "<u>ok</u>",
+
+    });
+    setTimeout(function(){
+      window.location.replace("admin.html");
+    },3000)
+  })
+};

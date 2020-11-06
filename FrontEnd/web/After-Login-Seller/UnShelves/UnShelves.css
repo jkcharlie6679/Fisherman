@@ -58,6 +58,7 @@ nav ul li{
 nav ul li:nth-child(2)
 {
     background: #a4cee9;
+    color: #154360;
 }
 nav ul li a{
     text-decoration: none;

@@ -39,6 +39,7 @@ function render(data){
         showConfirmButton: false});
       setTimeout(function(){
         window.sessionStorage.setItem("fishermen", data.S_Fisherman_Username);
+        window.sessionStorage.setItem("fishermenAccount", data.S_Fisherman_Account);
         window.location.replace('../Fishermen_center_console/home.html');
       },1500);
     }

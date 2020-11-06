@@ -48,7 +48,7 @@ function PriceList(money){
             <p>${money.S_Fish_Name}</p>
         </div>
         <div class="product-price">
-            <p class="product-price-text">Price：${money.I_Goods_price} (NT$/kg)</p>
+            <p class="product-price-text">NT$ ${money.I_Goods_price}</p>
         </div>
         <div class="product-box">
             <img src="${photo}">
