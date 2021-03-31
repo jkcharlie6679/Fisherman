@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 import os, configparser, psycopg2, json
-from MQTT_to_DB import fish_sent_to_DB, CHT_Blockchain, Find_CHT_Blockchain
+from MQTT_to_DB import fish_sent_to_DB
 from Ethereum_Transaction import Transaction
 
 path = os.path.abspath('.')

@@ -1,31 +1,3 @@
-{
-  "config": {
-    "chainId": 2124,
-    "homesteadBlock": 0,
-    "eip150Block": 0,
-    "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "eip155Block": 0,
-    "eip158Block": 0,
-    "byzantiumBlock": 0,
-    "constantinopleBlock": 0,
-    "petersburgBlock": 0,
-    "istanbulBlock": 0,
-    "ethash": {}
-  },
-  "nonce": "0x0",
-  "timestamp": "0x5e64ebff",
-  "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "gasLimit": "0x47b760",
-  "difficulty": "0x100",
-  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-  "coinbase": "0x0000000000000000000000000000000000000000",
-  "alloc": {},
-  "number": "0x0",
-  "gasUsed": "0x0",
-  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
-}
-
-
 geth --datadir test init genesis.json
 geth --datadir ./test   --networkid 50885 --port 53402 --rpc --rpcapi=db,eth,web3,personal --rpcport "8545" --rpcaddr=0.0.0.0 --nodiscover --allow-insecure-unlock console
 geth --datadir test attach ipc:./geth.ipc

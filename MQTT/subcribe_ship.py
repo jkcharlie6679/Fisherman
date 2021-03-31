@@ -12,16 +12,12 @@ def on_connect(client, userdata, flags, rc):
 
     print("Connected with result code ", rc)
     client.subscribe(config["MQTT"]["topic_s"])
-    # client.subscribe("Ship1")
 
 
 def on_message(client, userdata, msg):
     mqtt_data = json.loads(msg.payload)
-    # print(mqtt_data, "\n")
     ship_sent_to_DB(mqtt_data)
     print("done")
-
-
 
 
 mqtt_client = mqtt.Client()
