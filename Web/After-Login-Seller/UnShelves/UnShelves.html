@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nonavailable
+	</title>
+	<link rel="stylesheet" href="UnShelves.css" type="text/css">
+	<link rel="stylesheet" href="UnShelves2.css" type="text/css">
+	<link rel="stylesheet" href="table.css" type="text/css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+		<div class="register-box">
+            	
+			<div class="contact">
+                <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
+			</div>
+
+			<a href="../Shelves/Shelves.html" class="title-box">
+                <span>Fisherman</span>
+            </a>
+			<div class="logo"><a href="../../index.html">
+				<img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
+			</div>
+
+			
+			<div class="FisherName">
+				<img src="../../images/user-profile.png"><a href="#" id="Fisherman"></a>
+				<script>
+				  if (window.sessionStorage.getItem("Fisherman")==null) {
+					  window.location.replace("../../Login-Seller/Login-Seller.html")
+				  }
+				  else{
+					  document.getElementById("Fisherman").innerHTML= window.sessionStorage.getItem("Fisherman");
+				  }
+			  </script> 
+			</div>
+			<div id="Logout" type="click" class="Logout">Logout</div>
+		</div>
+
+		<div class="Fish-title">
+		<header>
+			<div class="navbar"> 
+				<nav>
+					<ul>
+						<li><a href="../Shelves/Shelves.html">Available</a></li>
+						<li><a href="UnShelves.html"></a>Nonavailable</li>
+						<li><a href="../OrderStatus/OrderStatus.html">Order Status</a></li>
+						<li><a href="../OrderFinish/OrderFinish.html">Finished Order</a></li>
+						<li><a href="../SetFishPrice/SetFishPrice.html">Set Fish Price</a></li>
+					</ul>
+				</nav>
+			</div>
+			</header>
+
+		<!-- Contenedor -->
+		
+		<div class="pricing-wrapper">
+		
+		<form class="form" id="myForm" action="login.html" method="POST">
+		<table id="myForm">
+			<thead>
+			  <tr>
+				<th>Hash Code</th>
+				<th>Product ID</th>
+				<th>Species</th>
+				<th>Photo</th>
+				<th>Weight</th>
+				<th>Length</th>
+				<th>Capture Time</th>
+				<th>Price</th>
+				<th>On the shelf</th>
+			  </tr>
+			</thead>
+			<tbody id="output">
+			</tbody>
+		</table>
+			<div class="submit-box">
+				<button id = "submit-button" type="submit" value="送出">On the shelf</button>
+			</div>
+		</form>
+		 </div> 
+</div>
+</body>
+<script src="UnShelves.js"></script>
+<script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+</html>

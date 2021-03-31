@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SetFishPrice
+	</title>
+    <link rel="stylesheet" href="SetFishPrice.css" type="text/css">
+    <link rel="stylesheet" href="WrapperSet.css" type="text/css">
+
+</head>
+<body>			
+		<div class="register-box">
+            <div class="contact">
+                <p><strong>Contact us ： Tel：02-2255-0123 / Fax：05-1234-1234</strong></p>
+			</div>
+
+			<a href="../Shelves/Shelves.html" class="title-box">
+                <span>Fisherman</span>
+            </a>
+			<div class="logo"><a href="../../index.html">
+				<img src="../../images/fish_logo.png" style=" float: left;" width="50" height="50"></a>
+			</div>
+			
+			<div class="FisherName">
+				<img src="../../images/user-profile.png"><a href="#" id="Fisherman"></a>
+        <script>
+          if (window.sessionStorage.getItem("Fisherman")==null) {
+              window.location.replace("../../Login-Seller/Login-Seller.html")
+          }
+          else{
+              document.getElementById("Fisherman").innerHTML= window.sessionStorage.getItem("Fisherman");
+          }
+        </script> 
+            </div>
+            <div id="Logout" type="click" class="Logout">Logout</div>
+        </div>
+
+        
+
+	<div class="Fish-title">            
+        <header>
+            <div class="navbar"> 
+                <nav>
+                    <ul>
+                        <li><a href="../Shelves/Shelves.html">Available</a></li>
+                        <li><a href="../UnShelves/UnShelves.html">Nonavailable</a></li>
+                        <li><a href="../OrderStatus/OrderStatus.html">Order Status</a></li>
+                        <li><a href="../OrderFinish/OrderFinish.html">Finished Order</a></li>
+                        <li><a href="SetFishPrice.html">Set Fish Price</a></li>
+                    </ul>
+                </nav>
+            </div>
+            </header>
+            
+    <form class="form" id="myForm" method="POST">
+        <!-- Contenedor -->
+        <div class="SetFishPrice-wrapper">
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/tuna.png">
+                <p class="fish-name"><strong>Tuna</strong></p>
+
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="last-set-price-box"></td>
+                          <td id="set-pricetext-setted"></td>
+                          <td id="next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Tuna-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Tuna-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/swordfish.png">
+                <p class="fish-name"><strong>Swordfish</strong></p>
+
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Sword-last-set-price-box"></td>
+                          <td id="Sword-set-pricetext-setted"></td>
+                          <td id="Sword-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Swordfish-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Swordfish-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/grouper.png">
+                <p class="fish-name"><strong>Grouper</strong></p>
+
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Grouper-last-set-price-box"></td>
+                          <td id="Grouper-set-pricetext-setted"></td>
+                          <td id="Grouper-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Grouper-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Grouper-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/mackerel.png">
+                <p class="fish-name"><strong>Mackerel</strong></p>
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Mackerel-last-set-price-box"></td>
+                          <td id="Mackerel-set-pricetext-setted"></td>
+                          <td id="Mackerel-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Mackerel-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Mackerel-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="fish-detail">
+                <img  class="fish-detail-img" src="../../images/Θ«¬Θ¡Ü2.png">
+                <p class="fish-name"><strong>Mahi_Mahi</strong></p>
+                
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Last week $</th>
+                        <th>This week $</th>
+                        <th>Next week $</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td id="Mahi_mahi-last-set-price-box"></td>
+                          <td id="Mahi_mahi-set-pricetext-setted"></td>
+                          <td id="Mahi_mahi-next-set-pricetext-setted"></td>
+                        </tr>
+                        <tr>
+                            <td>Setting</td>
+                            <td>
+                                <input type="text" id="Mahi-mahi-set-price" name="set-price" oninput = "value=value.replace(/[^\d]/g,'')" />
+                            </td>
+                            <td>
+                                <input type="text" id="Mahi-mahi-next-price" name="next-set-price" oninput = "value=value.replace(/[^\d]/g,'')"  />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                  
+            </div>
+            
+        </div>
+    <div class="storesbutton">
+        <button class="stores" id = "stores" type="submit"><strong>Store</strong></button>
+    </div>
+       
+    </form>        
+</div>
+
+</body>
+<script src="SetFishPrice.js"></script>
+<script src="../../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+</html>
